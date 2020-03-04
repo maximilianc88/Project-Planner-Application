@@ -8,11 +8,7 @@
       "jest": true,
       "mocha": true
     },
-    "globals": {
-      "chai": "readonly"
-    },
-    "plugins": ["chai-friendly"],
-    "extends": ["eslint:recommended", "plugin:chai-friendly/recommended"],
+    "extends": ["eslint:recommended"],
     "rules": {
       "array-bracket-spacing": "error",
       "array-callback-return": "error",
@@ -22,7 +18,6 @@
       "block-scoped-var": "error",
       "block-spacing": "error",
       "camelcase": "error",
-      "chai-friendly/no-unused-expressions": 2,
       "comma-dangle": ["error", "never"],
       "comma-spacing": ["error", { "before": false, "after": true }],
       "curly": "error",
@@ -97,7 +92,6 @@
       "no-var": "error",
       "no-undef": ["off", {}],
       "no-unreachable": "error",
-      "no-unused-vars": ["error", { "varsIgnorePattern": "chai|should|expect" }],
       "no-use-before-define": ["error", { "functions": false }],
       "no-useless-call": "error",
       "no-useless-concat": "error",
