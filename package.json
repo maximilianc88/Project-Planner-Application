@@ -1,0 +1,19 @@
+{
+  "name": "project-planner-application",
+  "version": "1.0.0",
+  "description": "the best project planning application of all times",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maximilianc88/Project-Planner-Application.git"
+  },
+  "author": "Max Cartwright, Richard Wang, Kaitlyn Carlson, & Rachel Rohrbach",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maximilianc88/Project-Planner-Application/issues"
+  },
+  "homepage": "https://github.com/maximilianc88/Project-Planner-Application#readme"
+}
