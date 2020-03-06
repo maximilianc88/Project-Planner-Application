@@ -2,7 +2,7 @@
   "name": "project-planner-application",
   "version": "1.0.0",
   "description": "the best project planning application of all times",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "jest",
     "lint": "eslint . ./**/*.js"
