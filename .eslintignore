@@ -1,4 +1,4 @@
-node_modules/
-models/
+node_modules
+models
 package.json
 package-lock.json
