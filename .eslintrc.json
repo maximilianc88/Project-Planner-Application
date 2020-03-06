@@ -12,12 +12,10 @@
     "rules": {
       "array-bracket-spacing": "error",
       "array-callback-return": "error",
-      "arrow-body-style": ["error", "as-needed"],
       "arrow-parens": ["error", "as-needed"],
       "arrow-spacing": "error",
       "block-scoped-var": "error",
       "block-spacing": "error",
-      "camelcase": "error",
       "comma-dangle": ["error", "never"],
       "comma-spacing": ["error", { "before": false, "after": true }],
       "curly": "error",
@@ -28,7 +26,6 @@
       "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
       "global-require": "error",
       "guard-for-in": "error",
-      "indent": ["error", 2],
       "max-depth": ["error", 4],
       "max-len": [
         "error",
