@@ -1,6 +1,7 @@
 "use strict";
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
+
   const Project = sequelize.define(`Project`, {
     id: {
       type: DataTypes.INTEGER,
@@ -25,6 +26,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   });
+
+  Project.associate = function (models) {
 
   Project.associate = function(models) {
     // Associating Project with Tasks
