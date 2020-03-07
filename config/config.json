@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "password",
-    "database": "database_development",
+    "database": "mothra_development",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false
@@ -10,7 +10,7 @@
   "test": {
     "username": "root",
     "password": "password",
-    "database": "database_test",
+    "database": "mothra_test",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false
@@ -18,7 +18,7 @@
   "production": {
     "username": "root",
     "password": "password",
-    "database": "database_production",
+    "database": "mothra_production",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false

@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "jest",
-    "lint": "eslint . ./*.js ./public/**/*.js" 
+    "lint": "eslint . ./*.js ./public/**/*.js",
+    "watch": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   "devDependencies": {
     "eslint": "^6.8.0",
     "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
     "jest": "^25.1.0",
     "mysql2": "^2.1.0",
     "sequelize": "^5.21.5"
