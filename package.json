@@ -4,7 +4,7 @@
   "description": "the best project planning application of all times",
   "main": "server.js",
   "scripts": {
-    "test": "npm run lint",
+    "test": "jest",
     "lint": "eslint . ./**/*.js"
   },
   "repository": {
