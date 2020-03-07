@@ -1,6 +1,7 @@
-'use strict';
+"use strict";
 
 module.exports = function (sequelize, DataTypes) {
+
   const Project = sequelize.define(`Project`, {
     id: {
       type: DataTypes.INTEGER,
@@ -27,6 +28,8 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   Project.associate = function (models) {
+
+  Project.associate = function(models) {
     // Associating Project with Tasks
     // When a Project is deleted, also delete any associated Tasks
     Project.hasMany(models.Task, {
