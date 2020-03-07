@@ -3,14 +3,7 @@ const db = require(`../models`);
 
 module.exports = app => {
   app.get(`/api/teams`, (req, res) => {
-    let teamName;
-    if (req.body.name) {
-      teamName = req.body.name;
-    }
-    db.Team.findAll({
-      where: { name: teamName },
-      include: [db.Task, db.Project, db.User]
-    }).then(dbTeam => {
+    db.Team.findAll({}).then(dbTeam => {
       res.json(dbTeam);
     });
   });
