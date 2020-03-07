@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 module.exports = function (sequelize, DataTypes) {
   const Tasks = sequelize.define(`Task`, {
@@ -24,34 +24,29 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: false,
       len: [1]
-    },
-    status_code: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    project_id: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    team_id: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
-    assignee_id: {
-      type: DataTypes.INTEGER,
-      allowNull: true
     }
   });
-
+  Task.associate = function (models) {
+    Task.belongsTo(models.Status, {
+      as: `status_code`,
+      allowNull: false
+    });
+  };
   Task.associate = function (models) {
     Task.belongsTo(models.Project, {
-      foreignKey: `id`,
+      as: `project_id`,
+      allowNull: false
+    });
+  };
+  Task.associate = function(models) {
+    Task.belongsTo(models.Team, {
+      as: `team_id`,
       allowNull: true
     });
   };
   Task.associate = function(models) {
-    Task.belongsTo(models.Project, {
-      foreignKey: `id`,
+    Task.belongsTo(models.User, {
+      as: `assignee_id`,
       allowNull: true
     });
   };
