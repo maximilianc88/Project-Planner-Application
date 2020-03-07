@@ -26,22 +26,24 @@ $(document).ready(() => {
 
     // If we have an email and password we run the loginUser function and clear the form
     loginUser(userData.username);
-// loginUser - does a get to check that the user exists in the database and 
-// if successful, redirects us the the dashboard
-  function loginUser(user) {
-    userName = user;
-    if (userName) {
-      userName = `/?username=${userName}`;
+    // loginUser - does a get to check that the user exists in the database and
+    // if successful, redirects us the the dashboard
+    function loginUser(user) {
+      userName = user;
+      if (userName) {
+        userName = `/?username=${userName}`;
+        $.get(`/api/login${userName}`, data => {
+          console.log(`Users`, data);
+        })
+          .then(() => {
+            window.location.replace(`/dashboard`);
+          })
+          .catch(err => {
+            // If there's an error, log the error
+            console.log(err);
+          });
+      }
+      return;
     }
-    $.get(`/api/login${userName}`, data => {
-      console.log(`Users`, data);
-    })
-      .then(() => {
-        window.location.replace(`/dashboard`);
-      })
-      .catch(err => {
-        // If there's an error, log the error
-        console.log(err);
-      });
-  }
+  });
 });
