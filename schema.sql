@@ -2,3 +2,5 @@
 DROP DATABASE IF EXISTS mothra_development;
 -- Creates the database --
 CREATE DATABASE mothra_development;
+
+USE mothra_development;

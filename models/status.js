@@ -4,14 +4,17 @@ module.exports = function (sequelize, DataTypes) {
   const Status = sequelize.define(`Status`, {
     status_code: {
       type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-      allowNull: false
+      primaryKey: 1,
+      autoIncrement: 1,
+      allowNull: 0
     },
     status_name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: 0
     }
+  }, {
+    freezeTableName: 1,
+    timestamps: false
   });
 
   return Status;
