@@ -15,7 +15,7 @@ module.exports = app => {
       where: {
         id: req.params.id
       },
-      include: [db.Task]
+      include: [{ model: db.Team, as: `team_id` }]
     }).then(dbProject => {
       res.json(dbProject);
     });
