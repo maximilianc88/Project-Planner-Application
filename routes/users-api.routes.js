@@ -3,6 +3,11 @@
 const db = require(`../models`);
 
 module.exports = app => {
+  app.get(`api/users`, (req, res) => {
+    db.User.findAll({}).then(dbUser => {
+      res.json(dbUser);
+    });
+  });
   app.get(`/api/users/:id`, (req, res) => {
     let userName;
     if (req.body.user_name) {
