@@ -18,10 +18,13 @@ app.set(`view engine`, `handlebars`);
 // Config routes
 require(`./routes/dev-routes`)(app);
 require(`./routes/projects-routes`)(app);
+require(`./routes/status-api-routes`)(app);
 require(`./routes/tasks-routes`)(app);
 require(`./routes/teams-routes`)(app);
+require(`./routes/users-api-routes`)(app);
+
 // Syncing sequelize models and then starting our Express app
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () =>
     console.log(`App listening on http://localhost:${PORT}`)
   );
