@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function (sequelize, DataTypes) {
-  const Tasks = sequelize.define(`Task`, {
+  const Task = sequelize.define(`Task`, {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -9,9 +9,9 @@ module.exports = function (sequelize, DataTypes) {
       autoIncrement: true
     },
     creation_time: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false,
-      defaultValue: Sequelize.NOW
+      defaultValue: DataTypes.NOW
     },
     title: {
       type: DataTypes.STRING,
@@ -51,5 +51,5 @@ module.exports = function (sequelize, DataTypes) {
     });
   };
 
-  return Tasks;
+  return Task;
 };
