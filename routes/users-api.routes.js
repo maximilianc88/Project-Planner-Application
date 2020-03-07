@@ -20,7 +20,7 @@ module.exports = app => {
       },
       include: [db.Task, db.Project, db.Team]
     }).then(dbUser => {
-      res.json(dbUser);
+      res.render(`dashboard`, dbUser);
     });
   });
   app.post(`/api/users`, (req, res) => {
