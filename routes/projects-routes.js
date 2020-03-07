@@ -3,10 +3,8 @@ const db = require(`../models`);
 
 module.exports = app => {
   // Get all projects and their associated tasks
-  app.get(`/api/projects`, res => {
-    db.Project.findAll({
-      include: [db.Task]
-    }).then(dbProject => {
+  app.get(`/api/projects`, (req, res) => {
+    db.Project.findAll({}).then(dbProject => {
       res.json(dbProject);
     });
   });
