@@ -14,12 +14,5 @@ module.exports = function (sequelize, DataTypes) {
     }
   });
 
-  Team.associate = function (models) {
-
-    Team.hasMany(models.Project, {
-      foreignKey: `team_id`
-    });
-  };
-
   return Team;
 };

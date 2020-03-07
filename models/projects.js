@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 module.exports = function (sequelize, DataTypes) {
 
@@ -20,21 +20,13 @@ module.exports = function (sequelize, DataTypes) {
     due_date: {
       type: DataTypes.DATE,
       allowNull: true
-    },
-    team_id: {
-      type: DataTypes.INTEGER,
-      allowNull: true
     }
   });
 
-  Project.associate = function (models) {
-
   Project.associate = function(models) {
-    // Associating Project with Tasks
-    // When a Project is deleted, also delete any associated Tasks
-    Project.hasMany(models.Task, {
-      foreignKey: `project_id`,
-      onDelete: `cascade`
+    Project.belongsTo(models.Team, {
+      as: `team_id`,
+      allowNull: true
     });
   };
 
