@@ -20,6 +20,7 @@
   "homepage": "https://github.com/maximilianc88/Project-Planner-Application#readme",
   "dependencies": {},
   "devDependencies": {
+    "bulma": "^0.8.0",
     "eslint": "^6.8.0",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
