@@ -14,6 +14,24 @@ module.exports = app => {
     console.log(url);
     res.sendFile(path.join(__dirname, `../public/js/dashboard.js`));
   });
+  app.get(`/public/js/login.js`, (req, res) => {
+    res.sendFile(path.join(__dirname, `../public/js/login.js`));
+  });
+  app.get(`/public/js/signUp.js`, (req, res) => {
+    res.sendFile(path.join(__dirname, `../public/js/signUp.js`));
+  });
+  app.get(`/public/js/newProject.js`, (req, res) => {
+    res.sendFile(path.join(__dirname, `../public/js/newProject.js`));
+  });
+  app.get(`/public/js/newTask.js`, (req, res) => {
+    res.sendFile(path.join(__dirname, `../public/js/newTask.js`));
+  });
+  app.get(`/public/js/viewProject.js`, (req, res) => {
+    res.sendFile(path.join(__dirname, `../public/js/viewProject.js`));
+  });
+  app.get(`/public/js/viewTask.js`, (req, res) => {
+    res.sendFile(path.join(__dirname, `../public/js/viewTask.js`));
+  });
   app.get(`/`, (req, res) => res.render(`dashboard`));
   app.get(`/dev`, (req, res) => res.render(`dev`));
   app.get(`/projects`, (req, res) => res.render(`project`));
