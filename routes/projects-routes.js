@@ -6,7 +6,7 @@ module.exports = app => {
     db.Project.findAll({
       include: [db.Task]
     }).then(dbProject => {
-      res.json(dbProject);
+      res.render(`project`, dbProject);
     });
   });
   app.get(`/api/projects/:id`, (req, res) => {
@@ -16,12 +16,12 @@ module.exports = app => {
       },
       include: [db.Task]
     }).then(dbProject => {
-      res.json(dbProject);
+      res.render(`project`, dbProject);
     });
   });
   app.post(`/api/projects`, (req, res) => {
     db.Project.create(req.body).then(dbProject => {
-      res.json(dbProject);
+      res.render(`newProject`, dbProject);
     });
   });
   app.delete(`/api/projects/:id`, (req, res) => {
@@ -30,7 +30,7 @@ module.exports = app => {
         id: req.params.id
       }
     }).then(dbProject => {
-      res.json(dbProject);
+      res.render(`project`, dbProject);
     });
   });
 };

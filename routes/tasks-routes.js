@@ -11,7 +11,7 @@ module.exports = app => {
       where: query,
       include: [db.Project]
     }).then(dbTask => {
-      res.json(dbTask);
+      res.render(`task`, dbTask);
     });
   });
   app.get(`/api/tasks/:id`, (req, res) => {
@@ -21,12 +21,12 @@ module.exports = app => {
       },
       include: [db.Project]
     }).then(dbTask => {
-      res.json(dbTask);
+      res.render(`task`, dbTask);
     });
   });
   app.post(`/api/tasks`, (req, res) => {
     db.Task.create(req.body).then(dbTask => {
-      res.json(dbTask);
+      res.render(`newTask`, dbTask);
     });
   });
   app.delete(`/api/tasks`, (req, res) => {
@@ -35,7 +35,7 @@ module.exports = app => {
         id: req.params.id
       }
     }).then(dbTask => {
-      res.json(dbTask);
+      res.render(`task`, dbTask);
     });
   });
   app.put(`/api/tasks`, (req, res) => {
@@ -44,7 +44,7 @@ module.exports = app => {
         id: req.body.id
       }
     }).then(dbTask => {
-      res.json(dbTask);
+      res.render(`task`, dbTask);
     });
   });
 };
