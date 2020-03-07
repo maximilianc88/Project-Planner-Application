@@ -42,13 +42,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   });
-
-  Task.associate = function(models) {
-    Task.belongsTo(models.Project, {
-      foreignKey: `id`,
-      allowNull: true
-    });
-  };
-
+    Task.associate = function (models) {
+        Task.belongsTo(models.Project, {
+            foreignKey: `id`,
+            allowNull: true
+        });
+    };
   return Tasks;
 };
