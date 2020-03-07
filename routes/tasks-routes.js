@@ -11,9 +11,10 @@ module.exports = app => {
       where: query,
       include: [db.Project]
     }).then(dbTask => {
-      res.render(`task`, dbTask);
+      res.json(dbTask);
     });
   });
+  // Get specific task by id and include associated project
   app.get(`/api/tasks/:id`, (req, res) => {
     db.Task.findOne({
       where: {
@@ -21,21 +22,23 @@ module.exports = app => {
       },
       include: [db.Project]
     }).then(dbTask => {
-      res.render(`task`, dbTask);
+      res.json(dbTask);
     });
   });
+  // Create a new task
   app.post(`/api/tasks`, (req, res) => {
     db.Task.create(req.body).then(dbTask => {
-      res.render(`newTask`, dbTask);
+      res.json(dbTask);
     });
   });
+  // Delete a specific task
   app.delete(`/api/tasks`, (req, res) => {
     db.Task.destroy({
       where: {
         id: req.params.id
       }
     }).then(dbTask => {
-      res.render(`task`, dbTask);
+      res.json(dbTask);
     });
   });
   app.put(`/api/tasks`, (req, res) => {
@@ -44,7 +47,7 @@ module.exports = app => {
         id: req.body.id
       }
     }).then(dbTask => {
-      res.render(`task`, dbTask);
+      res.json(dbTask);
     });
   });
 };
