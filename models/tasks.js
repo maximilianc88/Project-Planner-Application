@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 module.exports = function (sequelize, DataTypes) {
   const Tasks = sequelize.define(`Task`, {
@@ -49,7 +49,12 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: true
     });
   };
-
+  Task.associate = function(models) {
+    Task.belongsTo(models.Project, {
+      foreignKey: `id`,
+      allowNull: true
+    });
+  };
 
   return Tasks;
 };
