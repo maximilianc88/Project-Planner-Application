@@ -15,8 +15,10 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   Team.associate = function (models) {
-
     Team.hasMany(models.Project, {
+      foreignKey: `team_id`
+    });
+    Team.hasMany(models.User, {
       foreignKey: `team_id`
     });
   };
