@@ -12,6 +12,11 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     }
+  },
+  {
+    timestamps: true,
+    createdAt: `create_date`,
+    updatedAt: `update_date`
   });
 
   return Team;

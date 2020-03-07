@@ -8,11 +8,6 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
       autoIncrement: true
     },
-    creation_time: {
-      type: DataTypes.DATEONLY,
-      allowNull: false,
-      defaultValue: DataTypes.NOW
-    },
     title: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -25,6 +20,12 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
       len: [1]
     }
+  },
+  {
+    timestamps: true,
+    createdAt: `create_date`,
+    updatedAt: `update_date`,
+    deletedAt: `delete_date`
   });
   Task.associate = function (models) {
     Task.belongsTo(models.Status, {

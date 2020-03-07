@@ -21,6 +21,12 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.DATE,
       allowNull: true
     }
+  },
+  {
+    timestamps: true,
+    createdAt: `create_date`,
+    updatedAt: `update_date`,
+    deletedAt: `delete_date`
   });
 
   Project.associate = function(models) {
