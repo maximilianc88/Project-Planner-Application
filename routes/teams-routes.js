@@ -1,6 +1,7 @@
-"use strict";
+'use strict';
 const db = require(`../models`);
-modules.exports = app => {
+
+module.exports = app => {
   app.get(`/api/teams`, (req, res) => {
     let teamName;
     if (req.body.name) {
