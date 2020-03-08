@@ -23,18 +23,18 @@ $(document).ready(() => {
     return;
   };
 
-  const addUsersToOptions = arr => {
-    if (!arr) {
-      return;
-    }
-    for (const userObj of arr) {
-      const option = $(`<option>`);
-      option.data(`user-id`, userObj.user_id);
-      option.append(`${userObj.user_name}`);
-      selectUser.append(option);
-    }
-    return;
-  };
+  // const addUsersToOptions = arr => {
+  //   if (!arr) {
+  //     return;
+  //   }
+  //   for (const userObj of arr) {
+  //     const option = $(`<option>`);
+  //     option.data(`user-id`, userObj.user_id);
+  //     option.append(`${userObj.user_name}`);
+  //     selectUser.append(option);
+  //   }
+  //   return;
+  // };
 
   const getAllProjects = () => {
     $.get(`/api/projects`, (data, status) => {
