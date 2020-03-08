@@ -40,7 +40,9 @@ const seed = () => Promise.all([
   db.Task.create({ title: `Task 222`, description: `do some stuff`, project_id: 1, team_id: 1, assignee_id: 1 }),
   db.Task.create({ title: `Task 333`, description: `do some stuff`, project_id: 1, team_id: 1, assignee_id: 2 }),
   db.Task.create({ title: `Task 444`, description: `do some stuff`, project_id: 2, team_id: 1 }),
-  db.Task.create({ title: `Task 301`, description: `do some stuff`, project_id: 3, team_id: 2, assignee_id: 4, status_code: 3 }),
+  db.Task.create(
+    { title: `Task 301`, description: `do some stuff`, project_id: 3, team_id: 2, assignee_id: 4, status_code: 3 }
+  ),
   db.Task.create({ title: `Task 302`, description: `do some stuff`, project_id: 3, team_id: 2 }),
   db.Task.create({ title: `Task 303`, description: `do some stuff`, project_id: 3, team_id: 2, status_code: 1 }),
   db.Task.create({ title: `Task 555`, description: `do some stuff`, project_id: 4 }),
