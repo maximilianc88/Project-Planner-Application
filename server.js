@@ -24,7 +24,7 @@ require(`./routes/teams-routes`)(app);
 require(`./routes/users-api-routes`)(app);
 
 // Syncing sequelize models and then starting our Express app
-db.sequelize.sync({ force: false }).then(() => {
+db.sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () =>
     console.log(`App listening on http://localhost:${PORT}`)
   );

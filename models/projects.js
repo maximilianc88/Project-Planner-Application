@@ -23,17 +23,18 @@ module.exports = function (sequelize, DataTypes) {
     }
   },
   {
+    underscored: true,
     timestamps: true,
     createdAt: `create_date`,
-    updatedAt: `update_date`,
-    deletedAt: `delete_date`
+    updatedAt: `update_date`
   });
 
   Project.associate = function(models) {
     Project.belongsTo(models.Team, {
-      as: `team_id`,
+      foreignKey: `team_id`,
       allowNull: true
     });
+    Project.hasMany(models.Task, {foreignKey: `id`});
   };
 
   return Project;
