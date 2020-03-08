@@ -1,0 +1,57 @@
+<script src="public/js/newProject.js"></script>
+
+<div class="container is-desktop">
+
+  <div class="column">
+
+    <div class="field">
+      <label class="label">Project Name</label>
+      <div class="control">
+        <input class="input" type="text" placeholder="Project Name">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Assign Team (optional)</label>
+      <div class="control">
+        <div class="select">
+          <select class="select-team">
+            <option data-team-id="">Select dropdown</option>
+            {{!-- need list of teams here --}}
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Project Description</label>
+      <div class="control">
+        <textarea class="textarea" placeholder="scope of the project"></textarea>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <label class="radio">
+          Create a new task next
+          <input type="radio" name="question">
+          Yes
+        </label>
+        <label class="radio">
+          <input type="radio" name="question">
+          No
+        </label>
+      </div>
+    </div>
+
+    <div class="field is-grouped">
+      <div class="control">
+        <button class="button is-link">Submit</button>
+      </div>
+      <div class="control">
+        <button class="button is-link is-light">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+</div>
