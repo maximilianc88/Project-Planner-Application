@@ -52,6 +52,6 @@ $(document).ready(() => {
       addProjectsToOptions(data);
     });
   };
-  
+
   getAllProjects();
 });
