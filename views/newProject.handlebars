@@ -7,7 +7,7 @@
     <div class="field">
       <label class="label">Project Name</label>
       <div class="control">
-        <input class="input" type="text" placeholder="Project Name">
+        <input class="input" id="new-project-name" type="text" placeholder="Project Name">
       </div>
     </div>
 
@@ -17,7 +17,7 @@
       <div class="control">
         <div class="select">
           <select class="select-team">
-            <option data-team-id="">Select dropdown</option>
+            <option data-team-id="" id="selected-team">Select dropdown</option>
             {{!-- need list of teams here --}}
           </select>
         </div>
@@ -28,7 +28,7 @@
     <div class="field">
       <label class="label">Project Description</label>
       <div class="control">
-        <textarea class="textarea" placeholder="scope of the project"></textarea>
+        <textarea class="textarea" id="new-project-description" placeholder="scope of the project"></textarea>
       </div>
     </div>
 
@@ -37,11 +37,11 @@
       <div class="control">
         <label class="radio">
           Create a new task next
-          <input type="radio" name="question">
+          <input id="add-task" type="radio" name="question">
           Yes
         </label>
         <label class="radio">
-          <input type="radio" name="question">
+          <input id="no-add-task" type="radio" name="question">
           No
         </label>
       </div>
@@ -50,7 +50,7 @@
     {{!-- buttons --}}
     <div class="field is-grouped">
       <div class="control">
-        <button class="button is-link submit-button">Submit</button>
+        <button id="newProjectSubmit" class="button is-link submit-button">Submit</button>
       </div>
       <div class="control">
         <button class="button is-link is-light cancel-button">Cancel</button>

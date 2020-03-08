@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 $(document).ready(() => {
   const selectTeam = $(`.select-team`);
@@ -33,4 +33,31 @@ $(document).ready(() => {
   };
 
   getAllTeams();
+
+  $(`#newProjectSubmit`).on(`click`, () => {
+    const newProject = {
+      name: $(`#new-project-name`)
+        .val()
+        .trim(),
+      // eslint-disable-next-line camelcase
+      team_id: $(`.select-team option:selected`).data(`team-id`),
+      description: $(`#new-project-description`)
+        .val()
+        .trim()
+    };
+    console.log(newProject);
+    $.ajax(`/api/projects`, {
+      type: `POST`,
+      data: newProject
+    }).then(() => {
+      console.log(`Success`);
+      if (document.getElementById(`add-task`).checked) {
+        const newTask = `/newTask`;
+        window.location = newTask;
+      } else if (document.getElementById(`no-add-task`).checked) {
+        const goHome = `/`;
+        window.location = goHome;
+      }
+    });
+  });
 });
