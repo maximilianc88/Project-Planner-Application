@@ -2,6 +2,11 @@
 
 $(document).ready(() => {
   const selectTeam = $(`.select-team`);
+  const cancelButton = $(`.cancel-button`);
+  cancelButton.on(`click`, () => {
+    const home = `/`;
+    window.location = home;
+  });
   selectTeam.change(() => {
     // get team-id from selected option
     console.log($(`.select-team option:selected`).data(`team-id`));
