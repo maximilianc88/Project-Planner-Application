@@ -23,18 +23,19 @@ $(document).ready(() => {
     return;
   };
 
-  // const addUsersToOptions = arr => {
-  //   if (!arr) {
-  //     return;
-  //   }
-  //   for (const userObj of arr) {
-  //     const option = $(`<option>`);
-  //     option.data(`user-id`, userObj.user_id);
-  //     option.append(`${userObj.user_name}`);
-  //     selectUser.append(option);
-  //   }
-  //   return;
-  // };
+  const addUsersToOptions = arr => {
+    if (!arr) {
+      return;
+    }
+    for (const userObj of arr) {
+      console.log(userObj);
+      const option = $(`<option>`);
+      option.data(`user-id`, userObj.user_id);
+      option.append(`${userObj.user_name}`);
+      selectUser.append(option);
+    }
+    return;
+  };
 
   const getAllProjects = () => {
     $.get(`/api/projects`, (data, status) => {
@@ -45,8 +46,18 @@ $(document).ready(() => {
 
   const getAllUsersByTeamId = teamId => {
     $.get(`/api/teams/${teamId}`, (data, status) => {
-      console.log(`Data: ${data}, Status: ${status}`);
+      console.log(`Status: ${status}`);
+      const userObjArr = data.Users;
+      console.log(userObjArr);
+      addUsersToOptions(userObjArr);
     });
+  };
+
+  const resetOptionList = () => {
+    selectUser.empty();
+    const option = $(`<option>`);
+    option.append(`Select User`);
+    selectUser.append(option);
   };
 
   // console.log out selected projectd id
@@ -57,14 +68,15 @@ $(document).ready(() => {
     console.log(`Selected Project ID: ${selectedProjectId}`);
     console.log(`Selected Team ID: ${selectedTeamId}`);
     getAllUsersByTeamId(selectedTeamId);
+    resetOptionList();
   });
 
   // console.log out selected user id
   selectUser.change(() => {
-    // get team-id from selected option
-    console.log($(`.select-user option:selected`).data(`user-id`));
+    // get user-id from selected option
+    const selectedUser = $(`.select-user option:selected`);
+    console.log(`Selected User ID: ${selectedUser.data(`user-id`)}`);
   });
 
   getAllProjects();
-  getAllUsersByTeamId(1);
 });

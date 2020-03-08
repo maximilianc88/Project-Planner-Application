@@ -13,6 +13,7 @@ const seed = () => Promise.all([
   db.Team.create({ name: `Dev Team 2` }),
   db.Team.create({ name: `QA Team 3` }),
   db.Team.create({ name: `Art Team 4`}),
+  db.Team.create({ name: `Product Team 5`}),
   db.User.create({ user_name: `phaggio`, first_name: `Richard`, last_name: `Wang`, team_id: 1 }),
   db.User.create({ user_name: `kaitlync`, first_name: `Kaitlyn`, last_name: `Carlson`, team_id: 1 }),
   db.User.create({ user_name: `rachelr`, first_name: `Rachel`, last_name: `Rohrbach`, team_id: 1 }),
@@ -26,28 +27,35 @@ const seed = () => Promise.all([
   db.User.create({ user_name: `timapple`, first_name: `Tim`, last_name: `Cook` }),
   db.User.create({ user_name: `michaelj`, first_name: `Michael`, last_name: `Jordan`, team_id: 1 }),
   db.User.create({ user_name: `warrenb`, first_name: `Warren`, last_name: `Buffett`, team_id: 4 }),
+  db.User.create({ user_name: `georgew`, first_name: `George`, last_name: `Washington` }),
+  db.User.create({ user_name: `johns`, first_name: `John`, last_name: `Smith`, team_id: 4 }),
+  db.User.create({ user_name: `markz`, first_name: `Mark`, last_name: `Zuckerberg`, team_id: 5 }),
+  db.User.create({ user_name: `paulz`, first_name: `Paul`, last_name: `Zhao`, team_id: 5 }),
   db.Project.create(
     {
-      name: `Design Project 1`,
-      description: `some description 1`,
+      name: `Design Project`,
+      description: `Design stuff`,
       due_date: `2020-04-01`,
       team_id: 1
     }
   ),
   db.Project.create(
-    { name: `Boring Project 2`, description: `some boring stuff`, team_id: 1 }
+    { name: `Boring Project`, description: `some boring stuff`, team_id: 1 }
   ),
   db.Project.create(
-    { name: `Fun Project 3`, description: `some description 3`, team_id: 2 }
+    { name: `Fun Project`, description: `some description 3`, team_id: 2 }
   ),
   db.Project.create(
-    { name: `Test Project 4`, description: `some description 4` }
+    { name: `Test Project`, description: `some description 4`, team_id: 5 }
   ),
   db.Project.create(
-    { name: `Secret Project 5`, description: `some description 5`, due_date: `2020-05-30` }
+    { name: `Secret Project`, description: `some description 5`, due_date: `2020-05-30` }
   ),
   db.Project.create(
     { name: `Stupid Project 6`, description: `doing a lot of nothing`, due_date: `2020-05-30` }
+  ),
+  db.Project.create(
+    { name: `Awesome Project`, description: `awesomeness`, due_date: `2020-06-30`, team_id: 4 }
   ),
   db.Task.create(
     { title: `Task 111`,
@@ -58,8 +66,8 @@ const seed = () => Promise.all([
       status_code: 2
     }
   ),
-  db.Task.create({ title: `Task 222`, description: `do some stuff`, project_id: 1, team_id: 1, assignee_id: 1 }),
-  db.Task.create({ title: `Task 333`, description: `do some stuff`, project_id: 1, team_id: 1, assignee_id: 2 }),
+  db.Task.create({ title: `Design 222`, description: `design something`, project_id: 1, team_id: 1, assignee_id: 1 }),
+  db.Task.create({ title: `Task Design`, description: `design some stuff`, project_id: 1, team_id: 1, assignee_id: 2 }),
   db.Task.create({ title: `Task 444`, description: `do some stuff`, project_id: 2, team_id: 1 }),
   db.Task.create(
     { title: `Task 301`, description: `do some stuff`, project_id: 3, team_id: 2, assignee_id: 4, status_code: 3 }
@@ -70,9 +78,9 @@ const seed = () => Promise.all([
   db.Task.create(
     { title: `Task 303`, description: `do some stuff`, project_id: 3, team_id: 2, status_code: 1 }
   ),
-  db.Task.create({ title: `Task 555`, description: `do stuff stuff stuff stuff stuff`, project_id: 4 }),
-  db.Task.create({ title: `Task 666`, description: `do some thing`, project_id: 4 }),
-  db.Task.create({ title: `Task 101`, description: `do some stuff`, project_id: 4 }),
+  db.Task.create({ title: `Test 101`, description: `do stuff stuff stuff stuff stuff`, project_id: 4 }),
+  db.Task.create({ title: `Test 102`, description: `test some thing`, project_id: 4 }),
+  db.Task.create({ title: `Test 103`, description: `test some stuff and things`, project_id: 4 }),
   db.Task.create({ title: `Task 102`, description: `do something useful`, project_id: 5 }),
   db.Task.create({ title: `Task 103`, description: `do some more stuff`, project_id: 5 })
 ])
