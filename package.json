@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint . ./*.js ./public/**/*.js",
-    "watch": "nodemon server.js"
+    "watch": "nodemon server.js",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
