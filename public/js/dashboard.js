@@ -76,22 +76,22 @@ $(document).ready(() => {
   //   }
   // }
 
-//   function createTasksRow(taskData) {
-//     const newLi = $(`<li>`);
-//     newLi.data(`task`, taskData);
-//     newLi.append(`<li>${taskData.task}<li>`);
-//     return newLi;
-//   }
+  //   function createTasksRow(taskData) {
+  //     const newLi = $(`<li>`);
+  //     newLi.data(`task`, taskData);
+  //     newLi.append(`<li>${taskData.task}<li>`);
+  //     return newLi;
+  //   }
 
-//   function getTasks() {
-//     $.get(`/api/tasks`, data => {
-//       for (let i = 0; i < data.length; ++i) {
-//         rowsToAdd.push(createTasksRow(data[i]));
-//       }
-//       renderTasksList(rowsToAdd);
-//       data.title.val(``);
-//     });
-//   }
+  //   function getTasks() {
+  //     $.get(`/api/tasks`, data => {
+  //       for (let i = 0; i < data.length; ++i) {
+  //         rowsToAdd.push(createTasksRow(data[i]));
+  //       }
+  //       renderTasksList(rowsToAdd);
+  //       data.title.val(``);
+  //     });
+  //   }
 
 //   function renderTasksList(rows) {
 //     tasksList
