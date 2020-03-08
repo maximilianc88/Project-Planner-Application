@@ -1,9 +1,9 @@
 "use strict";
 $(document).ready(() => {
   const projectsContainer = $(`#projects-container`);
-  const tasksContainer = $(`#tasks-container`);
+  // const tasksContainer = $(`#tasks-container`);
   const projectsList = $(`#projects-list`);
-  const tasksList = $(`#tasks-list`);
+  // const tasksList = $(`#tasks-list`);
 
   let projects;
   // let tasks;
