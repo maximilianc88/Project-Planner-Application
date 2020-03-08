@@ -12,8 +12,7 @@ module.exports = app => {
     db.Project.findOne({
       where: {
         id: req.params.id
-      },
-      include: [{ model: db.Team, as: `team_id` }]
+      }
     }).then(dbProject => {
       res.json(dbProject);
     });
