@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 'use strict';
 
 module.exports = function (sequelize, DataTypes) {
@@ -37,7 +38,6 @@ module.exports = function (sequelize, DataTypes) {
       foreignKey: { name: `assignee_id`, allowNull: true, defaultValue: null }
     });
   };
-
 
   return User;
 };
