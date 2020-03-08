@@ -21,9 +21,15 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   Team.associate = function (model) {
-    Team.hasMany(model.User, {foreignKey: `user_id`});
-    Team.hasMany(model.Project, {foreignKey: `id`});
-    Team.hasMany(model.Task, {foreignKey: `id`});
+    Team.hasMany(model.User, {
+      foreignKey: { name: `team_id`, allowNull: true }
+    });
+    Team.hasMany(model.Project, {
+      foreignKey: { name: `team_id`, allowNull: true }
+    });
+    Team.hasMany(model.Task, {
+      foreignKey: { name: `team_id`, allowNull: true }
+    });
   };
 
   return Team;

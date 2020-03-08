@@ -5,7 +5,7 @@ module.exports = function (sequelize, DataTypes) {
     status_code: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: false,
       allowNull: false
     },
     status_name: {
@@ -18,7 +18,9 @@ module.exports = function (sequelize, DataTypes) {
     timestamps: false
   });
   Status.associate = function (models) {
-    Status.hasMany(models.Task, {foreignKey: `status_code`});
+    Status.hasMany(models.Task, {
+      foreignKey: `status_code`
+    });
   };
 
   return Status;

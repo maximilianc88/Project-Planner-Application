@@ -28,20 +28,24 @@ module.exports = function (sequelize, DataTypes) {
   });
   Task.associate = function (models) {
     Task.belongsTo(models.Status, {
-      foreignKey: `status_code`,
-      allowNull: false
+      targetKey: `status_code`,
+      foreignKey: { name: `status_code`, allowNull: false, defaultValue: 0 },
+      constraints: false
     });
     Task.belongsTo(models.Project, {
-      foreignKey: `project_id`,
-      allowNull: false
+      targetKey: `id`,
+      foreignKey: { name: `project_id`, allowNull: false },
+      constraints: false
     });
     Task.belongsTo(models.User, {
-      foreignKey: `assignee_id`,
-      allowNull: true
+      targetKey: `user_id`,
+      foreignKey: { name: `assignee_id`, allowNull: true, defaultValue: null },
+      constraints: false
     });
     Task.belongsTo(models.Team, {
-      foreignKey: `team_id`,
-      allowNull: true
+      targetKey: `id`,
+      foreignKey: { name: `team_id`, allowNull: true, defaultValue: null },
+      constraints: false
     });
   };
 
