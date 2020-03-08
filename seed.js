@@ -20,12 +20,23 @@ const seed = () => Promise.all([
   db.User.create({ user_name: `jeffbezos`, first_name: `Jeff`, last_name: `Bezos`, team_id: 3 }),
   db.User.create({ user_name: `billgates`, first_name: `Bill`, last_name: `Gates`, team_id: 3 }),
   db.User.create({ user_name: `elonmusk`, first_name: `Elon`, last_name: `Musk` }),
-  db.Project.create({ name: `Test Project 1`, description: `some description 1`, due_date: `2020-04-01`, team_id: 1 }),
-  db.Project.create({ name: `Test Project 2`, description: `some description 2`, team_id: 1 }),
-  db.Project.create({ name: `Test Project 3`, description: `some description 3`, team_id: 2 }),
-  db.Project.create({ name: `Test Project 4`, description: `some description 4` }),
-  db.Project.create({ name: `Test Project 5`, description: `some description 5` }),
-  db.Task.create({ title: `Task 111`, description: `do some stuff`, project_id: 1, team_id: 1, assignee_id: 1, status_code: 2 }),
+  db.Project.create(
+    { name: `Test Project 1`, description: `some description 1`, due_date: `2020-04-01`, team_id: 1 }),
+  db.Project.create(
+    { name: `Test Project 2`, description: `some description 2`, team_id: 1 }
+  ),
+  db.Project.create(
+    { name: `Test Project 3`, description: `some description 3`, team_id: 2 }
+  ),
+  db.Project.create(
+    { name: `Test Project 4`, description: `some description 4` }
+  ),
+  db.Project.create(
+    { name: `Test Project 5`, description: `some description 5` }
+  ),
+  db.Task.create(
+    { title: `Task 111`, description: `do some stuff`, project_id: 1, team_id: 1, assignee_id: 1, status_code: 2 }
+  ),
   db.Task.create({ title: `Task 222`, description: `do some stuff`, project_id: 1, team_id: 1, assignee_id: 1 }),
   db.Task.create({ title: `Task 333`, description: `do some stuff`, project_id: 1, team_id: 1, assignee_id: 2 }),
   db.Task.create({ title: `Task 444`, description: `do some stuff`, project_id: 2, team_id: 1 }),
