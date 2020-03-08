@@ -1,6 +1,5 @@
 "use strict";
 $(document).ready(() => {
-  const projectsContainer = $(`#projects-container`);
   // const tasksContainer = $(`#tasks-container`);
   const projectsList = $(`#projects-list`);
   // const tasksList = $(`#tasks-list`);
@@ -19,91 +18,66 @@ $(document).ready(() => {
     getProjects();
   }
 
-  function getProjects(user) {
-    userId = user || ``;
-    if (userId) {
-      userId = `/?user_id=${userId}`;
-    }
-    $.get(`/api/projects/${userId}`, data => {
+  function getProjects() {
+    // userId = user || ``;
+    // if (userId) {
+    //   userId = `/?user_id=${userId}`;
+    // }
+    $.get(`/api/projects`, data => {
       console.log(`Projects`, data);
       projects = data;
       if (!projects || !projects.length) {
-        displayEmpty(user);
+        $(`#projects-list`.append(`<p>You have no projects</p>`));
       } else {
         initializeRows();
       }
     });
   }
-  // InitializeRows handles appending all of our constructed post HTML inside blogContainer
   function initializeRows() {
-    projectsContainer.empty();
+    // projectsList.empty();
     const projectsToAdd = [];
     for (let i = 0; i < projects.length; ++i) {
-      projectsToAdd.push(createNewProjectRow(projects[i]));
+      projectsToAdd.push(createNewProjectsRow(projects[i]));
     }
     projectsList.append(projectsToAdd);
   }
   // getProjects();
   // getTasks();
 
-  function createNewProjectRow(project) {
+  function createNewProjectsRow(project) {
     const newLi = $(`<li>${project.name}</li>`);
     newLi.data(`project`, project);
     return newLi;
   }
 
-  // function getProjects(user) {
-  //   $.get(`/api/projects`, data => {
+  // function createTasksRow(taskData) {
+  //   const newLi = $(`<li>`);
+  //   newLi.data(`task`, taskData);
+  //   newLi.append(`<li>${taskData.task}<li>`);
+  //   return newLi;
+  // }
+
+  // function getTasks() {
+  //   $.get(`/api/tasks`, data => {
   //     for (let i = 0; i < data.length; ++i) {
-  //       rowsToAdd.push(createProjectsRow(data[i]));
+  //       rowsToAdd.push(createTasksRow(data[i]));
   //     }
-  //     renderProjectsList(rowsToAdd);
-  //     data.name.val(``);
+  //     renderTasksList(rowsToAdd);
+  //     data.title.val(``);
   //   });
   // }
 
-  // function renderProjectsList(rows) {
-  //   projectsList
+  // function renderTasksList(rows) {
+  //   tasksList
   //     .children()
   //     .not(`:last`)
   //     .remove();
-  //   projectsContainer.children(`.alert`).remove();
+  //   tasksContainer.children(`.alert`).remove();
   //   if (rows.length) {
   //     console.log(rows);
-  //     projectsList.prepend(rows);
+  //     tasksList.prepend(rows);
   //   } else {
   //     renderEmpty();
   //   }
   // }
-
-  //   function createTasksRow(taskData) {
-  //     const newLi = $(`<li>`);
-  //     newLi.data(`task`, taskData);
-  //     newLi.append(`<li>${taskData.task}<li>`);
-  //     return newLi;
-  //   }
-
-  //   function getTasks() {
-  //     $.get(`/api/tasks`, data => {
-  //       for (let i = 0; i < data.length; ++i) {
-  //         rowsToAdd.push(createTasksRow(data[i]));
-  //       }
-  //       renderTasksList(rowsToAdd);
-  //       data.title.val(``);
-  //     });
-  //   }
-
-//   function renderTasksList(rows) {
-//     tasksList
-//       .children()
-//       .not(`:last`)
-//       .remove();
-//     tasksContainer.children(`.alert`).remove();
-//     if (rows.length) {
-//       console.log(rows);
-//       tasksList.prepend(rows);
-//     } else {
-//       renderEmpty();
-//     }
-//   }
 });
