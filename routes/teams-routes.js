@@ -7,6 +7,16 @@ module.exports = app => {
       res.json(dbTeam);
     });
   });
+  app.get(`/api/teams/:id`, (req, res) => {
+    db.Team.findOne({
+      where: {
+        id: req.params.id
+      },
+      include: [{ model: db.User }]
+    }).then(dbUser => {
+      res.json(dbUser);
+    });
+  });
   app.post(`/api/teams`, (req, res) => {
     db.Team.create(req.body).then(dbTeam => {
       res.json(dbTeam);
