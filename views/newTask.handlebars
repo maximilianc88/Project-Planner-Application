@@ -1,48 +1,59 @@
 <script src="public/js/newTask.js"></script>
 
-<div class="box">
-    <div id="task-form" class="field is-grouped">
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">Title
-                    <div class="field-body">
-                        <div class="field">
-                            <p class="control is-expanded">
-                                <input id="title" class="input" type="text" placeholder="Title">
-                            </p>
-                        </div>
-                    </div>
+<div class="container">
+    <div class="column">
+
+        {{!-- task name input --}}
+        <div class="field">
+            <label class="label">Task Name</label>
+            <div class="control">
+                <input class="input" type="text" placeholder="Task Name">
             </div>
-            <div class="field is-horizontal">
-                <div class="field-label is-normal">
-                    <label class="label">Assignee</label>
-                </div>
-                <div class="field-body">
-                    <div class="field">
-                        <div class="control">
-                            <div id="assignee" class="select">
-                                <select>
-                                    <option>{{#each user}}</option>
-                                    <option>{{/each}}</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="field is-horizontal">
-                <div class="field-label is-normal">
-                    <label class="label">Description</label>
-                </div>
-                <div class="field-body">
-                    <div class="field">
-                        <div class="control">
-                            <textarea id="description" class="textarea" placeholder="Description"></textarea>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button id="submit" class="submit is-medium">Submit</button>
         </div>
+
+        {{!-- select project drop down --}}
+        <div class="field">
+            <label class="label">Assign to a Project</label>
+            <div class="control">
+                <div class="select">
+                    <select class="select-project">
+                        <option data-project-id="">Select Project</option>
+                        {{!-- need list of availble projects here --}}
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        {{!-- select team drop down --}}
+        <div class="field">
+            <label class="label">Assign to a User</label>
+            <div class="control">
+                <div class="select">
+                    <select class="select-user">
+                        <option data-user-id="">Select User</option>
+                        {{!-- need list of users from assigned team here --}}
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        {{!-- new task detail --}}
+        <div class="field">
+            <label class="label">Task Detail</label>
+            <div class="control">
+                <textarea class="textarea" placeholder="Task Detail"></textarea>
+            </div>
+        </div>
+
+        {{!-- buttons --}}
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-link submit-button">Submit</button>
+            </div>
+            <div class="control">
+                <button class="button is-link is-light cancel-button">Cancel</button>
+            </div>
+        </div>
+
     </div>
 </div>
