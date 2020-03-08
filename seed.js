@@ -32,18 +32,22 @@ const seed = () => Promise.all([
     { name: `Test Project 4`, description: `some description 4` }
   ),
   db.Project.create(
-    { name: `Test Project 5`, description: `some description 5` }
+    { name: `Secret Project 5`, description: `some description 5`, due_date: `2020-05-30` }
   ),
   db.Task.create(
-    { title: `Task 111`, description: `do some stuff`, project_id: 1, team_id: 1, assignee_id: 1, status_code: 2 }
+    { title: `Task 111`, description: `some description`, project_id: 1, team_id: 1, assignee_id: 1, status_code: 2 }
   ),
   db.Task.create({ title: `Task 222`, description: `do some stuff`, project_id: 1, team_id: 1, assignee_id: 1 }),
   db.Task.create({ title: `Task 333`, description: `do some stuff`, project_id: 1, team_id: 1, assignee_id: 2 }),
   db.Task.create({ title: `Task 444`, description: `do some stuff`, project_id: 2, team_id: 1 }),
-  db.Task.create({ title: `Task 555`, description: `do some stuff`, project_id: 3, team_id: 2 }),
+  db.Task.create({ title: `Task 301`, description: `do some stuff`, project_id: 3, team_id: 2, assignee_id: 4, status_code: 3 }),
+  db.Task.create({ title: `Task 302`, description: `do some stuff`, project_id: 3, team_id: 2 }),
+  db.Task.create({ title: `Task 303`, description: `do some stuff`, project_id: 3, team_id: 2, status_code: 1 }),
   db.Task.create({ title: `Task 555`, description: `do some stuff`, project_id: 4 }),
   db.Task.create({ title: `Task 666`, description: `do some stuff`, project_id: 4 }),
-  db.Task.create({ title: `Task 777`, description: `do some stuff`, project_id: 4 })
+  db.Task.create({ title: `Task 101`, description: `do some stuff`, project_id: 4 }),
+  db.Task.create({ title: `Task 102`, description: `do some stuff`, project_id: 5 }),
+  db.Task.create({ title: `Task 103`, description: `do some stuff`, project_id: 5 })
 ])
   .catch(error => console.log(error));
 

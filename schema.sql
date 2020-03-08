@@ -5,7 +5,7 @@ CREATE DATABASE mothra_development;
 
 USE mothra_development;
 
-
+SELECT * FROM status;
 SELECT * FROM teams;
 SELECT * FROM users;
 SELECT * FROM projects;
