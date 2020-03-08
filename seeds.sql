@@ -38,3 +38,6 @@ VALUES
     ('In Progress'),
     ('Complete'),
     ('Closed');
+    
+SELECT * FROM projects;
+SELECT * FROM tasks;

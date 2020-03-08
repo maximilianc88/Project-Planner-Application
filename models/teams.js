@@ -14,10 +14,17 @@ module.exports = function (sequelize, DataTypes) {
     }
   },
   {
+    underscored: true,
     timestamps: true,
     createdAt: `create_date`,
     updatedAt: `update_date`
   });
+
+  Team.associate = function (model) {
+    Team.hasMany(model.User, {foreignKey: `user_id`});
+    Team.hasMany(model.Project, {foreignKey: `id`});
+    Team.hasMany(model.Task, {foreignKey: `id`});
+  };
 
   return Team;
 };

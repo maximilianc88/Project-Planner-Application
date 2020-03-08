@@ -24,30 +24,23 @@ module.exports = function (sequelize, DataTypes) {
   {
     timestamps: true,
     createdAt: `create_date`,
-    updatedAt: `update_date`,
-    deletedAt: `delete_date`
+    updatedAt: `update_date`
   });
   Task.associate = function (models) {
     Task.belongsTo(models.Status, {
-      as: `status_code`,
+      foreignKey: `status_code`,
       allowNull: false
     });
-  };
-  Task.associate = function (models) {
     Task.belongsTo(models.Project, {
-      as: `project_id`,
+      foreignKey: `project_id`,
       allowNull: false
     });
-  };
-  Task.associate = function(models) {
-    Task.belongsTo(models.Team, {
-      as: `team_id`,
+    Task.belongsTo(models.User, {
+      foreignKey: `assignee_id`,
       allowNull: true
     });
-  };
-  Task.associate = function(models) {
-    Task.belongsTo(models.User, {
-      as: `assignee_id`,
+    Task.belongsTo(models.Team, {
+      foreignKey: `team_id`,
       allowNull: true
     });
   };
