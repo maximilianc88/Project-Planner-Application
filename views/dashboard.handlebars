@@ -9,6 +9,9 @@
         <div class="box has-text-centered">
             <ul id="projects-list">
                 {{#each project}}
+                <li>{{name}}</li>
+                {{else}}
+                <p>No projects</p>
                 {{/each}}
             </ul>
         </div>
@@ -19,8 +22,11 @@
         </div>
         <div class="box has-text-centered">
             <ul id="tasks-list">
-                {{!-- {{#each task}}
-            {{/each}} --}}
+                {{#each task}}
+                <li>{{title}}</li>
+                 {{else}}
+                <p>No tasks</p>
+                {{/each}}
             </ul>
         </div>
     </div>
