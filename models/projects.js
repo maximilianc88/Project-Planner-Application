@@ -31,10 +31,16 @@ module.exports = function (sequelize, DataTypes) {
 
   Project.associate = function(models) {
     Project.belongsTo(models.Team, {
+      targetKey: `id`,
       foreignKey: `team_id`,
-      allowNull: true
+      allowNull: true,
+      defaultValue: null,
+      constraints: false
     });
-    Project.hasMany(models.Task, {foreignKey: `id`});
+    Project.hasMany(models.Task, {
+      sourceKey: `id`,
+      foreignKey: { name: `project_id`, allowNull: false }
+    });
   };
 
   return Project;

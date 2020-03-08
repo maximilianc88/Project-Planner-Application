@@ -29,10 +29,15 @@ module.exports = function (sequelize, DataTypes) {
 
   User.associate = function (models) {
     User.belongsTo(models.Team, {
-      foreignKey: `team_id`
+      targetKey: `id`,
+      foreignKey: { name: `team_id`, allowNull: true, defaultValue: null }
     });
-    User.hasMany(models.Task, {foreignKey: `id`});
+    User.hasMany(models.Task, {
+      sourceKey: `user_id`,
+      foreignKey: { name: `assignee_id`, allowNull: true, defaultValue: null }
+    });
   };
+
 
   return User;
 };
