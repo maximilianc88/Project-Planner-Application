@@ -1,24 +1,38 @@
 <script src="public/js/dashboard.js"></script>
 
 <div class="columns">
-    <div id="projects-container" class="column">
-        <ul id="projects-list">Projects<a href="#" class="button"><i class="far fa-plus-square"></i></a>
-            {{#each project}}
-            {{/each}}
-        </ul>
 
+    <div id="projects-container" class="column">
+        <div class="content has-text-centered">
+            <h2>Projects <a href="#" class="button"><i class="far fa-plus-square"></i></a></h2>
+        </div>
+        <div class="box has-text-centered">
+            <ul id="projects-list">
+                {{#each project}}
+                {{/each}}
+            </ul>
+        </div>
     </div>
     <div id="tasks-container" class="column">
-        <ul id="tasks-list">Tasks<a href="#" class="button"><i class="far fa-plus-square"></i></a></ul>
-             {{!-- {{#each task}}
+        <div class="content has-text-centered">
+            <h2>Tasks<a href="#" class="button"><i class="far fa-plus-square"></i></a></h2>
+        </div>
+        <div class="box has-text-centered">
+            <ul id="tasks-list">
+                {{!-- {{#each task}}
             {{/each}} --}}
-        </ul>
+            </ul>
+        </div>
     </div>
     <div id="my-tasks-container" class="column">
-        <ul id="my-tasks-list">My Tasks
-             {{!-- {{#each my-task}}
+        <div class="content has-text-centered">
+            <h2>My Tasks</h2>
+        </div>
+        <div class="box has-text-centered">
+            <ul id="my-tasks-list">
+                {{!-- {{#each my-task}}
             {{/each}} --}}
-        </ul>
+            </ul>
+        </div>
     </div>
 </div>
-
