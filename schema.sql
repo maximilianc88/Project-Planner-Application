@@ -4,3 +4,7 @@ DROP DATABASE IF EXISTS mothra_development;
 CREATE DATABASE mothra_development;
 
 USE mothra_development;
+
+SELECT * FROM projects;
+SELECT * FROM teams;
+SELECT * FROM tasks;

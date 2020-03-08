@@ -6,6 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 // Require database for sync
 const db = require(`./models`);
+const seed = require(`./seed`);
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -24,7 +25,7 @@ require(`./routes/teams-routes`)(app);
 require(`./routes/users-api-routes`)(app);
 
 // Syncing sequelize models and then starting our Express app
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ force: true }).then(() => seed()).then(() => {
   app.listen(PORT, () =>
     console.log(`App listening on http://localhost:${PORT}`)
   );
