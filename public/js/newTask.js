@@ -16,6 +16,7 @@ $(document).ready(() => {
     for (const projectObj of arr) {
       const option = $(`<option>`);
       option.data(`project-id`, projectObj.id);
+      option.data(`team-id`, projectObj.team_id);
       option.append(`${projectObj.name}`);
       selectProject.append(option);
     }
@@ -42,17 +43,9 @@ $(document).ready(() => {
     });
   };
 
-  const getTeamIdBySelectedProject = projectId => {
-    $.get(`/api/projects/${projectId}`, (data, status) => {
-      console.log(`Data: ${data}, Status: ${status}`);
-    }).then(res => {
-      console.log(res);
-    });
-  };
-
   const getAllUsersByTeamId = teamId => {
     $.get(`/api/teams/${teamId}`, (data, status) => {
-      consolelog(`Data: ${data}, Status: ${status}`);
+      console.log(`Data: ${data}, Status: ${status}`);
     });
   };
 
@@ -60,8 +53,10 @@ $(document).ready(() => {
   selectProject.change(() => {
     // get project-id from selected option
     const selectedProjectId = $(`.select-project option:selected`).data(`project-id`);
-    console.log(selectedProjectId);
-    getTeamIdBySelectedProject(selectedProjectId);
+    const selectedTeamId = $(`.select-project option:selected`).data(`team-id`);
+    console.log(`Selected Project ID: ${selectedProjectId}`);
+    console.log(`Selected Team ID: ${selectedTeamId}`);
+    getAllUsersByTeamId(selectedTeamId);
   });
 
   // console.log out selected user id
@@ -71,4 +66,5 @@ $(document).ready(() => {
   });
 
   getAllProjects();
+  getAllUsersByTeamId(1);
 });
