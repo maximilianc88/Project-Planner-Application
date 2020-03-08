@@ -13,7 +13,8 @@ module.exports = app => {
       where: {
         // eslint-disable-next-line camelcase
         user_id: req.params.id
-      }
+      },
+      include: [{ model: db.Team }, { model: db.Task }]
     }).then(dbUser => {
       res.json(dbUser);
     });
