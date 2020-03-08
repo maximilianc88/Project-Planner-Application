@@ -106,4 +106,4 @@ $(document).ready(() => {
 //       renderEmpty();
 //     }
 //   }
-// });
+});
