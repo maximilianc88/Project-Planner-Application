@@ -8,17 +8,6 @@ $(document).ready(() => {
     const home = `/`;
     window.location = home;
   });
-  // console.log out selected projectd id
-  selectProject.change(() => {
-    // get project-id from selected option
-    console.log($(`.select-project option:selected`).data(`project-id`));
-  });
-
-  // console.log out selected user id
-  selectUser.change(() => {
-    // get team-id from selected option
-    console.log($(`.select-user option:selected`).data(`user-id`));
-  });
 
   const addProjectsToOptions = arr => {
     if (!arr) {
@@ -52,6 +41,34 @@ $(document).ready(() => {
       addProjectsToOptions(data);
     });
   };
+
+  const getTeamIdBySelectedProject = projectId => {
+    $.get(`/api/projects/${projectId}`, (data, status) => {
+      console.log(`Data: ${data}, Status: ${status}`);
+    }).then(res => {
+      console.log(res);
+    });
+  };
+
+  const getAllUsersByTeamId = teamId => {
+    $.get(`/api/teams/${teamId}`, (data, status) => {
+      consolelog(`Data: ${data}, Status: ${status}`);
+    });
+  };
+
+  // console.log out selected projectd id
+  selectProject.change(() => {
+    // get project-id from selected option
+    const selectedProjectId = $(`.select-project option:selected`).data(`project-id`);
+    console.log(selectedProjectId);
+    getTeamIdBySelectedProject(selectedProjectId);
+  });
+
+  // console.log out selected user id
+  selectUser.change(() => {
+    // get team-id from selected option
+    console.log($(`.select-user option:selected`).data(`user-id`));
+  });
 
   getAllProjects();
 });
