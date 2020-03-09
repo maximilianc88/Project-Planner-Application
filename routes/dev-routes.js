@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const path = require(`path`);
 
@@ -32,10 +32,14 @@ module.exports = app => {
   app.get(`/public/js/viewTask.js`, (req, res) => {
     res.sendFile(path.join(__dirname, `../public/js/viewTask.js`));
   });
+  app.get(`/public/js/stats.js`, (req, res) => {
+    res.sendFile(path.join(__dirname, `../public/js/stats.js`));
+  });
   app.get(`/`, (req, res) => res.render(`dashboard`));
   app.get(`/dev`, (req, res) => res.render(`dev`));
   app.get(`/projects`, (req, res) => res.render(`project`));
   app.get(`/newProject`, (req, res) => res.render(`newProject`));
   app.get(`/tasks`, (req, res) => res.render(`task`));
   app.get(`/newTask`, (req, res) => res.render(`newTask`));
+  app.get(`/stats`, (req, res) => res.render(`stats`));
 };
