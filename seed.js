@@ -67,8 +67,26 @@ const seed = () => Promise.all([
     }
   ),
   db.Task.create({ title: `Design 222`, description: `design something`, project_id: 1, team_id: 1, assignee_id: 1 }),
-  db.Task.create({ title: `Task Design`, description: `design some stuff`, project_id: 1, team_id: 1, assignee_id: 2 }),
-  db.Task.create({ title: `Task 444`, description: `do some stuff`, project_id: 2, team_id: 1 }),
+  db.Task.create(
+    { title: `Design ABC`, description: `design some stuff`, project_id: 1, team_id: 1, assignee_id: 2, status_code: 2 }
+  ),
+  db.Task.create(
+    { title: `Design DEF`, description: `design some stuff`, project_id: 1, team_id: 1, assignee_id: 2, status_code: 1 }
+  ),
+  db.Task.create(
+    { title: `Design XYZ`, description: `design some stuff`, project_id: 1, team_id: 1, assignee_id: 2, status_code: 1 }
+  ),
+  db.Task.create(
+    { title: `Design 123`, description: `design some stuff`, project_id: 1, team_id: 1, assignee_id: 2, status_code: 1 }
+  ),
+  db.Task.create(
+    { title: `Design 456`, description: `design some stuff`, project_id: 1, team_id: 1, assignee_id: 2, status_code: 3 }
+  ),
+  db.Task.create(
+    { title: `Design New`, description: `design some stuff`, project_id: 1, team_id: 1, assignee_id: 2, status_code: 3 }
+  ),
+  db.Task.create(
+    { title: `Task 444`, description: `do some stuff`, project_id: 2, team_id: 1 }),
   db.Task.create(
     { title: `Task 301`, description: `do some stuff`, project_id: 3, team_id: 2, assignee_id: 4, status_code: 3 }
   ),
