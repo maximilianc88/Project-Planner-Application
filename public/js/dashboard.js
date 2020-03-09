@@ -43,7 +43,9 @@ $(document).ready(() => {
   }
 
   function createNewProjectsRow(project) {
-    const newLi = $(`<li>${project.name}</li>`);
+    const newLi = $(
+      `<li data-id="${project.id}"><a href="#">${project.name}</a></li>`
+    );
     newLi.data(`project`, project);
     return newLi;
   }

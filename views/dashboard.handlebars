@@ -4,28 +4,24 @@
 
     <div id="projects-container" class="column">
         <div class="content has-text-centered">
-            <h2>Projects <a href="#" class="button"><i class="far fa-plus-square"></i></a></h2>
+            <h2>Projects</h2>
         </div>
         <div class="box has-text-centered">
             <ul id="projects-list">
                 {{#each project}}
-                <li>{{name}}</li>
-                {{!-- {{else}}
-                <p>No projects</p> --}}
+                <li data-id="">{{name}}</li>
                 {{/each}}
             </ul>
         </div>
     </div>
     <div id="tasks-container" class="column">
         <div class="content has-text-centered">
-            <h2>Tasks<a href="#" class="button"><i class="far fa-plus-square"></i></a></h2>
+            <h2>Tasks</h2>
         </div>
         <div class="box has-text-centered">
             <ul id="tasks-list">
                 {{#each task}}
                 <li>{{title}}</li>
-                 {{!-- {{else}}
-                <p>No tasks</p> --}}
                 {{/each}}
             </ul>
         </div>
