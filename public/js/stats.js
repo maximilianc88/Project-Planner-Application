@@ -41,6 +41,9 @@ $(document).ready(() => {
     // Configuration options go here
     options: {}
   });
+
+  console.log(chart1);
+
   const chartCanvas2 = document.getElementById(`myChart`).getContext(`2d`);
   window.chartColors = {
     red: `#FF312B`,
@@ -74,4 +77,6 @@ $(document).ready(() => {
     // Configuration options go here
     options: {}
   });
+
+  console.log(chart2);
 });
