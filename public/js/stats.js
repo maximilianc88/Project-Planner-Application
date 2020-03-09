@@ -5,13 +5,11 @@ $(document).ready(() => {
     .getElementById(`myChartTeamProjects`)
     .getContext(`2d`);
   window.chartColors = {
-    red: "rgb(255, 99, 132)",
-    orange: "rgb(255, 159, 64)",
-    yellow: "rgb(255, 205, 86)",
-    green: "rgb(75, 192, 192)",
-    blue: "rgb(54, 162, 235)",
-    purple: "rgb(153, 102, 255)",
-    grey: "rgb(231,233,237)"
+    red: `#FF312B`,
+    orange: `#FF8438`,
+    yellow: `#FBFF4F`,
+    green: `#4EFF51`,
+    blue: `#156CB3`
   };
   const chart = new Chart(chartCanvas, {
     // The type of chart we want to create
@@ -28,7 +26,7 @@ $(document).ready(() => {
             window.chartColors.orange,
             window.chartColors.yellow,
             window.chartColors.green,
-            window.chartColors.grey
+            window.chartColors.blue
           ],
           data: [4, 10, 8, 5, 2]
         }
