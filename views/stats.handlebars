@@ -1,9 +1,21 @@
-<div id="projects-container" class="column">
-    <div class="content has-text-centered">
-        <h2>Overall Team Project Status Stats</h2>
+<div class="columns">
+    <div id="projects-tasks-status-container" class="column">
+        <div class="content has-text-centered">
+            <h2>Team Project Tasks Stats</h2>
+        </div>
+        <div class="box has-text-centered">
+            <canvas id="myChartTeamProjects">{{chart1}}</canvas>
+
+        </div>
     </div>
-    <div class="box has-text-centered">
-        <canvas id="myChartTeamProjects">{{chart}}</canvas>
+    <div id="user-status-container" class="column">
+        <div class="content has-text-centered">
+            <h2>Your Tasks Stats</h2>
+        </div>
+        <div class="box has-text-centered">
+            <canvas id="myChart">{{chart2}}</canvas>
+
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
         <script src="public/js/stats.js"></script>
     </div>
