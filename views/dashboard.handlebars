@@ -1,40 +1,49 @@
 <script src="js/dashboard.js"></script>
 
-<div class="columns">
+<div class="container">
+    <div class="columns is-tablet">
 
-    <div id="projects-container" class="column">
-        <div class="content has-text-centered">
-            <h2>Projects</h2>
+        <button class="button reset-button">Clear Button</button>
+
+        <div id="projects-container" class="column">
+            <div class="content has-text-centered">
+                <h2 class="title is-3">Projects</h2>
+            </div>
+            <div class="box has-text-centered">
+                <ul id="projects-list">
+                    {{#each project }}
+                    <li data-id="">{{ name }}</li>
+                    {{/each}}
+                </ul>
+            </div>
         </div>
-        <div class="box has-text-centered">
-            <ul id="projects-list">
-                {{#each project}}
-                <li data-id="">{{name}}</li>
-                {{/each}}
-            </ul>
+
+        <div id="tasks-container" class="column">
+            <div class="content has-text-centered">
+                <h2 class="title is-3">Tasks</h2>
+            </div>
+            <div class="box has-text-centered">
+                <ul id="tasks-list">
+                    {{#each task}}
+                    <li>{{title}}</li>
+                    {{/each}}
+                </ul>
+            </div>
         </div>
+
+        <div id="my-tasks-container" class="column">
+            <div class="content has-text-centered">
+                <h2 class="title is-3">My Tasks</h2>
+            </div>
+            <div class="box has-text-centered">
+                <ul id="my-tasks-list">
+                    {{!-- {{#each my-task}}
+                    {{/each}} --}}
+                </ul>
+            </div>
+        </div>
+
     </div>
-    <div id="tasks-container" class="column">
-        <div class="content has-text-centered">
-            <h2>Tasks</h2>
-        </div>
-        <div class="box has-text-centered">
-            <ul id="tasks-list">
-                {{#each task}}
-                <li>{{title}}</li>
-                {{/each}}
-            </ul>
-        </div>
-    </div>
-    <div id="my-tasks-container" class="column">
-        <div class="content has-text-centered">
-            <h2>My Tasks</h2>
-        </div>
-        <div class="box has-text-centered">
-            <ul id="my-tasks-list">
-                {{!-- {{#each my-task}}
-            {{/each}} --}}
-            </ul>
-        </div>
-    </div>
+
+
 </div>

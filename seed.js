@@ -89,32 +89,32 @@ const seed = () => Promise.all([
     { title: `Design New`, description: `design some stuff`, project_id: 1, team_id: 1, assignee_id: 2, status_code: 3 }
   ),
   db.Task.create(
-    { title: `Design 999`, description: `do some design`, project_id: 2, team_id: 1, status_code: 1 }
+    { title: `Sit around`, description: `do some design`, project_id: 2, team_id: 1, status_code: 1 }
   ),
   db.Task.create(
-    { title: `Design 1111`, description: `do some more design`, project_id: 2, team_id: 1, status_code: 4 }
+    { title: `Sleep`, description: `do some more design`, project_id: 2, team_id: 1, status_code: 4 }
   ),
   db.Task.create(
-    { title: `Design 2222`, description: `do even more design`, project_id: 2, team_id: 1 }
+    { title: `Eat things`, description: `do even more design`, project_id: 2, team_id: 1 }
   ),
   db.Task.create(
-    { title: `Design 3333`, description: `do some stuff`, project_id: 2, team_id: 1 }),
+    { title: `Watch TV`, description: `do some stuff`, project_id: 2, team_id: 1 }),
   db.Task.create(
-    { title: `Task 301`, description: `do some stuff`, project_id: 3, team_id: 2, assignee_id: 4, status_code: 3 }
+    { title: `Eat chips`, description: `do some stuff`, project_id: 3, team_id: 2, assignee_id: 4, status_code: 3 }
   ),
   db.Task.create(
-    { title: `Task 302`, description: `do some stuff`, project_id: 3, team_id: 2 }
+    { title: `Drink soda`, description: `do some stuff`, project_id: 3, team_id: 2 }
   ),
   db.Task.create(
-    { title: `Task 303`, description: `do some stuff`, project_id: 3, team_id: 2, status_code: 1 }
+    { title: `Watch YouTube`, description: `do some stuff`, project_id: 3, team_id: 2, status_code: 1 }
   ),
-  db.Task.create({ title: `Test 101`, description: `do stuff stuff stuff stuff stuff`, project_id: 4 }),
-  db.Task.create({ title: `Test 102`, description: `test some thing`, project_id: 4 }),
-  db.Task.create({ title: `Test 103`, description: `test some stuff and things`, project_id: 4 }),
-  db.Task.create({ title: `Test 104`, description: `testing`, project_id: 4 }),
-  db.Task.create({ title: `Test 105`, description: `testing testing`, project_id: 4 }),
-  db.Task.create({ title: `Test 106`, description: `test some other stuff`, project_id: 4 }),
-  db.Task.create({ title: `Secret 101`, description: `do something useful`, project_id: 5 }),
+  db.Task.create({ title: `Test stuff`, description: `do stuff stuff stuff stuff stuff`, project_id: 4 }),
+  db.Task.create({ title: `Test thing`, description: `test some thing`, project_id: 4 }),
+  db.Task.create({ title: `Test UI`, description: `test some stuff and things`, project_id: 4 }),
+  db.Task.create({ title: `Test functions`, description: `testing`, project_id: 4 }),
+  db.Task.create({ title: `Test api`, description: `testing testing`, project_id: 4 }),
+  db.Task.create({ title: `Test controller`, description: `test some other stuff`, project_id: 4 }),
+  db.Task.create({ title: `Secret 000`, description: `do something useful`, project_id: 5 }),
   db.Task.create({ title: `Secret 102`, description: `do something useful`, project_id: 5 }),
   db.Task.create({ title: `Secret 103`, description: `do something useful`, project_id: 5 }),
   db.Task.create({ title: `Secret 104`, description: `do something useful`, project_id: 5 }),
