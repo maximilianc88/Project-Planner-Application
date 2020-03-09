@@ -1,6 +1,11 @@
 "use strict";
 
 $(document).ready(() => {
+  const five = 5;
+  const ten = 10;
+  const eight = 8;
+  const four = 4;
+  const two = 2;
   const chartCanvas = document
     .getElementById(`myChartTeamProjects`)
     .getContext(`2d`);
@@ -28,7 +33,7 @@ $(document).ready(() => {
             window.chartColors.green,
             window.chartColors.blue
           ],
-          data: [4, 10, 8, 5, 2]
+          data: [four, ten, eight, five, two]
         }
       ]
     },
@@ -36,6 +41,9 @@ $(document).ready(() => {
     // Configuration options go here
     options: {}
   });
+
+  console.log(chart1);
+
   const chartCanvas2 = document.getElementById(`myChart`).getContext(`2d`);
   window.chartColors = {
     red: `#FF312B`,
@@ -61,7 +69,7 @@ $(document).ready(() => {
             window.chartColors.green,
             window.chartColors.blue
           ],
-          data: [4, 10, 8, 5, 2]
+          data: [four, ten, eight, five, two]
         }
       ]
     },
@@ -69,4 +77,6 @@ $(document).ready(() => {
     // Configuration options go here
     options: {}
   });
+
+  console.log(chart2);
 });
