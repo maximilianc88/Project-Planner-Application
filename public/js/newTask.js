@@ -46,7 +46,8 @@ $(document).ready(() => {
 
   const getAllUsersByTeamId = teamId => {
     $.get(`/api/teams/${teamId}`, (data, status) => {
-      console.log(`Status: ${status}`);
+      console.log(status);
+      if (!data) { return; }
       const userObjArr = data.Users;
       console.log(userObjArr);
       addUsersToOptions(userObjArr);
