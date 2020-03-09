@@ -9,11 +9,11 @@ const seed = () => Promise.all([
   db.Status.create({ status_code: 2, status_name: `In-Progress` }),
   db.Status.create({ status_code: 3, status_name: `Completed` }),
   db.Status.create({ status_code: 4, status_name: `Closed` }),
-  db.Team.create({ name: `Design Team 1` }),
-  db.Team.create({ name: `Dev Team 2` }),
-  db.Team.create({ name: `QA Team 3` }),
-  db.Team.create({ name: `Art Team 4`}),
-  db.Team.create({ name: `Product Team 5`}),
+  db.Team.create({ name: `Design Team` }),
+  db.Team.create({ name: `Dev Team` }),
+  db.Team.create({ name: `QA Team` }),
+  db.Team.create({ name: `Art Team` }),
+  db.Team.create({ name: `Product Team` }),
   db.User.create({ user_name: `phaggio`, first_name: `Richard`, last_name: `Wang`, team_id: 1 }),
   db.User.create({ user_name: `kaitlync`, first_name: `Kaitlyn`, last_name: `Carlson`, team_id: 1 }),
   db.User.create({ user_name: `rachelr`, first_name: `Rachel`, last_name: `Rohrbach`, team_id: 1 }),
@@ -58,7 +58,8 @@ const seed = () => Promise.all([
     { name: `Awesome Project`, description: `awesomeness`, due_date: `2020-06-30`, team_id: 4 }
   ),
   db.Task.create(
-    { title: `Task 111`,
+    {
+      title: `Design 111`,
       description: `some description`,
       project_id: 1,
       team_id: 1,
@@ -66,7 +67,9 @@ const seed = () => Promise.all([
       status_code: 2
     }
   ),
-  db.Task.create({ title: `Design 222`, description: `design something`, project_id: 1, team_id: 1, assignee_id: 1 }),
+  db.Task.create(
+    { title: `Design 222`, description: `design something`, project_id: 1, team_id: 1, assignee_id: 1 }
+  ),
   db.Task.create(
     { title: `Design ABC`, description: `design some stuff`, project_id: 1, team_id: 1, assignee_id: 2, status_code: 2 }
   ),
@@ -86,7 +89,16 @@ const seed = () => Promise.all([
     { title: `Design New`, description: `design some stuff`, project_id: 1, team_id: 1, assignee_id: 2, status_code: 3 }
   ),
   db.Task.create(
-    { title: `Task 444`, description: `do some stuff`, project_id: 2, team_id: 1 }),
+    { title: `Design 999`, description: `do some design`, project_id: 2, team_id: 1, status_code: 1 }
+  ),
+  db.Task.create(
+    { title: `Design 1111`, description: `do some more design`, project_id: 2, team_id: 1, status_code: 4 }
+  ),
+  db.Task.create(
+    { title: `Design 2222`, description: `do even more design`, project_id: 2, team_id: 1 }
+  ),
+  db.Task.create(
+    { title: `Design 3333`, description: `do some stuff`, project_id: 2, team_id: 1 }),
   db.Task.create(
     { title: `Task 301`, description: `do some stuff`, project_id: 3, team_id: 2, assignee_id: 4, status_code: 3 }
   ),
