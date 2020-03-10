@@ -17,17 +17,19 @@ app.use(express.json());
 
 // Set up static file directory
 const assetsPath = path.join(__dirname, `public`);
-console.log(assetsPath);
 app.use(express.static(assetsPath));
-app.use(express.static(`node_modules`));
+const nodeModulesPath = path.join(__dirname, `node_modules`);
+app.use(express.static(nodeModulesPath));
 
 // Set Handlebars
 const expressHandlebars = require(`express-handlebars`);
-app.engine(`handlebars`, expressHandlebars({ defaultLayout: `main` }));
+app.engine(`handlebars`, expressHandlebars({
+  defaultLayout: `main`
+}));
 app.set(`view engine`, `handlebars`);
 
 // Config routes
-require(`./routes/dev-routes`)(app);
+require(`./routes/navigation-routes`)(app);
 require(`./routes/projects-routes`)(app);
 require(`./routes/status-api-routes`)(app);
 require(`./routes/tasks-routes`)(app);

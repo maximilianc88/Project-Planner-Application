@@ -1,13 +1,8 @@
 "use strict";
 
-const path = require(`path`);
 const db = require(`../models`);
 
 module.exports = app => {
-  app.get(`/node_modules/bulma/css/bulma.css`, (req, res) =>
-    res.sendFile(path.join(__dirname, `bulma/css/bulma.css`))
-  );
-
   app.get(`/`, (req, res) => res.render(`home`));
   app.get(`/dashboard`, (req, res) => res.render(`dashboard`));
   app.get(`/newProject`, (req, res) => res.render(`newProject`));
@@ -19,11 +14,19 @@ module.exports = app => {
     db.Project.findOne({
       where: {
         id: projectId
-      }
+      },
+      include: [
+        {
+          model: db.Team
+        }, {
+          model: db.Task, include: {
+            model: db.User
+          }
+        }
+      ]
     })
       .then(hbs => {
-        console.log(hbs.dataValues);
-        res.render(`project`, hbs.dataValues );
+        res.render(`project`, hbs.dataValues);
       });
   });
 };

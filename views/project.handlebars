@@ -1,16 +1,98 @@
-<script src="../js/viewProject.js"></script>
-
+<script src="../js/project.js"></script>
 <div class="container">
-  Project ID: {{ id }}
-  <br>
-  Project Name: {{ name }}
-  <br>
-  Description: {{ description }}
-  <br>
-  Create Date: {{ create_date }}
-  <br>
-  Due Date: {{ due_date }}
-  <br>
-  Team ID: {{ team_id }}
-  <br>
+
+  <div class="level">
+    <div class="level-item">
+      <div class="title is-2">
+        {{ name }}
+      </div>
+    </div>
+  </div>
+
+  <div class="columns is-tablet">
+
+    <div class="column is-one-third-widescreen">
+
+      <p class="heading">
+        Project Description
+      </p>
+      <p class="title is-5">
+        {{ description }}
+      </p>
+
+      <p class="heading">
+        Create Date
+      </p>
+      <p class="title is-5">
+        {{ create_date }}
+      </p>
+
+      <p class="heading">
+        Due Date
+      </p>
+      <p class="title is-5">
+        {{ due_date }}
+      </p>
+
+      <p class="heading">
+        Project ID
+      </p>
+      <p class="title is-5">
+        {{ id }}
+      </p>
+
+      <p class="heading">
+        Assigned Team ID
+      </p>
+      <p class="title is-5">
+        {{ team_id }}
+      </p>
+
+      <p class="heading">
+        Assigned Team Name
+      </p>
+      <p class="title is-5">
+        {{ Team.dataValues.name }}
+      </p>
+
+    </div>
+
+    <div class="column is-two-thirds-widescreen">
+      <p class="heading">
+        Tasks
+      </p>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>
+              <div class="title is-6">Task ID</div>
+            </th>
+            <th>
+              <div class="title is-6">Task Name</div>
+            </th>
+            <th>
+              <div class="title is-6">Assignee ID</div>
+            </th>
+            <th>
+              <div class="title is-6">Assignee Name</div>
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {{#each Tasks}}
+          <tr>
+            <th>{{ dataValues.id }}</th>
+            <td><a href="/task/{{ dataValues.id }}">{{ dataValues.title }}</a></td>
+            <td>{{ dataValues.assignee_id }}</td>
+            <td>{{ dataValues.User.dataValues.first_name }} {{ dataValues.User.dataValues.last_name }}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
 </div>
