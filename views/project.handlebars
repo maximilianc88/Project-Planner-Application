@@ -12,7 +12,7 @@
   <div class="columns is-tablet">
 
     <div class="column is-one-third-widescreen">
-      
+
       <p class="heading">
         Project Description
       </p>
@@ -72,7 +72,10 @@
               <div class="title is-6">Task Name</div>
             </th>
             <th>
-              <div class="title is-6">Assignee</div>
+              <div class="title is-6">Assignee ID</div>
+            </th>
+            <th>
+              <div class="title is-6">Assignee Name</div>
             </th>
           </tr>
         </thead>
@@ -81,8 +84,9 @@
           {{#each Tasks}}
           <tr>
             <th>{{ dataValues.id }}</th>
-            <td>{{ dataValues.title }}</td>
+            <td><a href="/task/{{ dataValues.id }}">{{ dataValues.title }}</a></td>
             <td>{{ dataValues.assignee_id }}</td>
+            <td>{{ dataValues.User.dataValues.first_name }} {{ dataValues.User.dataValues.last_name }}</td>
           </tr>
           {{/each}}
         </tbody>
