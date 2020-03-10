@@ -9,23 +9,23 @@ const seed = () => Promise.all([
   db.Status.create({ status_code: 2, status_name: `In-Progress` }),
   db.Status.create({ status_code: 3, status_name: `Completed` }),
   db.Status.create({ status_code: 4, status_name: `Closed` }),
-  db.Team.create({ name: `Design Team` }),
-  db.Team.create({ name: `Dev Team` }),
-  db.Team.create({ name: `QA Team` }),
-  db.Team.create({ name: `Art Team` }),
   db.Team.create({ name: `Product Team` }),
+  db.Team.create({ name: `Design Team` }),
+  db.Team.create({ name: `Engineering Team` }),
+  db.Team.create({ name: `Art Team` }),
+  db.Team.create({ name: `QA Team` }),
   db.User.create({ user_name: `phaggio`, first_name: `Richard`, last_name: `Wang`, team_id: 1 }),
   db.User.create({ user_name: `kaitlync`, first_name: `Kaitlyn`, last_name: `Carlson`, team_id: 1 }),
   db.User.create({ user_name: `rachelr`, first_name: `Rachel`, last_name: `Rohrbach`, team_id: 1 }),
-  db.User.create({ user_name: `bradpitt`, first_name: `Brad`, last_name: `Pit`, team_id: 2 }),
-  db.User.create({ user_name: `leo`, first_name: `Leo`, last_name: `Dicaprio`, team_id: 2 }),
+  db.User.create({ user_name: `bradpitt`, first_name: `Brad`, last_name: `Pitt`, team_id: 2 }),
+  db.User.create({ user_name: `leo`, first_name: `Leonardo`, last_name: `Dicaprio`, team_id: 2 }),
   db.User.create({ user_name: `cbale`, first_name: `Christian`, last_name: `Bale`, team_id: 2 }),
-  db.User.create({ user_name: `sjob`, first_name: `Steve`, last_name: `Jobs`, team_id: 3 }),
+  db.User.create({ user_name: `sjob`, first_name: `Steve`, last_name: `Jobs`, team_id: 1 }),
   db.User.create({ user_name: `jeffbezos`, first_name: `Jeff`, last_name: `Bezos`, team_id: 3 }),
   db.User.create({ user_name: `billgates`, first_name: `Bill`, last_name: `Gates`, team_id: 3 }),
-  db.User.create({ user_name: `elonmusk`, first_name: `Elon`, last_name: `Musk` }),
+  db.User.create({ user_name: `elonmusk`, first_name: `Elon`, last_name: `Musk`, team_id: 3 }),
   db.User.create({ user_name: `timapple`, first_name: `Tim`, last_name: `Cook` }),
-  db.User.create({ user_name: `michaelj`, first_name: `Michael`, last_name: `Jordan`, team_id: 1 }),
+  db.User.create({ user_name: `michaelj`, first_name: `Michael`, last_name: `Jordan`, team_id: 2 }),
   db.User.create({ user_name: `warrenb`, first_name: `Warren`, last_name: `Buffett`, team_id: 4 }),
   db.User.create({ user_name: `georgew`, first_name: `George`, last_name: `Washington` }),
   db.User.create({ user_name: `johns`, first_name: `John`, last_name: `Smith`, team_id: 4 }),
@@ -33,34 +33,42 @@ const seed = () => Promise.all([
   db.User.create({ user_name: `paulz`, first_name: `Paul`, last_name: `Zhao`, team_id: 5 }),
   db.Project.create(
     {
-      name: `Design Project`,
-      description: `Design stuff`,
-      due_date: `2020-04-01`,
+      name: `Awesome Product`,
+      description: `Spec out a product that is awesome`,
+      due_date: `2020-04-15`,
       team_id: 1
     }
   ),
   db.Project.create(
-    { name: `Boring Project`, description: `some boring stuff`, team_id: 1 }
+    { name: `Boring Product`, description: `Spec out a boring product that will have zero traction`, team_id: 1 }
   ),
   db.Project.create(
-    { name: `Fun Project`, description: `some description 3`, team_id: 2 }
+    { name: `Design Fun Feature`, description: `Design soemthing that is fun for the boring product`, team_id: 2 }
   ),
   db.Project.create(
-    { name: `Test Project`, description: `some description 4`, team_id: 5 }
+    { name: `Test the boring product`, description: `stress test the boring product extensively`, team_id: 5 }
   ),
   db.Project.create(
-    { name: `Secret Project`, description: `some description 5`, due_date: `2020-05-30` }
+    {
+      name: `Secret Project`,
+      description: `this is a secret project, it is not assigned to any team yet`,
+      due_date: `2020-05-30`
+    }
   ),
   db.Project.create(
-    { name: `Stupid Project 6`, description: `doing a lot of nothing`, due_date: `2020-05-30` }
+    {
+      name: `Create stupid art`,
+      description: `create some stupid art that no one appreciate`,
+      due_date: `2020-05-30`, team_id: 4
+    }
   ),
   db.Project.create(
     { name: `Awesome Project`, description: `awesomeness`, due_date: `2020-06-30`, team_id: 4 }
   ),
   db.Task.create(
     {
-      title: `Design 111`,
-      description: `some description`,
+      title: `Product Spec`,
+      description: `Start writing product spec`,
       project_id: 1,
       team_id: 1,
       assignee_id: 1,
@@ -68,45 +76,99 @@ const seed = () => Promise.all([
     }
   ),
   db.Task.create(
-    { title: `Design 222`, description: `design something`, project_id: 1, team_id: 1, assignee_id: 1 }
+    { title: `Set up MVP`, description: `define MVP requirement`, project_id: 1, team_id: 1, assignee_id: 2 }
   ),
   db.Task.create(
-    { title: `Design ABC`, description: `design some stuff`, project_id: 1, team_id: 1, assignee_id: 2, status_code: 2 }
+    {
+      title: `Identify Dependencies`,
+      description: `identify technical dependencies for this product`,
+      project_id: 1,
+      team_id: 1,
+      assignee_id: 3,
+      status_code: 2
+    }
   ),
   db.Task.create(
-    { title: `Design DEF`, description: `design some stuff`, project_id: 1, team_id: 1, assignee_id: 2, status_code: 1 }
+    {
+      title: `Define V1 requirement`,
+      description: `define V1 requirement for the product`,
+      project_id: 1,
+      team_id: 1,
+      assignee_id: 1,
+      status_code: 1
+    }
   ),
   db.Task.create(
-    { title: `Design XYZ`, description: `design some stuff`, project_id: 1, team_id: 1, assignee_id: 2, status_code: 1 }
+    {
+      title: `Success Metrics`,
+      description: `outline success metrics`,
+      project_id: 1,
+      team_id: 1,
+      assignee_id: 3,
+      status_code: 1
+    }
   ),
   db.Task.create(
-    { title: `Design 123`, description: `design some stuff`, project_id: 1, team_id: 1, assignee_id: 2, status_code: 1 }
+    {
+      title: `Monitoring Metrics`,
+      description: `outline monitoring metrics`,
+      project_id: 1,
+      team_id: 1,
+      assignee_id: 2,
+      status_code: 1
+    }
   ),
   db.Task.create(
-    { title: `Design 456`, description: `design some stuff`, project_id: 1, team_id: 1, assignee_id: 2, status_code: 3 }
+    {
+      title: `User Requirement`,
+      description: `collect user requirement`,
+      project_id: 1,
+      team_id: 1,
+      assignee_id: 2,
+      status_code: 3
+    }
   ),
   db.Task.create(
-    { title: `Design New`, description: `design some stuff`, project_id: 1, team_id: 1, assignee_id: 2, status_code: 3 }
+    {
+      title: `V2 Requirement`,
+      description: `design some stuff`,
+      project_id: 1,
+      team_id: 1
+    }
   ),
   db.Task.create(
-    { title: `Sit around`, description: `do some design`, project_id: 2, team_id: 1, status_code: 1 }
+    { title: `Sit around`, description: `do something boring`, project_id: 2, team_id: 1, status_code: 1 }
   ),
   db.Task.create(
-    { title: `Sleep`, description: `do some more design`, project_id: 2, team_id: 1, status_code: 4 }
+    { title: `Sleep`, description: `waste time`, project_id: 2, team_id: 1, status_code: 4 }
   ),
   db.Task.create(
-    { title: `Eat things`, description: `do even more design`, project_id: 2, team_id: 1 }
+    { title: `Eat things`, description: `get fat`, project_id: 2, team_id: 1, assignee_id: 2 }
   ),
   db.Task.create(
-    { title: `Watch TV`, description: `do some stuff`, project_id: 2, team_id: 1 }),
+    { title: `Watch TV`, description: `learn something useless`, project_id: 2, team_id: 1, assignee_id: 1 }),
   db.Task.create(
-    { title: `Eat chips`, description: `do some stuff`, project_id: 3, team_id: 2, assignee_id: 4, status_code: 3 }
+    {
+      title: `Design a game`,
+      description: `design a game for boring product`,
+      project_id: 3,
+      team_id: 2,
+      assignee_id: 4,
+      status_code: 3
+    }
   ),
   db.Task.create(
-    { title: `Drink soda`, description: `do some stuff`, project_id: 3, team_id: 2 }
+    { title: `Design anything`, description: `do some stuff`, project_id: 3, team_id: 2 }
   ),
   db.Task.create(
-    { title: `Watch YouTube`, description: `do some stuff`, project_id: 3, team_id: 2, status_code: 1 }
+    {
+      title: `Design something bad`,
+      description: `do some stuff`,
+      project_id: 3,
+      team_id: 2,
+      assignee_id: 6,
+      status_code: 1
+    }
   ),
   db.Task.create({ title: `Test stuff`, description: `do stuff stuff stuff stuff stuff`, project_id: 4 }),
   db.Task.create({ title: `Test thing`, description: `test some thing`, project_id: 4 }),
@@ -119,11 +181,11 @@ const seed = () => Promise.all([
   db.Task.create({ title: `Secret 103`, description: `do something useful`, project_id: 5 }),
   db.Task.create({ title: `Secret 104`, description: `do something useful`, project_id: 5 }),
   db.Task.create({ title: `STUFF`, description: `do some more stuff`, project_id: 5 }),
-  db.Task.create({ title: `Design more`, description: `design more things`, project_id: 1 }),
-  db.Task.create({ title: `Design a page`, description: `design the pages`, project_id: 1 }),
-  db.Task.create({ title: `Bring stuff`, description: `BOREDOM`, project_id: 2, assignee_id: 3 }),
-  db.Task.create({ title: `Boring 2222`, description: `BOREDOM`, project_id: 2, assignee_id: 1 }),
-  db.Task.create({ title: `Boring things`, description: `BOREDOM`, project_id: 2, assignee_id: 2 })
+  db.Task.create({ title: `Analytics Requirement`, description: `define analytics req.`, project_id: 1 }),
+  db.Task.create({ title: `Get it approved`, description: `submit for approval`, project_id: 1 }),
+  db.Task.create({ title: `Drink water`, description: `stay hydrate`, project_id: 2, assignee_id: 1 }),
+  db.Task.create({ title: `Read a book`, description: `Read a boring book`, project_id: 2, assignee_id: 3 }),
+  db.Task.create({ title: `Do Nothing`, description: `BOREDOM`, project_id: 2, assignee_id: 2 })
 ])
   .catch(error => console.log(error));
 

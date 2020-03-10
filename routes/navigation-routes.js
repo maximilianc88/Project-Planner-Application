@@ -15,10 +15,17 @@ module.exports = app => {
       where: {
         id: projectId
       },
-      include: [{ model: db.Team }, { model: db.Task, include: { model: db.User } }]
+      include: [
+        {
+          model: db.Team
+        }, {
+          model: db.Task, include: {
+            model: db.User
+          }
+        }
+      ]
     })
       .then(hbs => {
-        console.log(hbs.dataValues);
         res.render(`project`, hbs.dataValues);
       });
   });
