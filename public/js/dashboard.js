@@ -47,7 +47,7 @@ $(document).ready(() => {
 
   function createNewProjectsRow(project) {
     const newLi = $(
-      `<li data-id="${project.id}"><a href="#">${project.name}</a></li>`
+      `<li data-id="${project.id}"><a href="/project/${project.id}">${project.name}</a></li>`
     );
     newLi.data(`project`, project);
     return newLi;
@@ -74,7 +74,7 @@ $(document).ready(() => {
   }
 
   function createNewTasksRow(task) {
-    const newTaskLi = $(`<li>${task.title}<li>`);
+    const newTaskLi = $(`<li><a href="/tasks/${task.id}">${task.title}<li>`);
     newTaskLi.data(`task`, task);
     return newTaskLi;
   }
