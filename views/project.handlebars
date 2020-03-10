@@ -1,16 +1,51 @@
-<script src="../js/viewProject.js"></script>
+<script src="../js/project.js"></script>
 
 <div class="container">
-  Project ID: {{ id }}
-  <br>
-  Project Name: {{ name }}
-  <br>
-  Description: {{ description }}
-  <br>
-  Create Date: {{ create_date }}
-  <br>
-  Due Date: {{ due_date }}
-  <br>
-  Team ID: {{ team_id }}
-  <br>
+  <div class="columns is-mobile">
+
+    <div class="column is-one-third-widescreen">
+
+      <div class="level">
+        <div class="level-item">
+          <div class="title is-2">
+            {{ name }}
+          </div>
+        </div>
+      </div>
+
+      <p class="heading">
+        Project Description
+      </p>
+      <p class="title is-5">
+        {{ description }}
+      </p>
+
+      <p class="heading">
+        Create Date
+      </p>
+      <p class="title is-5">
+        {{ create_date }}
+      </p>
+
+      <p class="heading">
+        Due Date
+      </p>
+      <p class="title is-5">
+        {{ due_date }}
+      </p>
+
+      <p class="heading">
+        Assigned Team
+      </p>
+      <p class="title is-5">
+        {{ team_id }}
+      </p>
+
+
+    </div>
+
+    <div class="column">
+    </div>
+
+  </div>
 </div>
