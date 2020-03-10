@@ -1,4 +1,5 @@
 "use strict";
+
 $(document).ready(() => {
   const projectsList = $(`#projects-list`);
   const tasksList = $(`#tasks-list`);
@@ -18,6 +19,7 @@ $(document).ready(() => {
   getTasks();
   // }
 
+
   function getProjects() {
     // userId = user || ``;
     // if (userId) {
@@ -33,6 +35,7 @@ $(document).ready(() => {
       }
     });
   }
+
   function initializeRows() {
     // projectsList.empty();
     const projectsToAdd = [];
@@ -75,4 +78,13 @@ $(document).ready(() => {
     newTaskLi.data(`task`, task);
     return newTaskLi;
   }
+
+
+  // debug test button to clear project list
+  const resetButton = $(`.reset-button`);
+  resetButton.on(`click`, () => {
+    projectsList.empty();
+    projectsList.append(`Clear Button Pressed`);
+  });
+
 });

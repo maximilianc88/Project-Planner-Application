@@ -16,6 +16,7 @@ app.use(express.json());
 
 // Set up static file directory
 app.use(express.static(`public`));
+app.use(express.static(`node_modules`));
 
 // Set Handlebars
 const expressHandlebars = require(`express-handlebars`);
