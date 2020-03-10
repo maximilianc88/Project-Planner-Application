@@ -1,6 +1,7 @@
 "use strict";
 // Dependencies
 const express = require(`express`);
+const path = require(`path`);
 
 // Set up Express app
 const app = express();
@@ -15,7 +16,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Set up static file directory
-app.use(express.static(`public`));
+const assetsPath = path.join(__dirname, `public`);
+console.log(assetsPath);
+app.use(express.static(assetsPath));
 app.use(express.static(`node_modules`));
 
 // Set Handlebars
