@@ -1,6 +1,25 @@
 "use strict";
 
-$(document).ready(() => {
+const addTeamsToOptions = (arr, selectTeam) => {
+  if (!arr) {
+    return;
+  }
+  for (const teamObj of arr) {
+    const option = $(`<option>`);
+    option.data(`team-id`, teamObj.id);
+    option.append(`${teamObj.name}`);
+    selectTeam.append(option);
+  }
+};
+
+const getAllTeams = selectTeam => {
+  $.get(`/api/teams`, (data, status) => {
+    console.log(`Data: ${data}, Status: ${status}`);
+    addTeamsToOptions(data, selectTeam);
+  });
+};
+
+const onReady = () => {
   const selectTeam = $(`.select-team`);
   const cancelButton = $(`.cancel-button`);
   cancelButton.on(`click`, () => {
@@ -12,27 +31,7 @@ $(document).ready(() => {
     console.log($(`.select-team option:selected`).data(`team-id`));
   });
 
-  const addTeamsToOptions = arr => {
-    if (!arr) {
-      return;
-    }
-    for (const teamObj of arr) {
-      const option = $(`<option>`);
-      option.data(`team-id`, teamObj.id);
-      option.append(`${teamObj.name}`);
-      selectTeam.append(option);
-    }
-    return;
-  };
-
-  const getAllTeams = () => {
-    $.get(`/api/teams`, (data, status) => {
-      console.log(`Data: ${data}, Status: ${status}`);
-      addTeamsToOptions(data);
-    });
-  };
-
-  getAllTeams();
+  getAllTeams(selectTeam);
 
   $(`#newProjectSubmit`).on(`click`, () => {
     const newProject = {
@@ -51,13 +50,19 @@ $(document).ready(() => {
       data: newProject
     }).then(() => {
       console.log(`Success`);
-      if (document.getElementById(`add-task`).checked) {
+      if ($(`#add-task`).checked) {
         const newTask = `/newTask`;
         window.location = newTask;
-      } else if (document.getElementById(`no-add-task`).checked) {
+      } else if ($(`#no-add-task`).checked) {
         const goHome = `/`;
         window.location = goHome;
       }
     });
   });
-});
+};
+
+$(document).ready(onReady);
+
+if(typeof exports !== `undefined`) {
+  exports.addTeamsToOptions = addTeamsToOptions;
+}
