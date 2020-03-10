@@ -18,15 +18,35 @@ module.exports = app => {
       include: [
         {
           model: db.Team
-        }, {
-          model: db.Task, include: {
+        },
+        {
+          model: db.Task,
+          include: {
             model: db.User
           }
         }
       ]
-    })
-      .then(hbs => {
-        res.render(`project`, hbs.dataValues);
-      });
+    }).then(hbs => {
+      res.render(`project`, hbs.dataValues);
+    });
+  });
+
+  app.get(`/tasks/:id`, (req, res) => {
+    const taskId = req.params.id;
+    db.Task.findOne({
+      where: {
+        id: taskId
+      }, include: [
+        {
+          model: db.User
+        },
+        {
+          model: db.Status
+        }
+      ]
+    }).then(result => {
+      res.render(`task`, result.dataValues);
+      console.log(result.dataValues);
+    });
   });
 };
