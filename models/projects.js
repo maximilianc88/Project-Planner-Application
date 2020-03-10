@@ -39,7 +39,7 @@ module.exports = function (sequelize, DataTypes) {
       constraints: false
     });
     Project.hasMany(models.Task, {
-      sourceKey: `id`,
+      // sourceKey: `id`,
       foreignKey: { name: `project_id`, allowNull: false }
     });
   };

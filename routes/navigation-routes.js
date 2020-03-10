@@ -14,9 +14,11 @@ module.exports = app => {
     db.Project.findOne({
       where: {
         id: projectId
-      }
+      },
+      include: [{ model: db.Team }, { model: db.Task}]
     })
       .then(hbs => {
+        console.log(hbs.dataValues);
         res.render(`project`, hbs.dataValues );
       });
   });

@@ -35,16 +35,37 @@
       </p>
 
       <p class="heading">
-        Assigned Team
+        Project ID
+      </p>
+      <p class="title is-5">
+        {{ id }}
+      </p>
+
+      <p class="heading">
+        Assigned Team ID
       </p>
       <p class="title is-5">
         {{ team_id }}
       </p>
 
+      <p class="heading">
+        Assigned Team Name
+      </p>
+      <p class="title is-5">
+        {{ Team.dataValues.name }}
+      </p>
+
 
     </div>
 
-    <div class="column">
+    <div class="column is-two-third-widescreen">
+      <p class="heading">
+        Tasks
+      </p>
+      
+      {{#each Tasks}}
+        {{ dataValues.id }}
+      {{/each}}
     </div>
 
   </div>
