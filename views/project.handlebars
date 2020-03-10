@@ -1,18 +1,18 @@
 <script src="../js/project.js"></script>
-
 <div class="container">
-  <div class="columns is-mobile">
+
+  <div class="level">
+    <div class="level-item">
+      <div class="title is-2">
+        {{ name }}
+      </div>
+    </div>
+  </div>
+
+  <div class="columns is-tablet">
 
     <div class="column is-one-third-widescreen">
-
-      <div class="level">
-        <div class="level-item">
-          <div class="title is-2">
-            {{ name }}
-          </div>
-        </div>
-      </div>
-
+      
       <p class="heading">
         Project Description
       </p>
@@ -55,17 +55,39 @@
         {{ Team.dataValues.name }}
       </p>
 
-
     </div>
 
-    <div class="column is-two-third-widescreen">
+    <div class="column is-two-thirds-widescreen">
       <p class="heading">
         Tasks
       </p>
-      
-      {{#each Tasks}}
-        {{ dataValues.id }}
-      {{/each}}
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>
+              <div class="title is-6">Task ID</div>
+            </th>
+            <th>
+              <div class="title is-6">Task Name</div>
+            </th>
+            <th>
+              <div class="title is-6">Assignee</div>
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {{#each Tasks}}
+          <tr>
+            <th>{{ dataValues.id }}</th>
+            <td>{{ dataValues.title }}</td>
+            <td>{{ dataValues.assignee_id }}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+
     </div>
 
   </div>
