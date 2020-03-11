@@ -113,4 +113,5 @@ $(document).ready(onReady);
 
 if (typeof exports !== `undefined`) {
   exports.addProjectsToOptions = addProjectsToOptions;
+  exports.addUsersToOptions = addUsersToOptions;
 }
