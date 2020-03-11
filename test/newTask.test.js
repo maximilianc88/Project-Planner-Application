@@ -111,3 +111,84 @@ describe(`addProjectsToOptions`, () => {
     expect(selectProject.children().length).toEqual(2);
   });
 });
+
+describe(`addUsersToOptions`, () => {
+  it(`should not create child element for undefined input`, () => {
+    const selectUser = $(`<select>`);
+
+    newTask.addUsersToOptions(undefined, selectUser);
+
+    expect(selectUser.children().length).toEqual(0);
+  });
+
+  it(`should not create child element for empty array input`, () => {
+    const selectUser = $(`<select>`);
+
+    newTask.addUsersToOptions([], selectUser);
+
+    expect(selectUser.children().length).toEqual(0);
+  });
+
+  it(`should set inner text to expected name on child option element`, () => {
+    const expectedName = `name`;
+
+    const arr = [
+      {
+        user_id: 1,
+        user_name: expectedName
+      }
+    ];
+
+    const selectUser = $(`<select>`);
+
+    newTask.addUsersToOptions(arr, selectUser);
+
+    expect(
+      selectUser
+        .children()
+        .eq(0)
+        .text()
+    ).toEqual(expectedName);
+  });
+
+  it(`should set data-user-id to expected ID on child option element`, () => {
+    const expectedId = 1;
+
+    const arr = [
+      {
+        user_id: expectedId,
+        user_name: `name`
+      }
+    ];
+
+    const selectUser = $(`<select>`);
+
+    newTask.addUsersToOptions(arr, selectUser);
+
+    expect(
+      selectUser
+        .children()
+        .eq(0)
+        .data(`user-id`)
+    ).toEqual(expectedId);
+  });
+
+  it(`should have two options when two items passed in arr`, () => {
+    const arr = [
+      {
+        user_id: 1,
+        user_name: `name1`
+      },
+      {
+        user_id: 2,
+        user_name: `name2`
+      }
+    ];
+
+    const selectUser = $(`<select>`);
+
+    newTask.addUsersToOptions(arr, selectUser);
+
+    expect(selectUser.children().length).toEqual(2);
+  });
+});
