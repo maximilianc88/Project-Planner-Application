@@ -2,7 +2,7 @@
 <div class="container">
   <div class="level">
     <div class="level-item">
-      <div class="title is-2">
+      <div class="title is-2" data-taskId="{{ this.task.dataValues.id }}">
         {{ this.task.dataValues.title }}
       </div>
     </div>
@@ -47,7 +47,7 @@
         <div class="select">
           <select class="select-status">
             {{#each status}}
-            <option>{{ dataValues.status_name }}</option>
+            <option data-id="{{ dataValues.status_code }}"> {{ dataValues.status_name }}</option>
             {{!-- need list of statuses here --}}
             {{/each}}
           </select>
