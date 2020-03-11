@@ -84,29 +84,29 @@ const onReady = () => {
 
   getAllProjects(selectProject);
 
-  // $(`#new-task-submit`).on(`click`, () => {
-  //   const newTask = {
-  //     title: $(`new-task-name`)
-  //       .val()
-  //       .trim(),
-  //     // eslint-disable-next-line camelcase
-  //     project_id: $(`.select-project option:selected`).data(`project-id`),
-  //     // eslint-disable-next-line camelcase
-  //     assignee_id: $(`.select-user option:selected`).data(`user-id`),
-  //     description: $(`#new-task-description`)
-  //       .val()
-  //       .trim()
-  //   };
-  //   console.log(newTask);
-  //   $.ajax(`api/tasks`, {
-  //     type: `POST`,
-  //     data: newTask
-  //   }).then(() => {
-  //     console.log(`Success`);
-  //     const goHome = `/`;
-  //     window.location = goHome;
-  //   });
-  // });
+  $(`#new-task-submit`).on(`click`, () => {
+    const newTask = {
+      title: $(`#new-task-name`)
+        .val()
+        .trim(),
+      // eslint-disable-next-line camelcase
+      project_id: $(`.select-project option:selected`).data(`project-id`),
+      // eslint-disable-next-line camelcase
+      assignee_id: $(`.select-user option:selected`).data(`user-id`),
+      description: $(`#new-task-description`)
+        .val()
+        .trim()
+    };
+    console.log(newTask);
+    $.ajax(`api/tasks`, {
+      type: `POST`,
+      data: newTask
+    }).then(() => {
+      console.log(`Success`);
+      const goHome = `/`;
+      window.location = goHome;
+    });
+  });
 };
 
 $(document).ready(onReady);
