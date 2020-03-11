@@ -7,7 +7,7 @@
         <div class="field">
             <label class="label">Task Name</label>
             <div class="control">
-                <input class="input" type="text" placeholder="Task Name">
+                <input id= "new-task-name" class="input" type="text" placeholder="Task Name">
             </div>
         </div>
 
@@ -17,7 +17,7 @@
             <div class="control">
                 <div class="select">
                     <select class="select-project">
-                        <option data-project-id="">Select Project</option>
+                        <option data-project-id="" id="selected-project">Select Project</option>
                         {{!-- need list of availble projects here --}}
                     </select>
                 </div>
@@ -30,7 +30,7 @@
             <div class="control">
                 <div class="select">
                     <select class="select-user">
-                        <option data-user-id="">Select User</option>
+                        <option data-user-id="" id="selected-user">Select User</option>
                         {{!-- need list of users from assigned team here --}}
                     </select>
                 </div>
@@ -41,17 +41,17 @@
         <div class="field">
             <label class="label">Task Detail</label>
             <div class="control">
-                <textarea class="textarea" placeholder="Task Detail"></textarea>
+                <textarea id="new-task-description" class="textarea" placeholder="Task Detail"></textarea>
             </div>
         </div>
 
         {{!-- buttons --}}
         <div class="field is-grouped">
             <div class="control">
-                <button class="button is-link submit-button">Submit</button>
+                <button id=" new-task-submit" class="button is-link submit-button">Submit</button>
             </div>
             <div class="control">
-                <button class="button is-link is-light cancel-button">Cancel</button>
+                <button id="cancel" class="button is-link is-light cancel-button">Cancel</button>
             </div>
         </div>
 
