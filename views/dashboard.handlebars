@@ -12,16 +12,19 @@
 
     <div class="columns is-centered is-tablet">
         <div class="column">
-            <div class="title is-3">Projects</div>
+            <div class="title is-3">Projects<i class="fas fa-trash" id="project-delete"></i></div>
             {{#each this.projects }}
-            <p class=""><a href="project/{{ dataValues.id }}">{{ dataValues.name }}</a></p>
+            <p class=""><a href="project/{{ dataValues.id }}"><i
+                        class="fas fa-minus-circle project-minus-icon"></i>{{ dataValues.name }}</a></p>
             {{/each}}
         </div>
 
         <div class="column">
-            <div class="title is-3">Tasks</div>
+            <div class="title is-3">Tasks<i class="fas fa-trash" id="task-delete"></i></div>
             {{#each this.tasks }}
-            <p class=""><a href="task/{{ dataValues.id }}">{{ dataValues.title }}</a></p>
+            <p class=""><a href="task/{{ dataValues.id }}"><i
+                        class="fas fa-minus-circle task-minus-icon"></i>{{ dataValues.title }}</a>
+            </p>
             {{/each}}
         </div>
     </div>

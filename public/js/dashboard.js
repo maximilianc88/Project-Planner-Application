@@ -19,7 +19,6 @@ $(document).ready(() => {
   getTasks();
   // }
 
-
   function getProjects() {
     // userId = user || ``;
     // if (userId) {
@@ -79,12 +78,18 @@ $(document).ready(() => {
     return newTaskLi;
   }
 
-
   // debug test button to clear project list
   const resetButton = $(`.reset-button`);
   resetButton.on(`click`, () => {
     projectsList.empty();
     projectsList.append(`Clear Button Pressed`);
   });
-
+  $(`.project-minus-icon`).hide();
+  $(`.task-minus-icon`).hide();
+  $(`#project-delete`).on(`click`, () => {
+    $(`.project-minus-icon`).show();
+  });
+  $(`#task-delete`).on(`click`, () => {
+    $(`.task-minus-icon`).show();
+  });
 });

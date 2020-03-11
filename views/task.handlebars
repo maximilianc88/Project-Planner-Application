@@ -8,40 +8,40 @@
     </div>
   </div>
 
-    <div class="column has-text-centered">
+  <div class="column has-text-centered">
 
-      <p class="heading">
-        Task Description
-      </p>
-      <p class="title is-5">
-        {{ this.task.dataValues.description }}
-      </p>
+    <p class="heading">
+      Task Description
+    </p>
+    <p class="title is-5">
+      {{ this.task.dataValues.description }}
+    </p>
 
-      <p class="heading">
-        Create Date
-      </p>
-      <p class="title is-5">
-        {{ this.task.dataValues.create_date }}
-      </p>
+    <p class="heading">
+      Create Date
+    </p>
+    <p class="title is-5">
+      {{ this.task.dataValues.create_date }}
+    </p>
 
-      <p class="heading">
-        Assignee
-      </p>
-      <p class="title is-5">
-        {{ this.task.User.dataValues.first_name }} {{ this.task.User.dataValues.last_name }}
-      </p>
+    <p class="heading">
+      Assignee
+    </p>
+    <p class="title is-5">
+      {{ this.task.User.dataValues.first_name }} {{ this.task.User.dataValues.last_name }}
+    </p>
 
-      <p class="heading">
-        Task Status
-      </p>
-      <p class="title is-5">
-        {{ this.task.Status.dataValues.status_name }}
-      </p>
+    <p class="heading">
+      Task Status
+    </p>
+    <p class="title is-5">
+      {{ this.task.Status.dataValues.status_name }}
+    </p>
 
-      <p class="heading">
-        Update Status
-      </p>
-                  {{!-- select status drop down --}}
+    <p class="heading">
+      Update Status
+    </p>
+    {{!-- select status drop down --}}
     <div class="field">
       <div class="control has-text-centered">
         <div class="select">
@@ -52,8 +52,8 @@
             {{/each}}
           </select>
         </div>
-            {{!-- Update Status submit button --}}
+        {{!-- Update Status submit button --}}
         <button id="statusUpdateSubmit" class="button is-link submit-button">Submit</button>
       </div>
     </div>
-    </div>
+  </div>

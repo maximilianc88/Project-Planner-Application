@@ -1,7 +1,6 @@
 "use strict";
 
 const onReady = () => {
-
   $(`#statusUpdateSubmit`).on(`click`, () => {
     const updateStatus = {
       id: $(`.title`).data(`taskid`),
@@ -20,4 +19,3 @@ const onReady = () => {
 };
 
 $(document).ready(onReady);
-
