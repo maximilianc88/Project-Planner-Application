@@ -1,49 +1,29 @@
 <script src="js/dashboard.js"></script>
 
 <div class="container">
-    <div class="columns is-tablet">
-
-        <button class="button reset-button">Clear Button</button>
-
-        <div id="projects-container" class="column">
-            <div class="content has-text-centered">
-                <h2 class="title is-3">Projects</h2>
-            </div>
-            <div class="box has-text-centered">
-                <ul id="projects-list">
-                    {{!-- {{#each project }} --}}
-                    <li data-id="">{{ name }}</li>
-                    {{!-- {{/each}} --}}
-                </ul>
+    <br>
+    <div class="level">
+        <div class="level-item">
+            <div class="has-text-centered">
+                <p class="title is-2">Dashboard</p>
             </div>
         </div>
-
-        <div id="tasks-container" class="column">
-            <div class="content has-text-centered">
-                <h2 class="title is-3">Tasks</h2>
-            </div>
-            <div class="box has-text-centered">
-                <ul id="tasks-list">
-                    {{#each task}}
-                    <li>{{title}}</li>
-                    {{/each}}
-                </ul>
-            </div>
-        </div>
-
-        <div id="my-tasks-container" class="column">
-            <div class="content has-text-centered">
-                <h2 class="title is-3">My Tasks</h2>
-            </div>
-            <div class="box has-text-centered">
-                <ul id="my-tasks-list">
-                    {{!-- {{#each my-task}}
-                    {{/each}} --}}
-                </ul>
-            </div>
-        </div>
-
     </div>
 
+    <div class="columns is-tablet">
+        <div class="column">
+            <div class="title is-3">Projects</div>
+            {{#each this.projects }}
+            <p class=""><a href="project/{{ dataValues.id }}">{{ dataValues.name }}</a></p>
+            {{/each}}
+        </div>
+
+        <div class="column">
+            <div class="title is-3">Tasks</div>
+            {{#each this.tasks }}
+            <p class=""><a href="task/{{ dataValues.id }}">{{ dataValues.title }}</a></p>
+            {{/each}}
+        </div>
+    </div>
 
 </div>
