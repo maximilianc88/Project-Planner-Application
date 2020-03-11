@@ -4,7 +4,18 @@ const db = require(`../models`);
 
 module.exports = app => {
   app.get(`/`, (req, res) => res.render(`home`));
-  app.get(`/dashboard`, (req, res) => res.render(`dashboard`));
+  app.get(`/dashboard`, (req, res) => {
+    const allProjects = db.Project.findAll();
+    const allTasks = db.Task.findAll();
+    Promise
+      .all([allProjects, allTasks])
+      .then(modelArr => {
+        const hbsObj = { projects: modelArr[0], tasks: modelArr[1] };
+        res.render(`dashboard`, hbsObj);
+      }).catch(err => {
+        console.log(err);
+      });
+  });
   app.get(`/newProject`, (req, res) => res.render(`newProject`));
   app.get(`/tasks`, (req, res) => res.render(`task`));
   app.get(`/newTask`, (req, res) => res.render(`newTask`));
@@ -31,25 +42,7 @@ module.exports = app => {
     });
   });
 
-  // app.get(`/tasks/:id`, (req, res) => {
-  //   const taskId = req.params.id;
-  //   db.Task.findOne({
-  //     where: {
-  //       id: taskId
-  //     }, include: [
-  //       {
-  //         model: db.User
-  //       },
-  //       {
-  //         model: db.Status
-  //       }
-  //     ]
-  //   }).then(result => {
-  //     res.render(`task`, result.dataValues);
-  //     console.log(result.dataValues);
-  //   });
-  // });
-  app.get(`/tasks/:id`, (req, res) => {
+  app.get(`/task/:id`, (req, res) => {
     const taskId = req.params.id;
     const resultObj = {};
     db.Task.findOne({
@@ -70,8 +63,6 @@ module.exports = app => {
         resultObj.status = result;
       }).then( () => {
         res.render(`task`, resultObj);
-        console.log(resultObj.task);
-        console.log(resultObj.status);
       });
     });
   });
