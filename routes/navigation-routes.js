@@ -42,24 +42,6 @@ module.exports = app => {
     });
   });
 
-  // app.get(`/tasks/:id`, (req, res) => {
-  //   const taskId = req.params.id;
-  //   db.Task.findOne({
-  //     where: {
-  //       id: taskId
-  //     }, include: [
-  //       {
-  //         model: db.User
-  //       },
-  //       {
-  //         model: db.Status
-  //       }
-  //     ]
-  //   }).then(result => {
-  //     res.render(`task`, result.dataValues);
-  //     console.log(result.dataValues);
-  //   });
-  // });
   app.get(`/task/:id`, (req, res) => {
     const taskId = req.params.id;
     const resultObj = {};
@@ -81,8 +63,6 @@ module.exports = app => {
         resultObj.status = result;
       }).then( () => {
         res.render(`task`, resultObj);
-        console.log(resultObj.task);
-        console.log(resultObj.status);
       });
     });
   });
