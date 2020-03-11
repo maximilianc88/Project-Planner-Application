@@ -31,8 +31,27 @@ module.exports = app => {
     });
   });
 
+  // app.get(`/tasks/:id`, (req, res) => {
+  //   const taskId = req.params.id;
+  //   db.Task.findOne({
+  //     where: {
+  //       id: taskId
+  //     }, include: [
+  //       {
+  //         model: db.User
+  //       },
+  //       {
+  //         model: db.Status
+  //       }
+  //     ]
+  //   }).then(result => {
+  //     res.render(`task`, result.dataValues);
+  //     console.log(result.dataValues);
+  //   });
+  // });
   app.get(`/tasks/:id`, (req, res) => {
     const taskId = req.params.id;
+    const resultObj = {};
     db.Task.findOne({
       where: {
         id: taskId
@@ -45,8 +64,15 @@ module.exports = app => {
         }
       ]
     }).then(result => {
-      res.render(`task`, result.dataValues);
-      console.log(result.dataValues);
+      resultObj.task = result;
+    }).then(() => {
+      db.Status.findAll().then(result => {
+        resultObj.status = result;
+      }).then( () => {
+        res.render(`task`, resultObj);
+        console.log(resultObj.task);
+        console.log(resultObj.status);
+      });
     });
   });
 
