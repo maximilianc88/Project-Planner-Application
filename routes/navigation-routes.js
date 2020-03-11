@@ -49,4 +49,5 @@ module.exports = app => {
       console.log(result.dataValues);
     });
   });
+
 };
