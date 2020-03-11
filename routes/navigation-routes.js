@@ -48,7 +48,8 @@ module.exports = app => {
     db.Task.findOne({
       where: {
         id: taskId
-      }, include: [
+      },
+      include: [
         {
           model: db.User
         },
