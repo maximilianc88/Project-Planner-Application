@@ -11,8 +11,6 @@ module.exports = app => {
       .all([allProjects, allTasks])
       .then(modelArr => {
         const hbsObj = { projects: modelArr[0], tasks: modelArr[1] };
-        console.log(hbsObj.projects);
-        // res.json(hbsObj.projects);
         res.render(`dashboard`, hbsObj);
       }).catch(err => {
         console.log(err);
@@ -44,7 +42,25 @@ module.exports = app => {
     });
   });
 
-  app.get(`/tasks/:id`, (req, res) => {
+  // app.get(`/tasks/:id`, (req, res) => {
+  //   const taskId = req.params.id;
+  //   db.Task.findOne({
+  //     where: {
+  //       id: taskId
+  //     }, include: [
+  //       {
+  //         model: db.User
+  //       },
+  //       {
+  //         model: db.Status
+  //       }
+  //     ]
+  //   }).then(result => {
+  //     res.render(`task`, result.dataValues);
+  //     console.log(result.dataValues);
+  //   });
+  // });
+  app.get(`/task/:id`, (req, res) => {
     const taskId = req.params.id;
     const resultObj = {};
     db.Task.findOne({
@@ -59,14 +75,14 @@ module.exports = app => {
         }
       ]
     }).then(result => {
-      resultObj.task = result.dataValue;
-      // res.render(`task`, result.dataValues);
-      // console.log(result.dataValues);
+      resultObj.task = result;
     }).then(() => {
       db.Status.findAll().then(result => {
         resultObj.status = result;
-      }).then(() => {
+      }).then( () => {
         res.render(`task`, resultObj);
+        console.log(resultObj.task);
+        console.log(resultObj.status);
       });
     });
   });
