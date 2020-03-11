@@ -14,6 +14,7 @@ const onReady = () => {
       data: updateStatus
     }).then(() => {
       console.log(`Success`);
+      location.reload();
     });
   });
 };
