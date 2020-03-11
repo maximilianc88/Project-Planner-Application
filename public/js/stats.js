@@ -66,6 +66,7 @@ function getData() {
       // Configuration options go here
       options: {}
     });
+    console.log(chart1);
   });
 }
 getData();
@@ -103,3 +104,4 @@ const chart2 = new Chart(chartCanvas2, {
   // Configuration options go here
   options: {}
 });
+console.log(chart2);
