@@ -88,13 +88,8 @@ $(document).ready(() => {
   $(`.task-minus-icon`).hide();
   $(`#project-delete`).on(`click`, () => {
     $(`.project-minus-icon`).show();
-    $(`#project-delete`).replaceWith(
-      `<i class="far fa-check-circle" id="project-delete-done"></i>`
-    );
-    $(`#project-delete-done`).on(`click`, () => {
-      $(`#project-delete-done`).replaceWith(`
-        <i class="fas fa-trash" id="project-delete"></i>`);
-      $(`.project-minus-icon`).hide();
-    });
+  });
+  $(`#task-delete`).on(`click`, () => {
+    $(`.task-minus-icon`).show();
   });
 });
