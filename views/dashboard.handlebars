@@ -15,14 +15,15 @@
             <div class="title is-3">Projects<i class="fas fa-trash" id="project-delete"></i></div>
             {{#each this.projects }}
             <p class=""><a href="project/{{ dataValues.id }}"><i
-                        class="fas fa-minus-circle"></i>{{ dataValues.name }}</a></p>
+                        class="fas fa-minus-circle project-minus-icon"></i>{{ dataValues.name }}</a></p>
             {{/each}}
         </div>
 
         <div class="column">
             <div class="title is-3">Tasks<i class="fas fa-trash" id="task-delete"></i></div>
             {{#each this.tasks }}
-            <p class=""><a href="task/{{ dataValues.id }}"><i class="fas fa-minus-circle"></i>{{ dataValues.title }}</a>
+            <p class=""><a href="task/{{ dataValues.id }}"><i
+                        class="fas fa-minus-circle task-minus-icon"></i>{{ dataValues.title }}</a>
             </p>
             {{/each}}
         </div>
