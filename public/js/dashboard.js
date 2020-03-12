@@ -103,6 +103,12 @@ $(document).ready(() => {
     $(`.task-minus-icon`).show();
   });
   $(`.task-minus-icon`).on(`click`, () => {
-    console.log($(this.event.target).data(`taskid`));
+    const taskId = $(this.event.target).data(`taskid`);
+    $.ajax(`/api/tasks/${taskId}`, {
+      type: `DELETE`
+    }).then(() => {
+      console.log(`Success`);
+      location.reload();
+    });
   });
 });
