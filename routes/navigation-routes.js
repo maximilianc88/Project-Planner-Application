@@ -26,6 +26,7 @@ module.exports = app => {
     const allProjects = db.Project.findAll();
     const allTasks = db.Task.findAll();
     const findUser = db.User.findOne({where: {
+      // eslint-disable-next-line camelcase
       user_name: req.params.userName
     }});
     // const myTasks = db.Task.find()
