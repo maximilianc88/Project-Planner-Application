@@ -19,6 +19,16 @@ module.exports = app => {
       res.json(dbUser);
     });
   });
+  app.get(`/api/users/usercheck/:username`, (req, res) => {
+    db.User.findOne({
+      where: {
+        // eslint-disable-next-line camelcase
+        user_name: req.params.username
+      }
+    }).then(userCheck => {
+      res.json(userCheck);
+    });
+  });
   app.post(`/api/users`, (req, res) => {
     db.User.create(req.body).then(dbUser => {
       res.json(dbUser);
