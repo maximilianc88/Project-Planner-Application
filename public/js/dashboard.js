@@ -95,7 +95,7 @@ $(document).ready(() => {
       type: `DELETE`
     }).then(() => {
       console.log(`Success`);
-      // location.reload();
+      location.reload();
     });
   });
 
