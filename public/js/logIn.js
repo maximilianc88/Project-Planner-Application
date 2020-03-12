@@ -33,7 +33,7 @@ $(document).ready(() => {
         const userPasswordData = data.password;
         if (userNameData === userData.user_name && userPasswordData === userData.password){
           console.log(`proceed`);
-          window.location.replace(`/dashboard`);
+          window.location.replace(`/dashboard/${userData.user_name}`);
         } else {
           console.log(`failure`);
         }

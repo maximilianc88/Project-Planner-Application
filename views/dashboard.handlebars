@@ -1,4 +1,4 @@
-<script src="js/dashboard.js"></script>
+<script src="../js/dashboard.js"></script>
 
 <div class="container">
     <br>
@@ -23,6 +23,15 @@
             <div class="title is-3">Tasks<i class="fas fa-trash" id="task-delete"></i></div>
             {{#each this.tasks }}
             <p class=""><i class="fas fa-minus-circle task-minus-icon" data-taskId="{{ dataValues.id}}"></i><a
+                    href="task/{{ dataValues.id }}">{{ dataValues.title }}</a>
+            </p>
+            {{/each}}
+        </div>
+
+        <div class="column">
+            <div class="title is-3">Tasks<i class="fas fa-trash" id="myTask-delete"></i></div>
+            {{#each this.myTasks }}
+            <p class=""><i class="fas fa-minus-circle task-minus-icon" data-myTaskId="{{ dataValues.id}}"></i><a
                     href="task/{{ dataValues.id }}">{{ dataValues.title }}</a>
             </p>
             {{/each}}
