@@ -26,8 +26,6 @@ $(document).ready(() => {
 
     // If we have a user name we run the loginUser function and clear the form
     loginUser(userData.user_name);
-    // loginUser - does a get to check that the user exists in the database and
-    // if successful, redirects us the the dashboard
     function loginUser(user) {
       const userURL = `/api/users/usercheck/${user}`;
       $.get(userURL, data => {
