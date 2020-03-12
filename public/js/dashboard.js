@@ -88,11 +88,14 @@ $(document).ready(() => {
   $(`.task-minus-icon`).hide();
   $(`#project-delete`).on(`click`, () => {
     $(`.project-minus-icon`).show();
-    $(`.project-minus-icon`).on(`click`, () => {
-      console.log($(this).data(`projectId`));
-    });
+  });
+  $(`.project-minus-icon`).on(`click`, () => {
+    console.log($(this.event.target).data(`projectid`));
   });
   $(`#task-delete`).on(`click`, () => {
     $(`.task-minus-icon`).show();
+  });
+  $(`.task-minus-icon`).on(`click`, () => {
+    console.log($(this.event.target).data(`taskid`));
   });
 });
