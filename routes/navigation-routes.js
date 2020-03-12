@@ -3,7 +3,15 @@
 const db = require(`../models`);
 
 module.exports = app => {
-  app.get(`/`, (req, res) => res.render(`home`));
+  app.get(`/`, (req, res) => {
+    const resultObj = {};
+    db.User.findAll().then(result => {
+      resultObj.user = result;
+      console.log(resultObj.user);
+    }).then( () => {
+      res.render(`logIn`, resultObj);
+    });
+  });
   app.get(`/dashboard`, (req, res) => {
     const allProjects = db.Project.findAll();
     const allTasks = db.Task.findAll();
