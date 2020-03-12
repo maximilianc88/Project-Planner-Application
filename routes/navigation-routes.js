@@ -13,12 +13,32 @@ module.exports = app => {
     });
   });
   app.get(`/dashboard`, (req, res) => {
+    if(req.headers.cookie !== undefined) {
+      // Assumes only one cookie userName=X
+      const userName = req.headers.cookie.substring(9);
+      res.redirect(`/dashboard/${userName}`);
+    }
+
+    res.redirect(`/`);
+  });
+  app.get(`/dashboard/:userName`, (req, res) => {
+    res.cookie(`userName`, req.params.userName);
     const allProjects = db.Project.findAll();
     const allTasks = db.Task.findAll();
+    // const myTasks = db.Task.find()
+    // Add a new query to get individual tasks
+    const myTasks = [{
+      dataValues: {
+        id: 1,
+        title: `some Title`
+      }
+    }];
+
     Promise
-      .all([allProjects, allTasks])
+      .all([allProjects, allTasks, myTasks])
       .then(modelArr => {
-        const hbsObj = { projects: modelArr[0], tasks: modelArr[1] };
+        console.log(modelArr[0]);
+        const hbsObj = { projects: modelArr[0], tasks: modelArr[1], myTasks: modelArr[2] };
         res.render(`dashboard`, hbsObj);
       }).catch(err => {
         console.log(err);
