@@ -22,7 +22,7 @@
         <div class="column">
             <div class="title is-3">Tasks<i class="fas fa-trash" id="task-delete"></i></div>
             {{#each this.tasks }}
-            <p class=""><i class="fas fa-minus-circle task-minus-icon" data-id="{{ dataValues.id}}"></i><a
+            <p class=""><i class="fas fa-minus-circle task-minus-icon" data-taskId="{{ dataValues.id}}"></i><a
                     href="task/{{ dataValues.id }}">{{ dataValues.title }}</a>
             </p>
             {{/each}}
