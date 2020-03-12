@@ -88,7 +88,9 @@ $(document).ready(() => {
   $(`.task-minus-icon`).hide();
   $(`#project-delete`).on(`click`, () => {
     $(`.project-minus-icon`).show();
-    $(`.project-minus-icon`).on(`click`, () => {});
+    $(`.project-minus-icon`).on(`click`, () => {
+      console.log($(this).data(`projectId`));
+    });
   });
   $(`#task-delete`).on(`click`, () => {
     $(`.task-minus-icon`).show();

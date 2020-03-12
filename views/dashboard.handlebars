@@ -14,7 +14,7 @@
         <div class="column">
             <div class="title is-3">Projects<i class="fas fa-trash" id="project-delete"></i></div>
             {{#each this.projects }}
-            <p class=""><i data-projectId="{{ dataValues.id}}" class="fas fa-minus-circle project-minus-icon"></i><a
+            <p class=""><i data-projectId="{{dataValues.id}}" class="fas fa-minus-circle project-minus-icon"></i><a
                     href="project/{{ dataValues.id }}">{{ dataValues.name }}</a></p>
             {{/each}}
         </div>
