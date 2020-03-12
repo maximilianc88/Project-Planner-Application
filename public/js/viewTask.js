@@ -22,10 +22,6 @@ const onReady = () => {
     const taskTargetValue = $(event.target)
       .text()
       .trim();
-    const targetData = $(event.target).data();
-    console.log(taskTargetId);
-    console.log(taskTargetValue);
-    console.log(targetData);
     const textEl = `<textarea class="textarea is-medium" id="${taskTargetId}" rows="2" type="text">`;
     $(`#${taskTargetId}`).replaceWith(textEl);
     $(`#${taskTargetId}`).val(taskTargetValue);
@@ -33,17 +29,45 @@ const onReady = () => {
     $(document).click(secondEvent => {
       if (!$(secondEvent.target).closest(`#${taskTargetId}`).length) {
         const newText = $(`#${taskTargetId}`).val();
-        const newParagraphEl = $(
-          `<div class="title is-2" data-taskId="{{ this.task.dataValues.id }}" id="id="${taskTargetId}">`
+        const newDivEl = $(
+          `<div class="title is-2" data-taskId="{{ this.task.dataValues.id }}" id="${taskTargetId}">`
         );
-        newParagraphEl.text(newText);
-        newParagraphEl.data(taskTargetValue);
-        $(`#${taskTargetId}`).replaceWith(newParagraphEl);
+        newDivEl.text(newText);
+        newDivEl.data(taskTargetValue);
+        $(`#${taskTargetId}`).replaceWith(newDivEl);
       }
     });
   };
   taskTitleEl.dblclick(event => {
     editTaskTitleText(event);
+  });
+  const taskDescriptionEl = $(`#taskDescription`);
+  const editTaskDescriptionText = event => {
+    const taskDescriptionTargetId = $(event.target).attr(`id`);
+    const taskDescriptionValue = $(event.target)
+      .text()
+      .trim();
+
+    const textEl2 = `<textarea class="textarea is-medium" id="${taskDescriptionTargetId}" rows="2" type="text">`;
+    $(`#${taskDescriptionTargetId}`).replaceWith(textEl2);
+    $(`#${taskDescriptionTargetId}`).val(taskDescriptionValue);
+    $(document).click(secondEvent => {
+      if (
+        !$(secondEvent.target).closest(`#${taskDescriptionTargetId}`).length
+      ) {
+        const newText = $(`#${taskDescriptionTargetId}`).val();
+        const newParagraphEl = $(
+          `    <p id="${taskDescriptionTargetId}" class="title is-5">
+`
+        );
+        newParagraphEl.text(newText);
+        newParagraphEl.data(taskDescriptionValue);
+        $(`#${taskDescriptionTargetId}`).replaceWith(newParagraphEl);
+      }
+    });
+  };
+  taskDescriptionEl.dblclick(event => {
+    editTaskDescriptionText(event);
   });
 };
 
