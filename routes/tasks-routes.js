@@ -32,7 +32,7 @@ module.exports = app => {
     });
   });
   // Delete a specific task
-  app.delete(`/api/tasks`, (req, res) => {
+  app.delete(`/api/tasks/:id`, (req, res) => {
     db.Task.destroy({
       where: {
         id: req.params.id
