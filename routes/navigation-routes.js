@@ -25,6 +25,9 @@ module.exports = app => {
     res.cookie(`userName`, req.params.userName);
     const allProjects = db.Project.findAll();
     const allTasks = db.Task.findAll();
+    const findUser = db.User.findOne({where: {
+      user_name: req.params.userName
+    }});
     // const myTasks = db.Task.find()
     // Add a new query to get individual tasks
     const myTasks = [{
@@ -35,11 +38,12 @@ module.exports = app => {
     }];
 
     Promise
-      .all([allProjects, allTasks, myTasks])
+      .all([allProjects, allTasks, findUser, myTasks])
       .then(modelArr => {
-        console.log(modelArr[0]);
-        const hbsObj = { projects: modelArr[0], tasks: modelArr[1], myTasks: modelArr[2] };
+        const hbsObj = { projects: modelArr[0], tasks: modelArr[1], user: modelArr[2], myTasks: modelArr[3] };
         res.render(`dashboard`, hbsObj);
+        console.log(req.params.userName);
+        console.log(hbsObj.user.user_name);
       }).catch(err => {
         console.log(err);
       });
