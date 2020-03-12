@@ -3,7 +3,7 @@
 $(document).ready(() => {
   const signInButt = $(`#sign-in`);
   const username = $(`#username`);
-  // const password = $(`#password`);
+  const passwordInput = $(`#password`);
   const createAccount = $(`#create-account`);
 
   // Add event listener on the Create Account button to redirect them to the Sign Up page
@@ -17,8 +17,8 @@ $(document).ready(() => {
     event.preventDefault();
     const userData = {
       // eslint-disable-next-line camelcase
-      user_name: username.val().trim()
-      // password: password.val().trim()
+      user_name: username.val().trim(),
+      password: passwordInput.val().trim()
     };
     if (!userData.user_name) {
       return;
@@ -29,13 +29,13 @@ $(document).ready(() => {
     function loginUser(user) {
       const userURL = `/api/users/usercheck/${user}`;
       $.get(userURL, data => {
-        console.log(user);
-        console.log(data);
-        if (!data){
-          console.log(`failure`);
-        } else {
+        const userNameData = data.user_name;
+        const userPasswordData = data.password;
+        if (userNameData === userData.user_name && userPasswordData === userData.password){
           console.log(`proceed`);
           window.location.replace(`/dashboard`);
+        } else {
+          console.log(`failure`);
         }
         return;
       });
