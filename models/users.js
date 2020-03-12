@@ -1,6 +1,3 @@
-/* eslint-disable camelcase */
-'use strict';
-
 module.exports = function (sequelize, DataTypes) {
   const User = sequelize.define(`User`, {
     user_id: {
@@ -10,6 +7,10 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
     user_name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    password: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -41,3 +42,4 @@ module.exports = function (sequelize, DataTypes) {
 
   return User;
 };
+
