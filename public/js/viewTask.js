@@ -14,6 +14,7 @@ $.ajax(`/api/users/`, {
   console.log(assigneeOptions);
   for (let i = 0; i < assigneeOptions.length; ++i) {
     console.log(assigneeOptions);
+    // eslint-disable-next-line max-len
     const assigneeDD = $(`<option data-assigneeId="${assigneeOptions[i].user_id}" class="selected-user">${assigneeOptions[i].first_name} ${assigneeOptions[i].last_name}
     </option>;`);
     $(`.select-assignee`).append(assigneeDD);
