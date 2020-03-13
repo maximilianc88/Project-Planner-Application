@@ -31,20 +31,11 @@ module.exports = app => {
     }});
     // const myTasks = db.Task.find()
     // Add a new query to get individual tasks
-    const myTasks = [{
-      dataValues: {
-        id: 1,
-        title: `some Title`
-      }
-    }];
-
     Promise
-      .all([allProjects, allTasks, findUser, myTasks])
+      .all([allProjects, allTasks, findUser])
       .then(modelArr => {
-        const hbsObj = { projects: modelArr[0], tasks: modelArr[1], user: modelArr[2], myTasks: modelArr[3] };
+        const hbsObj = { projects: modelArr[0], tasks: modelArr[1], user: modelArr[2]};
         res.render(`dashboard`, hbsObj);
-        console.log(req.params.userName);
-        console.log(hbsObj.user.user_name);
       }).catch(err => {
         console.log(err);
       });
