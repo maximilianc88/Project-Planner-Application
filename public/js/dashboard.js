@@ -1,6 +1,21 @@
 "use strict";
 
-$(document).ready( () => {
+$(document).ready(() => {
+  const loggedIn = $(`#user`).attr(`value`);
+  console.log(loggedIn);
+  $.ajax(`/api/users/${loggedIn}`, {
+    type: `GET`
+  }).then(res => {
+    console.log(res.Tasks);
+    for (let i=0; i<res.Tasks.length; i++){
+      console.log(res.Tasks[i]);
+      const newMyTask = $(`<p class></p>`);
+      const newMyTaskLink = $(`<a href=../task/${res.Tasks[i].id}></a>`);
+      newMyTaskLink.html(res.Tasks[i].title);
+      newMyTask.append(newMyTaskLink);
+      $(`#myTaskColumn`).append(newMyTask);
+    }
+  });
   $(`.project-minus-icon`).hide();
   $(`.task-minus-icon`).hide();
 
@@ -30,5 +45,3 @@ $(document).ready( () => {
     });
   });
 });
-
-
