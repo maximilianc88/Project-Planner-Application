@@ -93,10 +93,8 @@ $.get(`/api/users/`, data => {
       loggedInUserId = id;
     }
   }
-  // console.log(loggedInUserId);
 }).then(() => {
   $.get(`/api/users/${loggedInUserId}`, userInfo => {
-    console.log(userInfo.Tasks);
     const userTasks = userInfo.Tasks;
     let userUnassigned = 0;
     let userOpen = 0;
