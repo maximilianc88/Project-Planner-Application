@@ -1,55 +1,66 @@
 <script src="js/signUp.js"></script>
 
 <div class="container">
-  <div class="field">
-    <label class="label">User Name</label>
-    <div class="control">
-      <input id="username" class="input" type="text" placeholder="username">
+  <h2 class="title is-2 has-text-centered">Create a Mothra Account</h2>
+  <div class="columns">
+    <div class="column">
+      <figure class="image is-4by5">
+        <img
+          src="https://images.pexels.com/photos/3197390/pexels-photo-3197390.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=375&amp;w=630=">
+      </figure>
     </div>
-  </div>
-
-  <div class="field">
-    <label class="label">First Name</label>
-    <div class="control">
-      <input id="first-name" class="input" type="text" placeholder="e.g Alex">
-    </div>
-  </div>
-
-  <div class="field">
-    <label class="label">Last Name</label>
-    <div class="control">
-      <input id="last-name" class="input" type="text" placeholder="e.g Smith">
-    </div>
-  </div>
-
-    <div class="field">
-    <label class="label">Password</label>
-    <div class="control">
-      <input id="password" class="input" type="password" placeholder="password">
-    </div>
-  </div>
-
-
-  {{!-- select team drop down --}}
-  <div class="field">
-    <label class="label">Assign Team</label>
-    <div class="control">
-      <div class="select">
-        <select class="select-team">
-          <option data-team-id="" id="selected-team">Select dropdown</option>
-          {{!-- need list of teams here --}}
-        </select>
+    <div class="column">
+      <div class="field">
+        <label class="label is-medium">User Name</label>
+        <div class="control">
+          <input id="username" class="input is-medium" type="text" placeholder="username">
+        </div>
       </div>
-    </div>
-  </div>
+
+      <div class="field">
+        <label class="label is-medium">First Name</label>
+        <div class="control">
+          <input id="first-name" class="input is-medium" type="text" placeholder="e.g Alex">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label is-medium">Last Name</label>
+        <div class="control">
+          <input id="last-name" class="input is-medium" type="text" placeholder="e.g Smith">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label is-medium">Password</label>
+        <div class="control">
+          <input id="password" class="input is-medium" type="password" placeholder="password">
+        </div>
+      </div>
 
 
-  <div class="field is-grouped">
-    <div class="control">
-      <button id="sign-up-button" class="button is-link">Submit</button>
-    </div>
-    <div class="control">
-      <button id="back-button" class="button is-link is-light">Back</button>
+      {{!-- select team drop down --}}
+      <div class="field">
+        <label class="label is-medium">Assign Team</label>
+        <div class="control">
+          <div class="select is-medium">
+            <select class="select-team">
+              <option data-team-id="" id="selected-team">Select dropdown</option>
+              {{!-- need list of teams here --}}
+            </select>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="field is-grouped">
+        <div class="control">
+          <button id="sign-up-button" class="button is-medium">Submit</button>
+        </div>
+        <div class="control">
+          <button id="back-button" class="button is-medium">Back</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
