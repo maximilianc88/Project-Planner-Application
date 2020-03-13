@@ -2,16 +2,17 @@
 
 $(document).ready(() => {
   const loggedIn = $(`#user`).attr(`value`);
-  console.log(loggedIn);
+
   $.ajax(`/api/users/${loggedIn}`, {
     type: `GET`
   }).then(res => {
-    console.log(res.Tasks);
     for (let i=0; i<res.Tasks.length; i++){
-      console.log(res.Tasks[i]);
       const newMyTask = $(`<p class></p>`);
       const newMyTaskLink = $(`<a href=../task/${res.Tasks[i].id}></a>`);
+      // eslint-disable-next-line max-len
+      const deleteMyTaskIcon = $(`<i class="fas fa-minus-circle myTask-minus-icon" data-MytaskId="${res.Tasks[i].id}" </i>`).hide();
       newMyTaskLink.html(res.Tasks[i].title);
+      newMyTask.append(deleteMyTaskIcon);
       newMyTask.append(newMyTaskLink);
       $(`#myTaskColumn`).append(newMyTask);
     }
@@ -38,6 +39,18 @@ $(document).ready(() => {
   $(`.task-minus-icon`).on(`click`, () => {
     const taskId = $(this.event.target).data(`taskid`);
     $.ajax(`/api/tasks/${taskId}`, {
+      type: `DELETE`
+    }).then(() => {
+      console.log(`Success`);
+      location.reload();
+    });
+  });
+  $(`#myTask-delete`).click (() => {
+    $(`.myTask-minus-icon`).show();
+  });
+  $(document).on(`click`, `i.myTask-minus-icon`, () => {
+    const myTaskId = $(event.target).data(`mytaskid`);
+    $.ajax(`/api/tasks/${myTaskId}`, {
       type: `DELETE`
     }).then(() => {
       console.log(`Success`);
