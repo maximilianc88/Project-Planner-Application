@@ -1,30 +1,48 @@
-'use strict';
+"use strict";
 
-const descriptionEl = $(`#description`);
+$(document).ready(() => {
 
-const editElementText = event => {
-  const targetId = $(event.target).attr(`id`);
-  const targetValue = $(event.target).text().trim();
-  const targetDataAttr = $(event.target).data(); // this is an object
-  console.log(targetId);
-  console.log(targetValue);
-  console.log(targetDataAttr);
-  const textEl = `<textarea class="textarea is-medium" id="${targetId}" rows="2" type="text">`;
-  $(`#${targetId}`).replaceWith(textEl);
-  $(`#${targetId}`).val(targetValue);
+  const editButton = $(`.edit-button`);
+  const paraEl = $(`p.description`);
+  const textareaEl = $(`textarea.description`);
 
-  $(document).click(secondEvent => {
-    if (!$(secondEvent.target).closest(`#${targetId}`).length) {
-      const newText = $(`#${targetId}`).val();
-      const newParagraphEl = $(`<p class="title is-5" id="${targetId}">`);
-      newParagraphEl.text(newText);
-      newParagraphEl.data(targetDataAttr);
-      $(`#${targetId}`).replaceWith(newParagraphEl);
+  const toggleEditMode = () => {
+    paraEl.css(`display`) === `block` ? paraEl.css(`display`, `none`) : paraEl.css(`display`, `block`);
+    textareaEl.css(`display`) === `block` ? textareaEl.css(`display`, `none`) : textareaEl.css(`display`, `block`);
+    editButton.text() === `Edit` ? editButton.text(`Save`) : editButton.text(`Edit`);
+  };
+
+  const editDescription = () => {
+    toggleEditMode();
+    textareaEl.val(paraEl.text().trim());
+    return;
+  };
+
+  const putNewDescription = newDataObj => {
+    $.ajax(`/api/project`, {
+      type: `PUT`,
+      data: newDataObj
+    }).then(res => {
+      console.log(`Affected rows: ${res}`);
+    });
+  };
+
+  const saveDescription = () => {
+    toggleEditMode();
+    paraEl.text(textareaEl.val().trim());
+    const id = paraEl.data(`project-id`);
+    const description = textareaEl.val().trim();
+    const newDataObj = { id, description };
+    putNewDescription(newDataObj);
+  };
+
+  // event listeners
+  editButton.click(() => {
+    if (editButton.text() === `Edit`) {
+      editDescription();
+    } else {
+      saveDescription();
     }
   });
-};
 
-// event listeners
-descriptionEl.dblclick(event => {
-  editElementText(event);
 });

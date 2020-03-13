@@ -65,3 +65,7 @@ const onReady = () => {
 };
 
 $(document).ready(onReady);
+
+if (typeof exports !== `undefined`) {
+  exports.addTeamsToOptions = addTeamsToOptions;
+}

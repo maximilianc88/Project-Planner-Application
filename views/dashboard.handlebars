@@ -30,11 +30,6 @@
 
         <div class="column" id="myTaskColumn">
             <div id="user" class="title is-3" value="{{this.user.dataValues.user_id}}">Tasks for {{this.user.dataValues.user_name}} <i class="fas fa-trash" id="myTask-delete"></i></div>
-            {{#each this.myTasks }}
-            <p class="myTasks" data-myTaskId="{{ dataValues.id}}" value="{{ dataValues.assignee_id}}"><i class="fas fa-minus-circle task-minus-icon"></i><a
-                    href="../task/{{ dataValues.id }}">{{ dataValues.title }}</a>
-            </p>
-            {{/each}}
         </div>
     </div>
 

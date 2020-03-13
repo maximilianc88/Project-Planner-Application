@@ -32,4 +32,15 @@ module.exports = app => {
       res.json(dbProject);
     });
   });
+
+  app.put(`/api/project`, (req, res) => {
+    db.Project.update(req.body, {
+      where: {
+        id: req.body.id
+      }
+    }).then(result => {
+      console.log(res.statusCode);
+      console.log(`Affected Rows = ${result}`);
+    });
+  });
 };

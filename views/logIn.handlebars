@@ -1,25 +1,28 @@
 <script src="../js/logIn.js"></script>
 
 <div id="login-form" class="container">
+    
     <div class="field">
-        <div class="control">
-            <label class="label">Username</label>
+        <label class="label">Username</label>
+        <div class="control has-icons-left">
             <input id="username" class="input is-medium" type="text" placeholder="username">
+            <span class="icon is-small is-left">
+                <i class="fas fa-user"></i>
+            </span>
         </div>
     </div>
+
     <div class="field">
-        <p class="control has-icons-left">
-            <label class="label">Password</label>
+        <label class="label">Password</label>
+        <div class="control has-icons-left">
             <input id="password" class="input is-medium" type="password" placeholder="password">
             <span class="icon is-small is-left">
                 <i class="fas fa-lock"></i>
             </span>
-        </p>
+        </div>
     </div>
-    <button id="sign-in" class="submit is-medium">Sign In</button>
+
+    <button id="sign-in" class="button submit is-medium">Sign In</button>
     <button id="create-account" class="button is-medium">Create Account</button>
+
 </div>
-
-</body>
-
-</html>
