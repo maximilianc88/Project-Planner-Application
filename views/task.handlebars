@@ -1,5 +1,5 @@
-<script src="/js/viewTask.js"></script>
 <div class="container">
+
   <div class="level">
     <div class="level-item">
       <div class="title is-2" data-taskId="{{ this.task.dataValues.id }}" id="taskTitle">
@@ -8,67 +8,93 @@
     </div>
   </div>
 
-  <div class="column has-text-centered">
+  <div class="columns is-tablet">
+    <div class="column is-three-fifths is-offset-one-fifth">
 
-    <p class="heading">
-      Task Description
-    </p>
-    <p id="taskDescription" class="title is-5">
+
+      <div class="container is-mobile level">
+        <div class="level-left">
+          <p class="heading level-item">
+            Task Description
+          </p>
+        </div>
+        <div class="level-right is-right">
+          <button class="button is-small level-item edit-button">Edit</button>
+        </div>
+      </div>
+
+      <p class="title is-5 description" style="display: block;" data-task-id="{{ this.task.dataValues.id }}">
+        {{ this.task.dataValues.description }}
+      </p>
+      <textarea class="textarea is-medium description" style="display: none;" rows="2">
       {{ this.task.dataValues.description }}
-    </p>
+      </textarea>
 
-    <p class="heading">
-      Create Date
-    </p>
-    <p class="title is-5">
-      {{ this.task.dataValues.create_date }}
-    </p>
 
-    <p class="heading">
-      Assignee
-    </p>
-    <p class="title is-5" id="assigneeName">
-      {{ this.task.User.dataValues.first_name }} {{ this.task.User.dataValues.last_name }}
-    </p>
-    <p data-teamId="{{this.task.dataValues.team_id}}" class=" heading has-text-centered" id="updateAssigneeHeading">
-      Update Task Assignee
-    </p>
-    <div class="field">
-      <div class="control has-text-centered">
-        <div class="select">
-          <select class="select-assignee">
-            <option data-user-id="" id="selected-user">Select User</option>
-          </select>
+
+
+
+      <p class="heading">
+        Create Date
+      </p>
+      <p class="title is-5">
+        {{ this.task.dataValues.create_date }}
+      </p>
+
+      <p class="heading">
+        Assignee
+      </p>
+      <p class="title is-5" id="assigneeName">
+        {{ this.task.User.dataValues.first_name }} {{ this.task.User.dataValues.last_name }}
+      </p>
+
+      <p data-teamId="{{this.task.dataValues.team_id}}" class=" heading has-text-centered" id="updateAssigneeHeading">
+        Update Task Assignee
+      </p>
+
+      <div class="field">
+        <div class="control has-text-centered">
+          <div class="select">
+            <select class="select-assignee">
+              <option data-user-id="" id="selected-user">Select User</option>
+            </select>
+          </div>
+          <button id="updateAssignee" class="button is-link submit-button">Submit</button>
         </div>
-        <button id="updateAssignee" class="button is-link submit-button">Submit</button>
       </div>
-    </div>
 
-    <p class="heading">
-      Task Status
-    </p>
-    <p class="title is-5">
-      {{ this.task.Status.dataValues.status_name }}
-    </p>
+      <p class="heading">
+        Task Status
+      </p>
+      <p class="title is-5">
+        {{ this.task.Status.dataValues.status_name }}
+      </p>
 
-    <p class="heading">
-      Update Task Status
-    </p>
-    {{!-- select status drop down --}}
-    <div class="field">
-      <div class="control has-text-centered">
-        <div class="select">
-          <select class="select-status">
-            {{#each status}}
-            <option data-id="{{ dataValues.status_code }}"> {{ dataValues.status_name }}</option>
-            {{!-- need list of statuses here --}}
-            {{/each}}
-          </select>
+      <p class="heading">
+        Update Task Status
+      </p>
+      {{!-- select status drop down --}}
+      <div class="field">
+        <div class="control has-text-centered">
+          <div class="select">
+            <select class="select-status">
+              {{#each status}}
+              <option data-id="{{ dataValues.status_code }}"> {{ dataValues.status_name }}</option>
+              {{!-- need list of statuses here --}}
+              {{/each}}
+            </select>
+          </div>
+          {{!-- Update Status submit button --}}
+          <button id="statusUpdateSubmit" class="button is-link submit-button">Submit</button>
         </div>
-        {{!-- Update Status submit button --}}
-        <button id="statusUpdateSubmit" class="button is-link submit-button">Submit</button>
       </div>
+
+
     </div>
   </div>
 
+
+
 </div>
+
+<script src="/js/viewTask.js"></script>

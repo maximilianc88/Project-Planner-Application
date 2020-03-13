@@ -41,13 +41,16 @@ module.exports = app => {
       res.json(dbTask);
     });
   });
-  app.put(`/api/tasks`, (req, res) => {
+
+  app.put(`/api/task`, (req, res) => {
     db.Task.update(req.body, {
       where: {
         id: req.body.id
       }
-    }).then(dbTask => {
-      res.json(dbTask);
+    }).then(result => {
+      console.log(res.statusCode);
+      console.log(`Affected Rows = ${result}`);
     });
   });
+
 };
