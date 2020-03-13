@@ -48,12 +48,12 @@
         {{ this.task.User.dataValues.first_name }} {{ this.task.User.dataValues.last_name }}
       </p>
 
-      <p data-teamId="{{this.task.dataValues.team_id}}" class=" heading has-text-centered" id="updateAssigneeHeading">
+      <p data-teamId="{{this.task.dataValues.team_id}}" class=" heading" id="updateAssigneeHeading">
         Update Task Assignee
       </p>
 
       <div class="field">
-        <div class="control has-text-centered">
+        <div class="control ">
           <div class="select">
             <select class="select-assignee">
               <option data-user-id="" id="selected-user">Select User</option>
@@ -75,7 +75,7 @@
       </p>
       {{!-- select status drop down --}}
       <div class="field">
-        <div class="control has-text-centered">
+        <div class="control">
           <div class="select">
             <select class="select-status">
               {{#each status}}
