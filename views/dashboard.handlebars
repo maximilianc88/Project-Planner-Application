@@ -23,13 +23,14 @@
             <div class="title is-3">Tasks<i class="fas fa-trash" id="task-delete"></i></div>
             {{#each this.tasks }}
             <p class=""><i class="fas fa-minus-circle task-minus-icon" data-taskId="{{ dataValues.id}}"></i><a
-                    href="../task/{{ dataValues.id }}">{{ dataValues.title }}</a>
+                    href="../task/{{ dataValues.id }}" style="width:100px; height:100px;">{{ dataValues.title }}</a>
             </p>
             {{/each}}
         </div>
 
         <div class="column" id="myTaskColumn">
-            <div id="user" class="title is-3" value="{{this.user.dataValues.user_id}}">Tasks for {{this.user.dataValues.user_name}} <i class="fas fa-trash" id="myTask-delete"></i></div>
+            <div id="user" class="title is-3" value="{{this.user.dataValues.user_id}}">
+                {{this.user.dataValues.user_name}} Tasks<i class="fas fa-trash" id="myTask-delete"></i></div>
         </div>
     </div>
 

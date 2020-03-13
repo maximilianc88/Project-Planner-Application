@@ -1,14 +1,29 @@
-<div class="container">
-    <div id="projects-tasks-status-container">
-        <div class=" content has-text-centered">
-            <h2>Task Stats</h2>
-        </div>
-        <div class="box has-text-centered">
-            <canvas id="myChartTeamProjects"></canvas>
+<div class="container ">
+    <div class="columns">
+        <div class="column">
+            <div id="projects-tasks-status-container">
+                <br>
+                <div class="box has-text-centered">
+                    <div class=" content has-text-centered">
+                        <h2 class="has-padding-4">Task Stats</h2>
+                    </div>
+                    <canvas id="myChartTeamProjects"></canvas>
 
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div id="projects-tasks-status-container">
+                <br>
+                <div class="box has-text-centered">
+                    <div class=" content has-text-centered">
+                        <h2 class="has-padding-4">Your Task Stats</h2>
+                    </div>
+                    <canvas id="myChartTasks"></canvas>
+
+                </div>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+            <script src="js/stats.js"></script>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script src="js/stats.js"></script>
-
-</div>
