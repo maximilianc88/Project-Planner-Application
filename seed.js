@@ -5,7 +5,7 @@ const db = require(`./models`);
 
 const seed = () =>
   Promise.all([
-    db.Status.create({ status_code: 0, status_name: `Unassigned` }),
+    // db.Status.create({ status_code: 0, status_name: `Unassigned` }),
     db.Status.create({ status_code: 1, status_name: `Open` }),
     db.Status.create({ status_code: 2, status_name: `In-Progress` }),
     db.Status.create({ status_code: 3, status_name: `Completed` }),
