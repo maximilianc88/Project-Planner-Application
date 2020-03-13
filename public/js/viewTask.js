@@ -1,15 +1,20 @@
 "use strict";
 
 $(document).ready(() => {
-
   const editButton = $(`.edit-button`);
   const paraEl = $(`p.description`);
   const textareaEl = $(`textarea.description`);
 
   const toggleEditMode = () => {
-    paraEl.css(`display`) === `block` ? paraEl.css(`display`, `none`) : paraEl.css(`display`, `block`);
-    textareaEl.css(`display`) === `block` ? textareaEl.css(`display`, `none`) : textareaEl.css(`display`, `block`);
-    editButton.text() === `Edit` ? editButton.text(`Save`) : editButton.text(`Edit`);
+    paraEl.css(`display`) === `block`
+      ? paraEl.css(`display`, `none`)
+      : paraEl.css(`display`, `block`);
+    textareaEl.css(`display`) === `block`
+      ? textareaEl.css(`display`, `none`)
+      : textareaEl.css(`display`, `block`);
+    editButton.text() === `Edit`
+      ? editButton.text(`Save`)
+      : editButton.text(`Edit`);
   };
 
   const editDescription = () => {
@@ -44,9 +49,7 @@ $(document).ready(() => {
       saveDescription();
     }
   });
-
 });
-
 
 $.ajax(`/api/users/`, {
   type: `GET`
@@ -65,13 +68,30 @@ $.ajax(`/api/users/`, {
     $(`#assigneeName`).css(`color`, `red`);
   } else {
     for (let i = 0; i < assigneeOptions.length; ++i) {
-      console.log(assigneeOptions);
       // eslint-disable-next-line max-len
       const assigneeDD = $(`<option data-assigneeId="${assigneeOptions[i].user_id}" class="selected-user">${assigneeOptions[i].first_name} ${assigneeOptions[i].last_name}
     </option>;`);
       $(`.select-assignee`).append(assigneeDD);
     }
   }
+});
+$(`#updateAssignee`).on(`click`, () => {
+  const newAssigneeId = $(`.select-assignee option:selected `).data(
+    `assigneeid`
+  );
+  console.log(newAssigneeId);
+  const updateAssignee = {
+    id: $(`.title`).data(`taskid`),
+    // eslint-disable-next-line camelcase
+    assignee_id: newAssigneeId
+  };
+  $.ajax(`/api/task`, {
+    type: `PUT`,
+    data: updateAssignee
+  }).then(() => {
+    console.log(`Success`);
+    location.reload();
+  });
 });
 const onReady = () => {
   $(`#statusUpdateSubmit`).on(`click`, () => {
