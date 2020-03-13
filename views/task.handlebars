@@ -23,7 +23,7 @@
         </div>
       </div>
 
-      <p class="title is-5 description" style="display: block;" data-task-id="{{ id }}">
+      <p class="title is-5 description" style="display: block;" data-task-id="{{ this.task.dataValues.id }}">
         {{ this.task.dataValues.description }}
       </p>
       <textarea class="textarea is-medium description" style="display: none;" rows="2">
@@ -94,7 +94,7 @@
           <button id="statusUpdateSubmit" class="button is-link submit-button">Submit</button>
         </div>
       </div>
-      
+
 
     </div>
   </div>

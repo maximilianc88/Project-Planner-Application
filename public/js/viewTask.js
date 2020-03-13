@@ -30,7 +30,7 @@ $(document).ready(() => {
   const saveDescription = () => {
     toggleEditMode();
     paraEl.text(textareaEl.val().trim());
-    const id = paraEl.data(`project-id`);
+    const id = paraEl.data(`task-id`);
     const description = textareaEl.val().trim();
     const newDataObj = { id, description };
     putNewDescription(newDataObj);
@@ -46,11 +46,6 @@ $(document).ready(() => {
   });
 
 });
-
-
-
-
-
 
 
 $.ajax(`/api/users/`, {
@@ -86,7 +81,7 @@ const onReady = () => {
       status_code: $(`.select-status option:selected `).data(`id`)
     };
     console.log(updateStatus);
-    $.ajax(`/api/tasks`, {
+    $.ajax(`/api/task`, {
       type: `PUT`,
       data: updateStatus
     }).then(() => {
