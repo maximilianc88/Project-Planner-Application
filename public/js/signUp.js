@@ -1,47 +1,67 @@
 "use strict";
 
-$(document).ready(() => {
-  const signUpForm = $(`.form-group`);
-  const usernameInput = $(`#username`);
-  const firstNameInput = $(`#first-name`);
-  const lastNameInput = $(`#last-name`);
-  const team = $(`#team`);
+const addTeamsToOptions = (arr, selectTeam) => {
+  if (!arr) {
+    return;
+  }
+  for (const teamObj of arr) {
+    const option = $(`<option>`);
+    option.data(`team-id`, teamObj.id);
+    option.append(`${teamObj.name}`);
+    selectTeam.append(option);
+  }
+};
 
-  signUpForm.on(`submit`, event => {
-    event.preventDefault();
-    const userData = {
-      username: usernameInput.val().trim(),
-      firstName: firstNameInput.val().trim(),
-      lastName: lastNameInput.val().trim(),
-      team
-    };
+const getAllTeams = selectTeam => {
+  $.get(`/api/teams`, (data, status) => {
+    console.log(`Data: ${data}, Status: ${status}`);
+    addTeamsToOptions(data, selectTeam);
+  });
+};
 
-    if (!userData.username || !userData.firstName || !userData.lastName) {
-      return;
-    }
-
-    signUpUser(userData.username, userData.firstName, userData.lastName);
-    usernameInput.val(``);
-    firstNameInput.val(``);
-    lastNameInput.val(``);
+const onReady = () => {
+  const selectTeam = $(`.select-team`);
+  $(`#back-button`).on(`click`, () => {
+    const home = `/`;
+    window.location = home;
   });
 
-  function signUpUser(username, firstName, lastName) {
-    $.post(`/api/signup`, {
-      username,
-      firstName,
-      lastName,
-      team
-    })
-      .then(() => {
-        window.location.replace(`/dashboard`);
-      })
-      .catch(handleLoginErr);
-  }
+  selectTeam.change(() => {
+    // get team-id from selected option
+    console.log($(`.select-team option:selected`).data(`team-id`));
+  });
 
-  function handleLoginErr(err) {
-    const numFadeMs = 500;
-    $(`#alert .msg`).text(err.responseJSON);
-    $(`#alert`).fadeIn(numFadeMs);
-  }
-});
+  getAllTeams(selectTeam);
+
+  $(`#sign-up-button`).on(`click`, () => {
+    const newUser = {
+      // eslint-disable-next-line camelcase
+      user_name: $(`#username`)
+        .val()
+        .trim(),
+      // eslint-disable-next-line camelcase
+      first_name: $(`#first-name`)
+        .val()
+        .trim(),
+      // eslint-disable-next-line camelcase
+      last_name: $(`#last-name`)
+        .val()
+        .trim(),
+      password: $(`#password`)
+        .val()
+        .trim(),
+      // eslint-disable-next-line camelcase
+      team_id: $(`.select-team option:selected`).data(`team-id`)
+    };
+    console.log(newUser);
+    $.ajax(`/api/users`, {
+      type: `POST`,
+      data: newUser
+    }).then(() => {
+      console.log(`Success`);
+      window.location.assign(`/`);
+    });
+  });
+};
+
+$(document).ready(onReady);
