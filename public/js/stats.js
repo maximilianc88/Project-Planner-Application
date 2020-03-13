@@ -35,6 +35,7 @@ function getData() {
       green: `#4EFF51`,
       blue: `#156CB3`
     };
+    // eslint-disable-next-line no-unused-vars
     const chart1 = new Chart(chartCanvas, {
       // The type of chart we want to create
       type: `doughnut`,
@@ -69,9 +70,11 @@ function readCookie(name) {
   const ca = document.cookie.split(`;`);
   for (let i = 0; i < ca.length; i++) {
     let c = ca[i];
+    // eslint-disable-next-line eqeqeq
     while (c.charAt(0) == ` `) {
       c = c.substring(1, c.length);
     }
+    // eslint-disable-next-line eqeqeq
     if (c.indexOf(nameEQ) == 0) {
       const userName = c.substring(nameEQ.length, c.length);
       loggedInUser = userName;
@@ -84,6 +87,7 @@ readCookie(`userName`);
 let loggedInUserId = ``;
 $.get(`/api/users/`, data => {
   for (let i = 0; i < data.length; ++i) {
+    // eslint-disable-next-line eqeqeq
     if (data[i].user_name == loggedInUser) {
       const id = data[i].user_id;
       loggedInUserId = id;
@@ -126,6 +130,7 @@ $.get(`/api/users/`, data => {
       green: `#4EFF51`,
       blue: `#156CB3`
     };
+    // eslint-disable-next-line no-unused-vars
     const chart2 = new Chart(chartCanvas, {
       // The type of chart we want to create
       type: `doughnut`,
