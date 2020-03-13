@@ -1,13 +1,13 @@
 <script src="js/newTask.js"></script>
 
-<div class="container">
+<div class="container" data-teamId="{{this.task.dataValues.team_id}}">
     <div class="column">
 
         {{!-- task name input --}}
         <div class="field">
             <label class="label">Task Name</label>
             <div class="control">
-                <input id= "new-task-name" class="input" type="text" placeholder="Task Name">
+                <input id="new-task-name" class="input" type="text" placeholder="Task Name">
             </div>
         </div>
 

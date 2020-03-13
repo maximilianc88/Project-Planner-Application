@@ -1,5 +1,17 @@
 "use strict";
 
+$.ajax(`/api/users/`, {
+  type: `GET`
+}).then(user => {
+  const teamAvailable = $(`#updateAssigneeHeading`).attr(`data-teamId`);
+  const assigneeOptions = [];
+  for (let i = 0; i < user.length; ++i) {
+    if (user[i].team_id == teamAvailable) {
+      assigneeOptions.push(user[i]);
+    }
+  }
+  console.log(assigneeOptions);
+});
 const onReady = () => {
   $(`#statusUpdateSubmit`).on(`click`, () => {
     const updateStatus = {
@@ -16,6 +28,7 @@ const onReady = () => {
       location.reload();
     });
   });
+
   const taskTitleEl = $(`#taskTitle`);
   const editTaskTitleText = event => {
     const taskTargetId = $(event.target).attr(`id`);
