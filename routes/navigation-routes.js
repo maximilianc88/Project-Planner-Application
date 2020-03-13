@@ -49,6 +49,7 @@ module.exports = app => {
         console.log(err);
       });
   });
+  app.get(`/signUp`, (req, res) => res.render(`signUp`));
   app.get(`/newProject`, (req, res) => res.render(`newProject`));
   app.get(`/tasks`, (req, res) => res.render(`task`));
   app.get(`/newTask`, (req, res) => res.render(`newTask`));
