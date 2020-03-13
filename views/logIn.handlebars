@@ -1,28 +1,41 @@
 <script src="../js/logIn.js"></script>
 
 <div id="login-form" class="container">
-    
-    <div class="field">
-        <label class="label">Username</label>
-        <div class="control has-icons-left">
-            <input id="username" class="input is-medium" type="text" placeholder="username">
-            <span class="icon is-small is-left">
-                <i class="fas fa-user"></i>
-            </span>
+    <h2 class="title is-2 has-text-centered">Sign in to Mothra</h2>
+
+    <div class="columns">
+        <div class="column">
+            <figure class="image is-4by5">
+                <img
+                    src="https://images.pexels.com/photos/3197390/pexels-photo-3197390.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=375&amp;w=630=">
+            </figure>
         </div>
+        <div class="column">
+            <div class="field">
+                <label class="label is-medium">Username</label>
+                <div class="control has-icons-left">
+                    <input id="username" class="input is-medium" type="text" placeholder="username">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-user"></i>
+                    </span>
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label is-medium">Password</label>
+                <div class="control has-icons-left">
+                    <input id="password" class="input is-medium" type="password" placeholder="password">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                </div>
+            </div>
+
+            <button id="sign-in" class="button submit is-medium">Sign In</button>
+            <button id="create-account" class="button is-medium">Create Account</button>
+        </div>
+
     </div>
 
-    <div class="field">
-        <label class="label">Password</label>
-        <div class="control has-icons-left">
-            <input id="password" class="input is-medium" type="password" placeholder="password">
-            <span class="icon is-small is-left">
-                <i class="fas fa-lock"></i>
-            </span>
-        </div>
-    </div>
-
-    <button id="sign-in" class="button submit is-medium">Sign In</button>
-    <button id="create-account" class="button is-medium">Create Account</button>
 
 </div>
