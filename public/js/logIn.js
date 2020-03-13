@@ -2,6 +2,9 @@
 
 function getUserVerifier(userFormData) {
   return responseData => {
+    if (responseData === null) {
+      $(`#error`).show();
+    }
     const responseUserName = responseData.user_name;
     const responsePassword = responseData.password;
     if (
@@ -17,10 +20,14 @@ function getUserVerifier(userFormData) {
 }
 
 function loginUser(userFormData) {
-  $.get(`/api/users/usercheck/${userFormData.user_name}`, getUserVerifier(userFormData));
+  $.get(
+    `/api/users/usercheck/${userFormData.user_name}`,
+    getUserVerifier(userFormData)
+  );
 }
 
 const onReady = () => {
+  $(`#error`).hide();
   // Add event listener on the Create Account button to redirect them to the Sign Up page
   $(`#create-account`).on(`click`, event => {
     event.preventDefault();
@@ -32,8 +39,12 @@ const onReady = () => {
     event.preventDefault();
     const userFormData = {
       // eslint-disable-next-line camelcase
-      user_name: $(`#username`).val().trim(),
-      password: $(`#password`).val().trim()
+      user_name: $(`#username`)
+        .val()
+        .trim(),
+      password: $(`#password`)
+        .val()
+        .trim()
     };
     if (!userFormData.user_name) {
       return;
