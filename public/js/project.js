@@ -3,17 +3,18 @@
 $(document).ready(() => {
 
   const editButton = $(`.edit-button`);
+  const paraEl = $(`p.description`);
+  const textareaEl = $(`textarea.description`);
 
   const toggleEditMode = () => {
-    const paraEl = $(`p.description`);
-    const textareaEl = $(`textarea.description`);
     paraEl.css(`display`) === `block` ? paraEl.css(`display`, `none`) : paraEl.css(`display`, `block`);
     textareaEl.css(`display`) === `block` ? textareaEl.css(`display`, `none`) : textareaEl.css(`display`, `block`);
+    editButton.text() === `Edit` ? editButton.text(`Save`) : editButton.text(`Edit`);
   };
 
   const editDescription = () => {
     toggleEditMode();
-    editButton.text(`Save`);
+    textareaEl.val(paraEl.text().trim());
     return;
   };
 
@@ -28,12 +29,10 @@ $(document).ready(() => {
 
   const saveDescription = () => {
     toggleEditMode();
-    const paraEl = $(`p.description`);
-    const textareaEl = $(`textarea.description`);
     paraEl.text(textareaEl.val().trim());
     const id = paraEl.data(`project-id`);
     const description = textareaEl.val().trim();
-    const newDataObj = { id, description};
+    const newDataObj = { id, description };
     putNewDescription(newDataObj);
   };
 
