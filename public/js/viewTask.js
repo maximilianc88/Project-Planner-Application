@@ -6,11 +6,18 @@ $.ajax(`/api/users/`, {
   const teamAvailable = $(`#updateAssigneeHeading`).attr(`data-teamId`);
   const assigneeOptions = [];
   for (let i = 0; i < user.length; ++i) {
+    // eslint-disable-next-line eqeqeq
     if (user[i].team_id == teamAvailable) {
       assigneeOptions.push(user[i]);
     }
   }
   console.log(assigneeOptions);
+  for (let i = 0; i < assigneeOptions.length; ++i) {
+    console.log(assigneeOptions);
+    const assigneeDD = $(`<option data-assigneeId="${assigneeOptions[i].user_id}" class="selected-user">${assigneeOptions[i].first_name} ${assigneeOptions[i].last_name}
+    </option>;`);
+    $(`.select-assignee`).append(assigneeDD);
+  }
 });
 const onReady = () => {
   $(`#statusUpdateSubmit`).on(`click`, () => {
