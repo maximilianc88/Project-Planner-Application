@@ -7,7 +7,6 @@ let closed = 0;
 
 function getData() {
   $.get(`/api/tasks`, data => {
-    console.log(data);
     for (let i = 0; i < data.length; ++i) {
       if (data[i].status_code === 1) {
         open += 1;
@@ -61,7 +60,24 @@ function getData() {
       // Configuration options go here
       options: {}
     });
-    console.log(chart1);
   });
 }
 getData();
+let loggedInUser = ``;
+function readCookie(name) {
+  const nameEQ = `${name}=`;
+  const ca = document.cookie.split(`;`);
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ` `) {
+      c = c.substring(1, c.length);
+    }
+    if (c.indexOf(nameEQ) == 0) {
+      const userName = c.substring(nameEQ.length, c.length);
+      loggedInUser = userName;
+    }
+  }
+  return null;
+}
+readCookie(`userName`);
+console.log(loggedInUser);
