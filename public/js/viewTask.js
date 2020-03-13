@@ -11,13 +11,18 @@ $.ajax(`/api/users/`, {
       assigneeOptions.push(user[i]);
     }
   }
-  console.log(assigneeOptions);
-  for (let i = 0; i < assigneeOptions.length; ++i) {
-    console.log(assigneeOptions);
-    // eslint-disable-next-line max-len
-    const assigneeDD = $(`<option data-assigneeId="${assigneeOptions[i].user_id}" class="selected-user">${assigneeOptions[i].first_name} ${assigneeOptions[i].last_name}
+  if (assigneeOptions.length === 0) {
+    $(`#assigneeName`).append(`You cannot assign an employee to 
+    a task until the project is assigned a team.`);
+    $(`#assigneeName`).css(`color`, `red`);
+  } else {
+    for (let i = 0; i < assigneeOptions.length; ++i) {
+      console.log(assigneeOptions);
+      // eslint-disable-next-line max-len
+      const assigneeDD = $(`<option data-assigneeId="${assigneeOptions[i].user_id}" class="selected-user">${assigneeOptions[i].first_name} ${assigneeOptions[i].last_name}
     </option>;`);
-    $(`.select-assignee`).append(assigneeDD);
+      $(`.select-assignee`).append(assigneeDD);
+    }
   }
 });
 const onReady = () => {
