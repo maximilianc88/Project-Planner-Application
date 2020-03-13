@@ -39,7 +39,8 @@ module.exports = app => {
         id: req.body.id
       }
     }).then(result => {
-      res.json(result);
+      console.log(res.statusCode);
+      console.log(`Affected Rows = ${result}`);
     });
   });
 };
