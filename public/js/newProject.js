@@ -23,7 +23,7 @@ const onReady = () => {
   const selectTeam = $(`.select-team`);
   const cancelButton = $(`.cancel-button`);
   cancelButton.on(`click`, () => {
-    const home = `/`;
+    const home = `/dashboard`;
     window.location = home;
   });
   selectTeam.change(() => {
@@ -50,12 +50,12 @@ const onReady = () => {
       data: newProject
     }).then(() => {
       console.log(`Success`);
-      if ($(`#add-task`).checked) {
+      if ($(`#add-task`).prop(`checked`)) {
         const newTask = `/newTask`;
         window.location = newTask;
-      } else if ($(`#no-add-task`).checked) {
-        const goHome = `/`;
-        window.location = goHome;
+      } else {
+        const goHome = `/dashboard`;
+        window.location.replace(goHome);
       }
     });
   });
