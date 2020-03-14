@@ -36,6 +36,18 @@ require(`./routes/tasks-routes`)(app);
 require(`./routes/teams-routes`)(app);
 require(`./routes/users-api-routes`)(app);
 
+// Hook project with jawsDB
+if (process.env.JAWSDB_URL){
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+  connection = mysql.createConnection({
+    host: `localhost`,
+    user: `root`,
+    password: `password`,
+    database: `mothra_development`
+  });
+}
+
 // Syncing sequelize models and then starting our Express app
 db.sequelize.sync({ force: true })
   .then(() => seed())
