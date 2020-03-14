@@ -58,7 +58,7 @@ const onReady = () => {
   const selectUser = $(`.select-user`);
   const cancelButton = $(`.cancel-button`);
   cancelButton.on(`click`, () => {
-    const home = `/`;
+    const home = `/dashboard`;
     window.location = home;
   });
 
@@ -100,12 +100,9 @@ const onReady = () => {
       team_id: $(`.select-project option:selected`).data(`team-id`)
     };
     console.log(newTask);
-    $.post(`api/tasks`, newTask)
-      .then(() => {
-        console.log(`Success`);
-        const goHome = `/`;
-        window.location = goHome;
-      });
+    $.post(`api/tasks`, newTask);
+    const home = `/dashboard`;
+    window.location = home;
   });
 };
 
