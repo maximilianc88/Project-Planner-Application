@@ -9,6 +9,10 @@
 .myTask-minus-icon {
   padding-right: 10px;
 }
+#project-delete,
+#task-delete {
+  padding: 10px;
+}
 #logInTitle {
   padding-top: 20px;
 }
