@@ -350,18 +350,6 @@ const seed = () =>
       title: `Drink water`,
       description: `stay hydrate`,
       project_id: 2
-    }),
-    db.Task.create({
-      title: `Read a book`,
-      description: `Read a boring book`,
-      project_id: 2,
-      assignee_id: 3
-    }),
-    db.Task.create({
-      title: `Do Nothing`,
-      description: `BOREDOM`,
-      project_id: 2,
-      assignee_id: 2
     })
   ]).catch(error => console.log(error));
 
