@@ -16,6 +16,12 @@
   padding-bottom: 5px;
 }
 #logInImg {
-  right: 0px;
-  height: 500px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  height: 65%;
+  width: 100%;
+}
+#bodyContainer {
+  margin: 0px;
 }
