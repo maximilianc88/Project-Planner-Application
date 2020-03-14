@@ -28,13 +28,13 @@ SO my team can have a good visibility of work status and develop more effectivel
 ![uml diagram](/public/assets/img/UML_diagram.png)
 
 ## Screenshots 
-![login screenshot]()
-![dashboard screenshot]()
-![project screenshot]()
-![task screenshot]()
-![chart screenshot]()
+![login screenshot](/public/assets/img/login.png)
+![dashboard screenshot](/public/assets/img/dashboard.png)
+![project screenshot](public/assets/img/project.png)
+![task screenshot](public/assets/img/task.png)
+![chart screenshot](public/assets/img/charts.png)
 
-Link to the deployed application ()
+Link to the deployed application: https://the-best-project-manager.herokuapp.com/
 
 ## Setup
 To run the program locally the user can fork the repository at https://github.com/maximilianc88/Project-Planner-Application and use the following command to install dependencies required:
