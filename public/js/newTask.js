@@ -58,7 +58,7 @@ const onReady = () => {
   const selectUser = $(`.select-user`);
   const cancelButton = $(`.cancel-button`);
   cancelButton.on(`click`, () => {
-    const home = `/`;
+    const home = `/dashboard`;
     window.location = home;
   });
 
@@ -99,13 +99,17 @@ const onReady = () => {
       // eslint-disable-next-line camelcase
       team_id: $(`.select-project option:selected`).data(`team-id`)
     };
-    console.log(newTask);
-    $.post(`api/tasks`, newTask)
-      .then(() => {
-        console.log(`Success`);
-        const goHome = `/`;
-        window.location = goHome;
+    // eslint-disable-next-line eqeqeq
+    if (newTask.project_id == ``) {
+      alert(`You must assign this task to a project before it can be created`);
+      $(`.select-project`).css(`border`, `1px solid red`);
+      return false;
+    } else {
+      $.post(`api/tasks`, newTask).then(() => {
+        const home = `/dashboard`;
+        location.href = home;
       });
+    }
   });
 };
 
