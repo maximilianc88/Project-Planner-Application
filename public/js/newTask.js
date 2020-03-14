@@ -99,6 +99,7 @@ const onReady = () => {
       // eslint-disable-next-line camelcase
       team_id: $(`.select-project option:selected`).data(`team-id`)
     };
+    // eslint-disable-next-line eqeqeq
     if (newTask.project_id == ``) {
       alert(`You must assign this task to a project before it can be created`);
       $(`.select-project`).css(`border`, `1px solid red`);
