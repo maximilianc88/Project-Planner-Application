@@ -83,15 +83,6 @@ const onReady = () => {
   });
 
   getAllProjects(selectProject);
-  // function validate() {
-  //   const selectProjectValidate = $(`.select-project`);
-  //   // eslint-disable-next-line eqeqeq
-  //   if (newTask.project_id == "") {
-  //     console.log(`ejhflre`);
-  //   } else {
-  //     return;
-  //   }
-  // }
 
   $(`#new-task-submit`).on(`click`, () => {
     const newTask = {
