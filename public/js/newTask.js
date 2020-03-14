@@ -98,14 +98,12 @@ const onReady = () => {
         .trim()
     };
     console.log(newTask);
-    $.ajax(`api/tasks`, {
-      type: `POST`,
-      data: newTask
-    }).then(() => {
-      console.log(`Success`);
-      const goHome = `/`;
-      window.location = goHome;
-    });
+    $.post(`api/tasks`, newTask)
+      .then(() => {
+        console.log(`Success`);
+        const goHome = `/`;
+        window.location = goHome;
+      });
   });
 };
 

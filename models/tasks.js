@@ -29,7 +29,7 @@ module.exports = function (sequelize, DataTypes) {
   Task.associate = function (models) {
     Task.belongsTo(models.Status, {
       targetKey: `status_code`,
-      foreignKey: { name: `status_code`, allowNull: false, defaultValue: 0 },
+      foreignKey: { name: `status_code`, allowNull: false, defaultValue: 1 },
       constraints: false
     });
     Task.belongsTo(models.Project, {

@@ -15,13 +15,17 @@
 #tagline {
   padding-bottom: 5px;
 }
-#logInImg {
+#logInImg,
+#signUpImg {
   display: flex;
   flex-direction: row;
   align-items: stretch;
-  height: 65%;
+  height: 75%;
   width: 100%;
 }
 .userform {
   margin: 20px;
+}
+#createAccountTitle {
+  padding-top: 20px;
 }
