@@ -31,6 +31,7 @@ module.exports = app => {
     db.Task.create(req.body).then(result => {
       console.log(result);
       console.log(`Affected Rows = ${result}`);
+      res.end();
     });
   });
   // Delete a specific task

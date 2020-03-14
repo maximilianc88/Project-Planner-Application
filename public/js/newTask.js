@@ -100,9 +100,10 @@ const onReady = () => {
       team_id: $(`.select-project option:selected`).data(`team-id`)
     };
     console.log(newTask);
-    $.post(`api/tasks`, newTask);
-    const home = `/dashboard`;
-    window.location = home;
+    $.post(`api/tasks`, newTask).then(() => {
+      const home = `/dashboard`;
+      location.href = home;
+    });
   });
 };
 
