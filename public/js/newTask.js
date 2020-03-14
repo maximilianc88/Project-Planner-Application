@@ -108,17 +108,16 @@ const onReady = () => {
       // eslint-disable-next-line camelcase
       team_id: $(`.select-project option:selected`).data(`team-id`)
     };
-    console.log(newTask);
     if (newTask.project_id == ``) {
       alert(`You must assign this task to a project before it can be created`);
       $(`.select-project`).css(`border`, `1px solid red`);
+      return false;
     } else {
-      return;
+      $.post(`api/tasks`, newTask).then(() => {
+        const home = `/dashboard`;
+        location.href = home;
+      });
     }
-    $.post(`api/tasks`, newTask).then(() => {
-      const home = `/dashboard`;
-      location.href = home;
-    });
   });
 };
 
