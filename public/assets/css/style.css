@@ -9,3 +9,13 @@
 .myTask-minus-icon {
   padding-right: 10px;
 }
+#logInTitle {
+  padding-top: 20px;
+}
+#tagline {
+  padding-bottom: 5px;
+}
+#logInImg {
+  right: 0px;
+  height: 500px;
+}
