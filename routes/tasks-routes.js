@@ -50,7 +50,7 @@ module.exports = app => {
     }).then(result => {
       console.log(res.statusCode);
       console.log(`Affected Rows = ${result}`);
+      res.end();
     });
   });
-
 };
