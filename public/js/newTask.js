@@ -46,12 +46,12 @@ const getAllUsersByTeamId = (teamId, selectUser) => {
   });
 };
 
-// const resetOptionList = () => {
-//   selectUser.empty();
-//   const option = $(`<option>`);
-//   option.append(`Select User`);
-//   selectUser.append(option);
-// };
+const resetOptionList = selectUser => {
+  selectUser.empty();
+  const option = $(`<option>`);
+  option.append(`Select User`);
+  selectUser.append(option);
+};
 
 const onReady = () => {
   const selectProject = $(`.select-project`);
@@ -72,7 +72,7 @@ const onReady = () => {
     console.log(`Selected Project ID: ${selectedProjectId}`);
     console.log(`Selected Team ID: ${selectedTeamId}`);
     getAllUsersByTeamId(selectedTeamId, selectUser);
-    // resetOptionList();
+    resetOptionList(selectUser);
   });
 
   // console.log out selected user id
@@ -95,7 +95,9 @@ const onReady = () => {
       assignee_id: $(`.select-user option:selected`).data(`user-id`),
       description: $(`#new-task-description`)
         .val()
-        .trim()
+        .trim(),
+      // eslint-disable-next-line camelcase
+      team_id: $(`.select-project option:selected`).data(`team-id`)
     };
     console.log(newTask);
     $.post(`api/tasks`, newTask)
