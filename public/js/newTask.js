@@ -83,6 +83,15 @@ const onReady = () => {
   });
 
   getAllProjects(selectProject);
+  // function validate() {
+  //   const selectProjectValidate = $(`.select-project`);
+  //   // eslint-disable-next-line eqeqeq
+  //   if (newTask.project_id == "") {
+  //     console.log(`ejhflre`);
+  //   } else {
+  //     return;
+  //   }
+  // }
 
   $(`#new-task-submit`).on(`click`, () => {
     const newTask = {
@@ -100,6 +109,12 @@ const onReady = () => {
       team_id: $(`.select-project option:selected`).data(`team-id`)
     };
     console.log(newTask);
+    if (newTask.project_id == ``) {
+      alert(`You must assign this task to a project before it can be created`);
+      $(`.select-project`).css(`border`, `1px solid red`);
+    } else {
+      return;
+    }
     $.post(`api/tasks`, newTask).then(() => {
       const home = `/dashboard`;
       location.href = home;

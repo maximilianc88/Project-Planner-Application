@@ -6,6 +6,7 @@
         {{!-- task name input --}}
         <div class="field">
             <label class="label">Task Name</label>
+
             <div class="control">
                 <input id="new-task-name" class="input" type="text" placeholder="Task Name">
             </div>
@@ -14,6 +15,7 @@
         {{!-- select project drop down --}}
         <div class="field">
             <label class="label">Assign to a Project</label>
+            <p class="optional-required">* required</p>
             <div class="control">
                 <div class="select">
                     <select class="select-project">
@@ -27,6 +29,8 @@
         {{!-- select team drop down --}}
         <div class="field">
             <label class="label">Assign to a User</label>
+            <p class="optional-required">* optional</p>
+
             <div class="control">
                 <div class="select">
                     <select class="select-user">
@@ -36,7 +40,6 @@
                 </div>
             </div>
         </div>
-
         {{!-- new task detail --}}
         <div class="field">
             <label class="label">Task Detail</label>
