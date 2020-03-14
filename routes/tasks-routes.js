@@ -27,8 +27,9 @@ module.exports = app => {
   });
   // Create a new task
   app.post(`/api/tasks`, (req, res) => {
-    db.Task.create(req.body).then(dbTask => {
-      res.json(dbTask);
+    console.log(res.statusCode);
+    db.Task.create(req.body).then(result => {
+      console.log(`Affected Rows = ${result}`);
     });
   });
   // Delete a specific task
