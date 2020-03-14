@@ -29,6 +29,7 @@ module.exports = app => {
   app.post(`/api/tasks`, (req, res) => {
     console.log(res.statusCode);
     db.Task.create(req.body).then(result => {
+      console.log(result);
       console.log(`Affected Rows = ${result}`);
     });
   });
