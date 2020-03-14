@@ -27,7 +27,7 @@ module.exports = app => {
   });
   // Create a new task
   app.post(`/api/tasks`, (req, res) => {
-    console.log(req.body);
+    console.log(res.statusCode);
     db.Task.create(req.body).then(result => {
       console.log(`Affected Rows = ${result}`);
     });
