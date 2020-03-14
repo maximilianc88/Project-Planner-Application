@@ -12,6 +12,15 @@ module.exports = app => {
       res.render(`logIn`, resultObj);
     });
   });
+  app.get(`/`, (req, res) => {
+    const resultObj = {};
+    db.User.findAll().then(result => {
+      resultObj.user = result;
+      console.log(resultObj.user);
+    }).then( () => {
+      res.render(`logIn`, resultObj);
+    });
+  });
   app.get(`/dashboard`, (req, res) => {
     if(req.headers.cookie !== undefined) {
       // Assumes only one cookie userName=X
