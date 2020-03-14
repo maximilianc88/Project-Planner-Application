@@ -21,7 +21,9 @@
     "url": "https://github.com/maximilianc88/Project-Planner-Application/issues"
   },
   "homepage": "https://github.com/maximilianc88/Project-Planner-Application#readme",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.17.1"
+  },
   "devDependencies": {
     "bulma": "^0.8.0",
     "coveralls": "^3.0.9",
