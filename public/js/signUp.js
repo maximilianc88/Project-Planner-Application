@@ -12,6 +12,28 @@ const addTeamsToOptions = (arr, selectTeam) => {
   }
 };
 
+async function isUsernameUnique(newUser) {
+  let isUnique = false;
+  await $.ajax(`/api/users/`, {
+    type: `GET`
+  }).then(usersObj => {
+    console.log(usersObj);
+    for (let i = 0; i < usersObj.length; i++) {
+      console.log(`i: ${i}`);
+      console.log(`usersObj[i].user_name: ${usersObj[i].user_name}`);
+      console.log(`newUser.user_name: ${newUser.user_name}`);
+      if(usersObj[i].user_name === newUser.user_name) {
+        return;
+      }
+    }
+
+    console.log(`unique`);
+    isUnique = true;
+  }).promise();
+
+  return isUnique;
+}
+
 const getAllTeams = selectTeam => {
   $.get(`/api/teams`, (data, status) => {
     console.log(`Data: ${data}, Status: ${status}`);
@@ -19,8 +41,39 @@ const getAllTeams = selectTeam => {
   });
 };
 
+function validateCreationForm(newUser) {
+  if (newUser.user_name === ``) {
+    return `Username cannot be empty`;
+  }
+
+  if (newUser.first_name === ``) {
+    return `First Name cannot be empty`;
+  }
+
+  if (newUser.last_name === ``) {
+    return `Last Name cannot be empty`;
+  }
+
+  if (newUser.password === ``) {
+    return `Password cannot be empty`;
+  }
+
+  if (newUser.team_id === ``) {
+    return `Must assign a team`;
+  }
+
+  if (!isUsernameUnique(newUser)) {
+    return `Username already exists! `;
+  }
+
+  return null;
+}
+
+
 const onReady = () => {
   const selectTeam = $(`.select-team`);
+  $(`#error`).hide();
+
   $(`#back-button`).on(`click`, () => {
     const home = `/`;
     window.location = home;
@@ -53,14 +106,22 @@ const onReady = () => {
       // eslint-disable-next-line camelcase
       team_id: $(`.select-team option:selected`).data(`team-id`)
     };
-    console.log(newUser);
-    $.ajax(`/api/users`, {
-      type: `POST`,
-      data: newUser
-    }).then(() => {
-      console.log(`Success`);
-      window.location.assign(`/`);
-    });
+
+
+    const errorMessage = validateCreationForm(newUser);
+    if (errorMessage !== null) {
+      const errorElement = $(`#error`);
+      errorElement.text(errorMessage);
+      errorElement.show();
+    } else {
+      $.ajax(`/api/users`, {
+        type: `POST`,
+        data: newUser
+      }).then(() => {
+        console.log(`Success`);
+        window.location.assign(`/`);
+      });
+    }
   });
 };
 
