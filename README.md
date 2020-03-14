@@ -21,7 +21,7 @@ We decided to create this application because people are familiar with this soft
 
 ## User Story
 AS A developer
-I WANT an application that keeps track of the project progress and issues
+I WANT an application that keeps track of the project progress
 SO my team can have a good visibility of work status and develop more effectively
 
 ## UML
@@ -150,7 +150,7 @@ Our models for this application were somewhat complex in terms of the relationsh
 ```
 
 ## Future Development 
-The application currently enables the user to create new projects and tasks, view existing projects and tasks, and edit and delete projects and tasks. They can also view the status of projects and their individual tasks using a doughnut chart. The application has a basic login and create account feature with future development plans to add logout (currently to clear the cookie you just log in again as a different user) as well as real validation of the user's account creation and login information. We also plan to add click events on the doughnut charts, so that when the user clicks on a status it displays all the projects or tasks associated and upon clicking on the individual project or task name will navigate the user to the individual project or task page.  We also would like to add further restrictions on the models specifically adding restrictions as to who can assign, edit, delete projects and tasks. Another future feature is adding a chat application within the program as well as a help chat bot to assist users with issues and provide information about the program by way of frequently asked questions.  
+The application currently enables the user to create new projects and tasks, view existing projects and tasks, and edit and delete projects and tasks. They can also view the status of projects and their individual tasks using a doughnut chart. The application has a basic login and create account feature with future development plans to add logout (currently to clear the cookie you just log in again as a different user) as well as validation of the user's account creation to ensure a unique username. We also plan to add click events on the doughnut charts, so that when the user clicks on a status it displays all the projects or tasks associated and upon clicking on the individual project or task name will navigate the user to the individual project or task page.  We also would like to add further restrictions on the models specifically adding restrictions as to who can assign, edit, delete projects and tasks, as well as incorporate more team data into the app. In addition we plan to add functionality to report and track issues. Another future feature we discussed is adding a chat application within the program as well as a help chat bot to assist users with issues and provide information about the program by way of frequently asked questions. Improved UI is also something we intend to implement in the future. 
 
 # Credits
 In creating this application we extensively consulted our UW course GitLab repository, Bulma (https://bulma.io/documentation/), Chart.js (https://www.chartjs.org/) Stack Overflow (www.stackoverflow.com), W3Schools (https://www.w3schools.com/js/js_cookies.asp), MDN Web Docs (https://developer.mozilla.org/en-US/docs/Web/API/Location/reload), Jest (https://jestjs.io/docs/en/mock-functions.html), SVG SiLH for our logo (https://svgsilh.com/image/1296745.html) and Sequelize (https://sequelize.org/master/identifiers.html). 
