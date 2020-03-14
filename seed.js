@@ -5,16 +5,15 @@ const db = require(`./models`);
 
 const seed = () =>
   Promise.all([
-    // db.Status.create({ status_code: 0, status_name: `Unassigned` }),
     db.Status.create({ status_code: 1, status_name: `Open` }),
     db.Status.create({ status_code: 2, status_name: `In-Progress` }),
     db.Status.create({ status_code: 3, status_name: `Completed` }),
     db.Status.create({ status_code: 4, status_name: `Closed` }),
-    db.Team.create({ name: `Product Team` }),
-    db.Team.create({ name: `Design Team` }),
-    db.Team.create({ name: `Engineering Team` }),
-    db.Team.create({ name: `Art Team` }),
-    db.Team.create({ name: `QA Team` }),
+    db.Team.create({ name: `Product Team` }), // team 1
+    db.Team.create({ name: `Design Team` }), // team 2
+    db.Team.create({ name: `Engineering Team` }), // team 3
+    db.Team.create({ name: `Art Team` }), // team 4
+    db.Team.create({ name: `QA Team` }), // team 5
     db.User.create({
       user_name: `phaggio`,
       first_name: `Richard`,
@@ -44,42 +43,42 @@ const seed = () =>
       password: `yoohoo`
     }),
     db.User.create({
-      user_name: `leo`,
+      user_name: `dicapriol`,
       first_name: `Leonardo`,
       last_name: `Dicaprio`,
       team_id: 2,
       password: `fanta`
     }),
     db.User.create({
-      user_name: `cbale`,
+      user_name: `balec`,
       first_name: `Christian`,
       last_name: `Bale`,
       team_id: 2,
       password: `coke`
     }),
     db.User.create({
-      user_name: `sjob`,
+      user_name: `jobss`,
       first_name: `Steve`,
       last_name: `Jobs`,
       team_id: 1,
       password: `pepsi`
     }),
     db.User.create({
-      user_name: `jeffbezos`,
+      user_name: `bezosj`,
       first_name: `Jeff`,
       last_name: `Bezos`,
       team_id: 3,
       password: `fresca`
     }),
     db.User.create({
-      user_name: `billgates`,
+      user_name: `gatesb`,
       first_name: `Bill`,
       last_name: `Gates`,
       team_id: 3,
       password: `sublime`
     }),
     db.User.create({
-      user_name: `elonmusk`,
+      user_name: `muske`,
       first_name: `Elon`,
       last_name: `Musk`,
       team_id: 3,
@@ -89,6 +88,7 @@ const seed = () =>
       user_name: `timapple`,
       first_name: `Tim`,
       last_name: `Cook`,
+      team_id: 4,
       password: `aitch`
     }),
     db.User.create({
