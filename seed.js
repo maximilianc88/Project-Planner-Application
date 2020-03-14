@@ -349,8 +349,7 @@ const seed = () =>
     db.Task.create({
       title: `Drink water`,
       description: `stay hydrate`,
-      project_id: 2,
-      assignee_id: 1
+      project_id: 2
     }),
     db.Task.create({
       title: `Read a book`,
