@@ -2,36 +2,71 @@
 
 <div class="container">
     <br>
-    <div class="level">
-        <div class="level-item">
-            <div class="has-text-centered">
-                <p class="title is-2">Dashboard</p>
+    <div class="columns is-centered is-tablet">
+        <div class="column">
+            <div class="box">
+                <div class="level">
+                    <div class="level-right">
+                        <div class="level-item">
+                            <div class="title is-3">Projects</div>
+                        </div>
+                    </div>
+                    <div class="level-left">
+                        <div class="level-item">
+                            <i class="fas fa-trash-alt" id="project-delete"></i>
+                        </div>
+                    </div>
+                </div>
+                {{#each this.projects }}
+                <p class=""><i data-projectId="{{dataValues.id}}" class="fas fa-minus-circle project-minus-icon"></i><a
+                        href="../project/{{ dataValues.id }}">{{ dataValues.name }}</a></p>
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="box">
+                <div class="level">
+                    <div class="level-right">
+                        <div class="level-item">
+                            <div class="title is-3">Tasks</div>
+                        </div>
+                    </div>
+                    <div class="level-right">
+                        <div class="level-item">
+                            <i class="fas fa-trash-alt" id="task-delete"></i>
+                        </div>
+                    </div>
+                </div>
+                {{#each this.tasks }}
+                <p class=""><i class="fas fa-minus-circle task-minus-icon" data-taskId="{{ dataValues.id}}"></i><a
+                        href="../task/{{ dataValues.id }}" style="width:100px; height:100px;">{{ dataValues.title }}</a>
+                </p>
+                {{/each}}
+            </div>
+        </div>
+        <div class="column">
+            <div class="box">
+
+                <div id="myTaskColumn">
+                    <div class="level">
+                        <div class="level-left">
+                            <div class="level-item">
+                                <div id="user" class="title is-3" value="{{this.user.dataValues.user_id}}">
+                                    {{this.user.dataValues.user_name}} Tasks
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="level-right">
+                            <div class="level-item">
+                                <i class="fas fa-trash-alt" id="myTask-delete"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
-
-    <div class="columns is-centered is-tablet">
-        <div class="column">
-            <div class="title is-3">Projects<i class="fas fa-trash" id="project-delete"></i></div>
-            {{#each this.projects }}
-            <p class=""><i data-projectId="{{dataValues.id}}" class="fas fa-minus-circle project-minus-icon"></i><a
-                    href="../project/{{ dataValues.id }}">{{ dataValues.name }}</a></p>
-            {{/each}}
-        </div>
-
-        <div class="column">
-            <div class="title is-3">Tasks<i class="fas fa-trash" id="task-delete"></i></div>
-            {{#each this.tasks }}
-            <p class=""><i class="fas fa-minus-circle task-minus-icon" data-taskId="{{ dataValues.id}}"></i><a
-                    href="../task/{{ dataValues.id }}" style="width:100px; height:100px;">{{ dataValues.title }}</a>
-            </p>
-            {{/each}}
-        </div>
-
-        <div class="column" id="myTaskColumn">
-            <div id="user" class="title is-3" value="{{this.user.dataValues.user_id}}">
-                {{this.user.dataValues.user_name}} Tasks<i class="fas fa-trash" id="myTask-delete"></i></div>
-        </div>
-    </div>
-
 </div>

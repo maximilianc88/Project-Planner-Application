@@ -1,8 +1,21 @@
-textarea {
-  width: 100%;
-  direction: rtl;
-  display: block;
-  max-width: 100%;
-  height: 100%;
-  max-height: 100%;
+#mothIcon {
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 50px;
+}
+.task-minus-icon,
+.project-minus-icon,
+.myTask-minus-icon {
+  padding-right: 10px;
+}
+#logInTitle {
+  padding-top: 20px;
+}
+#tagline {
+  padding-bottom: 5px;
+}
+#logInImg {
+  right: 0px;
+  height: 500px;
 }
