@@ -18,95 +18,95 @@ const seed = () =>
       user_name: `phaggio`,
       first_name: `Richard`,
       last_name: `Wang`,
-      team_id: 1,
+      team_id: 1, // Product
       password: `jello`
     }),
     db.User.create({
       user_name: `kaitlync`,
       first_name: `Kaitlyn`,
       last_name: `Carlson`,
-      team_id: 1,
+      team_id: 1, // Product
       password: `pudding`
     }),
     db.User.create({
       user_name: `rachelr`,
       first_name: `Rachel`,
       last_name: `Rohrbach`,
-      team_id: 1,
+      team_id: 1, // Product
       password: `koolaid`
     }),
     db.User.create({
       user_name: `maximillianc`,
       first_name: `Maximillian`,
       last_name: `Cartwright`,
-      team_id: 1,
+      team_id: 1, // Product
       password: `yoohoo`
     }),
     db.User.create({
       user_name: `dicapriol`,
       first_name: `Leonardo`,
       last_name: `Dicaprio`,
-      team_id: 2,
+      team_id: 2, // Design
       password: `fanta`
     }),
     db.User.create({
       user_name: `balec`,
       first_name: `Christian`,
       last_name: `Bale`,
-      team_id: 2,
+      team_id: 2, // Design
       password: `coke`
     }),
     db.User.create({
       user_name: `jobss`,
       first_name: `Steve`,
       last_name: `Jobs`,
-      team_id: 1,
+      team_id: 1, // Product
       password: `pepsi`
     }),
     db.User.create({
       user_name: `bezosj`,
       first_name: `Jeff`,
       last_name: `Bezos`,
-      team_id: 3,
+      team_id: 3, // Engineering
       password: `fresca`
     }),
     db.User.create({
       user_name: `gatesb`,
       first_name: `Bill`,
       last_name: `Gates`,
-      team_id: 3,
+      team_id: 3, // Engineering
       password: `sublime`
     }),
     db.User.create({
       user_name: `muske`,
       first_name: `Elon`,
       last_name: `Musk`,
-      team_id: 3,
+      team_id: 3, // Engineering
       password: `tobe`
     }),
     db.User.create({
       user_name: `timapple`,
       first_name: `Tim`,
       last_name: `Cook`,
-      team_id: 4,
+      team_id: 4, // Art
       password: `aitch`
     }),
     db.User.create({
-      user_name: `michaelj`,
+      user_name: `jordanm`,
       first_name: `Michael`,
       last_name: `Jordan`,
-      team_id: 2,
+      team_id: 2, // Design
       password: `weekend`
     }),
     db.User.create({
       user_name: `warrenb`,
       first_name: `Warren`,
       last_name: `Buffett`,
-      team_id: 4,
+      team_id: 4, // Art
       password: `allamericanrejects`
     }),
     db.User.create({
-      user_name: `georgew`,
+      user_name: `washingtong`,
       first_name: `George`,
       last_name: `Washington`,
       password: `hendrix`
@@ -115,43 +115,43 @@ const seed = () =>
       user_name: `johns`,
       first_name: `John`,
       last_name: `Smith`,
-      team_id: 4,
+      team_id: 4, // Art
       password: `holler`
     }),
     db.User.create({
-      user_name: `markz`,
+      user_name: `zuckerbergm`,
       first_name: `Mark`,
       last_name: `Zuckerberg`,
-      team_id: 5,
+      team_id: 5, // QA
       password: `atcha`
     }),
     db.User.create({
-      user_name: `paulz`,
+      user_name: `zhaoz`,
       first_name: `Paul`,
       last_name: `Zhao`,
-      team_id: 5,
+      team_id: 5, // QA
       password: `boy`
     }),
     db.Project.create({
       name: `Awesome Product`,
-      description: `Spec out a product that is awesome`,
+      description: `Spec out a product that is awesome!!!`,
       due_date: `2020-04-15`,
       team_id: 1
     }),
     db.Project.create({
       name: `Boring Product`,
       description: `Spec out a boring product that will have zero traction`,
-      team_id: 1
+      team_id: 1 // Product
     }),
     db.Project.create({
       name: `Design Fun Feature`,
       description: `Design soemthing that is fun for the boring product`,
-      team_id: 2
+      team_id: 2 // Design
     }),
     db.Project.create({
       name: `Test the boring product`,
       description: `stress test the boring product extensively`,
-      team_id: 5
+      team_id: 5 // QA
     }),
     db.Project.create({
       name: `Secret Project`,
@@ -162,19 +162,19 @@ const seed = () =>
       name: `Create stupid art`,
       description: `create some stupid art that no one appreciate`,
       due_date: `2020-05-30`,
-      team_id: 4
+      team_id: 4 // Art
     }),
     db.Project.create({
-      name: `Awesome Project`,
-      description: `awesomeness`,
+      name: `Create wonderful art assets`,
+      description: `Create re-usable art assets for the awesome product`,
       due_date: `2020-06-30`,
-      team_id: 4
+      team_id: 4 // Art
     }),
     db.Task.create({
       title: `Product Spec`,
       description: `Start writing product spec`,
       project_id: 1,
-      team_id: 1,
+      team_id: 1, // Product
       assignee_id: 1,
       status_code: 2
     }),
@@ -260,80 +260,80 @@ const seed = () =>
       assignee_id: 1
     }),
     db.Task.create({
-      title: `Design a game`,
-      description: `design a game for boring product`,
+      title: `Design the game configuration`,
+      description: `design basic game configuration for boring product`,
       project_id: 3,
       team_id: 2,
       assignee_id: 4,
       status_code: 3
     }),
     db.Task.create({
-      title: `Design anything`,
-      description: `do some stuff`,
+      title: `Design the user setting`,
+      description: `design user setting page flow`,
       project_id: 3,
       team_id: 2
     }),
     db.Task.create({
-      title: `Design something bad`,
-      description: `do some stuff`,
+      title: `Design new task workflow`,
+      description: `design user interface flow for the new task page`,
       project_id: 3,
       team_id: 2,
       assignee_id: 6,
       status_code: 1
     }),
     db.Task.create({
-      title: `Test stuff`,
-      description: `do stuff stuff stuff stuff stuff`,
+      title: `Test Homepage`,
+      description: `test the homepage UI`,
       project_id: 4
     }),
     db.Task.create({
-      title: `Test thing`,
-      description: `test some thing`,
+      title: `Test dashboard`,
+      description: `test dashboard data display and UI`,
       project_id: 4
     }),
     db.Task.create({
-      title: `Test UI`,
-      description: `test some stuff and things`,
+      title: `Test New Project Page`,
+      description: `test add new project page ui, assign team, submit, and cancel button`,
       project_id: 4
     }),
     db.Task.create({
-      title: `Test functions`,
-      description: `testing`,
+      title: `Test existing project page`,
+      description: `test existing project page, edit description, submit, cancel, etc.`,
       project_id: 4
     }),
     db.Task.create({
-      title: `Test api`,
-      description: `testing testing`,
+      title: `Test API`,
+      description: `test all navigation route api calls`,
       project_id: 4
     }),
     db.Task.create({
-      title: `Test controller`,
-      description: `test some other stuff`,
+      title: `Test stats page`,
+      description: `test the stats page UI and data validation`,
       project_id: 4
     }),
     db.Task.create({
-      title: `Secret 000`,
-      description: `do something useful`,
+      title: `Secret 1`,
+      description: `classified`,
       project_id: 5
     }),
     db.Task.create({
-      title: `Secret 102`,
-      description: `do something useful`,
+      title: `Secret 2`,
+      description: `you're not authorized to view this`,
       project_id: 5
     }),
     db.Task.create({
-      title: `Secret 103`,
-      description: `do something useful`,
+      title: `Secret 3`,
+      description: `there's nothing here`,
       project_id: 5
     }),
     db.Task.create({
-      title: `Secret 104`,
-      description: `do something useful`,
+      title: `Secret 4`,
+      description: `blank`,
       project_id: 5
     }),
     db.Task.create({
-      title: `STUFF`,
-      description: `do some more stuff`,
+      title: `Secret 5`,
+      description: `unknown`,
       project_id: 5
     }),
     db.Task.create({
@@ -347,9 +347,25 @@ const seed = () =>
       project_id: 1
     }),
     db.Task.create({
-      title: `Drink water`,
-      description: `stay hydrate`,
-      project_id: 2
+      title: `Another boring product task`,
+      description: `stay away from COVIG19`,
+      project_id: 2,
+      assignee_id: 1,
+      status_code: 2
+    }),
+    db.Task.create({
+      title: `Get budget for the project`,
+      description: `rub shoulders`,
+      project_id: 2,
+      assignee_id: 7,
+      status_code: 2
+    }),
+    db.Task.create({
+      title: `Develop GTM plan`,
+      description: `work with stakeholders to define what go-to-market plan is`,
+      project_id: 2,
+      assignee_id: 7,
+      status_code: 3
     })
   ]).catch(error => console.log(error));
 
