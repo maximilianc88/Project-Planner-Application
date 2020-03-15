@@ -133,39 +133,46 @@ const seed = () =>
       password: `boy`
     }),
     db.Project.create({
+      // id: 1,
       name: `Awesome Product`,
       description: `Spec out a product that is awesome!!!`,
       due_date: `2020-04-15`,
       team_id: 1
     }),
     db.Project.create({
+      // id: 2,
       name: `Boring Product`,
       description: `Spec out a boring product that will have zero traction`,
       team_id: 1 // Product
     }),
     db.Project.create({
+      // id: 3,
       name: `Design Fun Feature`,
       description: `Design soemthing that is fun for the boring product`,
       team_id: 2 // Design
     }),
     db.Project.create({
+      // id: 4,
       name: `Test the boring product`,
       description: `stress test the boring product extensively`,
       team_id: 5 // QA
     }),
     db.Project.create({
+      // id: 5,
       name: `Secret Project`,
       description: `this is a secret project, it is not assigned to any team yet`,
       due_date: `2020-05-30`
     }),
     db.Project.create({
+      // id: 6,
       name: `Create stupid art`,
       description: `create some stupid art that no one appreciate`,
       due_date: `2020-05-30`,
       team_id: 4 // Art
     }),
     db.Project.create({
-      name: `Create wonderful art assets`,
+      // id: 7,
+      name: `Create Wonderful Art Assets`,
       description: `Create re-usable art assets for the awesome product`,
       due_date: `2020-06-30`,
       team_id: 4 // Art
@@ -366,6 +373,27 @@ const seed = () =>
       project_id: 2,
       assignee_id: 7,
       status_code: 3
+    }),
+    db.Task.create({
+      title: `Initial Art Design Scope`,
+      description: `Define the scope of art work`,
+      project_id: 7,
+      assignee_id: 11,
+      status_code: 4
+    }),
+    db.Task.create({
+      title: `Write up art work Epic`,
+      description: `write up the art requirement details and create an Epic ticket`,
+      project_id: 7,
+      assignee_id: 13,
+      status_code: 2
+    }),
+    db.Task.create({
+      title: `Assign tickets to artists`,
+      description: `assign all art tasks to artists`,
+      project_id: 7,
+      assignee_id: 15,
+      status_code: 1
     })
   ]).catch(error => console.log(error));
 
