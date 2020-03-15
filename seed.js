@@ -10,11 +10,11 @@ const seed = () =>
     db.Status.create({ status_code: 2, status_name: `In-Progress` }),
     db.Status.create({ status_code: 3, status_name: `Completed` }),
     db.Status.create({ status_code: 4, status_name: `Closed` }),
-    db.Team.create({ name: `Product Team` }),
-    db.Team.create({ name: `Design Team` }),
-    db.Team.create({ name: `Engineering Team` }),
-    db.Team.create({ name: `Art Team` }),
-    db.Team.create({ name: `QA Team` }),
+    db.Team.create({ name: `Product Team should have id: 1` }),
+    db.Team.create({ name: `Design Team should have id: 2` }),
+    db.Team.create({ name: `Engineering Team should have id: 3` }),
+    db.Team.create({ name: `Art Team should have id: 4` }),
+    db.Team.create({ name: `QA Team should have id: 5` }),
     db.User.create({
       user_name: `phaggio`,
       first_name: `Richard`,
@@ -133,39 +133,39 @@ const seed = () =>
       password: `boy`
     }),
     db.Project.create({
-      name: `Awesome Product`,
+      name: `Awesome Product (it should have project_id = 1)`,
       description: `Spec out a product that is awesome`,
       due_date: `2020-04-15`,
       team_id: 1
     }),
     db.Project.create({
-      name: `Boring Product`,
+      name: `Boring Product (it should have project_id = 2)`,
       description: `Spec out a boring product that will have zero traction`,
       team_id: 1
     }),
     db.Project.create({
-      name: `Design Fun Feature`,
+      name: `Design Fun Feature (it should have project_id = 3)`,
       description: `Design soemthing that is fun for the boring product`,
       team_id: 2
     }),
     db.Project.create({
-      name: `Test the boring product`,
+      name: `Test the boring product (it should have project_id = 4)`,
       description: `stress test the boring product extensively`,
       team_id: 5
     }),
     db.Project.create({
-      name: `Secret Project`,
+      name: `Secret Project (it should have project_id = 5)`,
       description: `this is a secret project, it is not assigned to any team yet`,
       due_date: `2020-05-30`
     }),
     db.Project.create({
-      name: `Create stupid art`,
+      name: `Create stupid art (it should have project_id = 6)`,
       description: `create some stupid art that no one appreciate`,
       due_date: `2020-05-30`,
       team_id: 4
     }),
     db.Project.create({
-      name: `Awesome Project`,
+      name: `Awesome Project (it should have project_id = 7)`,
       description: `awesomeness`,
       due_date: `2020-06-30`,
       team_id: 4
